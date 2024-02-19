@@ -1,12 +1,78 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Dataverse Chat</title>
-    <!--Aquí puedes importar tu archivo de CSS para agregar estilos.-->
-  </head>
-  <body>
-    <div id="root"></div>
-    <script src="index.js" type="module"></script>
-  </body>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escritoras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+   </head>
+
+<body>
+  <header>
+    <a href=""><img class="home" src="./data/img/banner_escritoras.png" alt="banner" /></a>
+    <h1>EL MUNDO A TRAVÉS DE GRANDES ESCRITORAS</h1><br>
+  </header>
+
+    <div class="form-container">
+    <label for="type-select">Género literario: </label>
+    <select name="type" id="type-select" data-testid="filter-type">
+      <option value="">Elegir una opción</option>
+      <option value="Literatura">Literatura</option>
+      <option value="Poesía">Poesía</option>
+      <option value="Poesía, Novela">Poesía, Novela</option>
+    </select>
+
+    <label for="country-select">Nacionalidad: </label>
+    <select name="country" id="country-select" data-testid="filter-data">
+      <option value="">Elige una opción</option>
+      <option value="Reino Unido">Reino Unido</option>
+      <option value="Chile">Chile</option>
+      <option value="Nicaragua">Nicaragua</option>
+      <option value="Colombia">Colombia</option>
+      <option value="Nigeria">Nigeria</option>
+      <option value="Ghana">Ghana</option>
+      <option value="Canadá">Canadá</option>
+      <option value="México">México</option>
+      <option value="Puerto Rico">Puerto Rico</option>
+      <option value="EE. UU.">EE. UU.</option>
+    </select>
+
+    <label for="sort-select">Ordenar por: </label>
+    <select name="ordenar" id="sort-select" data-testid="select-sort">
+      <option value="none">Elige una opción</option>
+      <option value="asc">A-Z</option>
+      <option value="desc">Z-A</option>
+    </select> <br>
+
+    <button data-testid="button-facts" id="button-facts" class="button">ESTADÍSTICAS</button>
+
+    <dialog id="statsDialog">
+      <div class="modal-content" id="stats-content">
+        <span class="close-btn" onclick="closeStatsDialog()"></span>
+        <div id="stats-container"></div>
+        <button data-testid="button-close" id="button-close">CERRAR</button>
+
+        </div>
+    </dialog>
+       
+    <button data-testid="button-clear" id="button-clear">LIMPIAR</button>
+    </div>
+
+   <div id="root">
+    <ul id="cardList"></ul>
+  </div>
+
+  <footer>
+    El mundo a través de grandes escritoras<br>
+    Desarrolladoras: Raiza Gatica/Elizabeth Patiño J.<br>
+    Laboratoria<br>
+  </footer>
+  
+  <script src="view.js" type="module"></script>
+  <script src="main.js" type="module"></script>
+  <script src="dataFunctions.js" type="module"></script>
+</body>
+
 </html>
