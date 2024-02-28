@@ -1,30 +1,26 @@
+//verificar que tenemos la data
+//crear el elemento padre que seria el ul
+//crear los elementos hijos li
+//crear los elementos dl(padre) dt y dd (hijos)
+//que toda la información se almacene en tarjetas tipo card
+//retornar la lista ordenada segun la data
+
 export const renderItems = (data) => {
-    // Aquí comienza tu código y puedes retornar lo que tu necesites GENERACION DINAMICA
-    const list = document.createElement("ul");
-    data.forEach(data => {
+  const list = document.createElement('ul');
+
+  data.forEach(data => {
+    const itemList =  document.createElement('li');
+    itemList.classList.add('card');
+    const itemContainer = document.createElement('dl');
+    itemContainer.innerHTML = `
   
-      const itemList = document.createElement("li");
-      const itemContainer = document.createElement("dl");
-      itemList.classList.add("card");
   
-      itemContainer.innerHTML = `
-          <img src=${data.imageUrl} alt=${data.name}/><br>
-          <dd itemprop="name">${data.name}</dd><br>
-          <dd itemprop="DescripciónC"> ${data.shortDescription}</dd><br>
-          <dt> Nacionalidad:</dt><dd itemprop="country">${data.facts.countryNacimiento}</dd>
-          <dt>Año de nacimiento:</dt><dd itemprop="fechaNacimiento">${data.facts.yearOfBirth}</dd>
-          <dt>Género literario:</dt><dd itemprop="genero">${data.facts.mainField}</dd>
-          `;
-      itemContainer.setAttribute("itemscope", "");
-      itemContainer.setAttribute("itemtype", "escritoras");
-      itemList.setAttribute("itemtype", "https://schema.org/Person");
-      list.setAttribute("itemtype", "https://schema.org/Person");
-  
-      itemList.appendChild(itemContainer);
-      list.appendChild(itemList)
-  
-    });
-  
+  <img src=${data.imageUrl} alt=${data.name}/><br>
+  <dd itemprop="name">${data.name}</dd><br>
+  <dd itemprop="description">${data.description}</dd>
+  `;
+  itemList.appendChild(itemContainer);
+  list.appendChild(itemList);
+  });
     return list;
-  };
-  
+};
