@@ -47,7 +47,6 @@ h1 {
   background-color: #f1e3c9;
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
   display: flex;
-  margin-top:-3%;
   align-items: center;
   justify-content: center;
 }
@@ -169,10 +168,10 @@ dt {
 
 img {
   width: 100%;
-  height: auto;
+  height: 120px;
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
   background-color: #f1cd885e;
-  margin-bottom: 4%;
+  /*margin-bottom: 4%;*/
   }
 
 dd {
