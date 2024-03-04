@@ -38,6 +38,7 @@ h1 {
   text-align: center;
   font-family: 'Marcellus', serif;
   color: #332D40;
+  margin-bottom: 3% ;
 }
 
 .form-container {
@@ -172,7 +173,7 @@ img {
   height: auto;
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
   background-color: #f1cd885e;
-  margin-bottom: 4%;
+ 
   }
 
 dd {
@@ -209,11 +210,6 @@ footer {
 
   .home {
     height: auto;
-  }
-
-  h1{
-    margin:1% 2% 1% 1%;
-    font-size:medium;
   }
   body{
    margin:auto;

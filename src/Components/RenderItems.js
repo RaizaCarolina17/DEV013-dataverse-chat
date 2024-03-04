@@ -1,5 +1,5 @@
 export const renderItems = (data) => {
-  
+
   const list = document.createElement("ul");
   data.forEach(data => {
 
@@ -12,8 +12,7 @@ export const renderItems = (data) => {
         <dd itemprop="name">${data.name}</dd><br>
         <dd itemprop="DescripciónC"> ${data.shortDescription}</dd><br>
         <dt> Nacionalidad:</dt><dd itemprop="country">${data.facts.countryNacimiento}</dd>
-        <dt>Año de nacimiento:</dt><dd itemprop="fechaNacimiento">${data.facts.yearOfBirth}</dd>
-        <dt>Género literario:</dt><dd itemprop="genero">${data.facts.mainField}</dd>
+       <dt>Género literario:</dt><dd itemprop="genero">${data.facts.mainField}</dd>
         `;
     itemContainer.setAttribute("itemscope", "");
     itemContainer.setAttribute("itemtype", "escritoras");

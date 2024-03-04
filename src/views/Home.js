@@ -23,9 +23,6 @@ export const home = () => {
   const BtnContainerElement = BtnContainer();
   homeView.appendChild(BtnContainerElement);
  
-  /*const RenderItemsElement = renderItems(data); 
-  homeView.appendChild(RenderItemsElement);*/
-  
   const footerElement = footer();
   homeView.appendChild(footerElement);
 
