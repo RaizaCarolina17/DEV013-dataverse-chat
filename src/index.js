@@ -2,7 +2,10 @@
 
 import { onURLChange, setRootElement, setRoutes } from "./router.js";
 import { home } from "./views/Home.js";
-import { error } from "./views/Error.js";
+import {error} from "./views/Error.js";
+import { filterData, sortData, computeStats } from '../lib/dataFunctions.js';
+import { renderItems } from "../components/renderItems.js"; 
+import data from '../data/dataset.js';
 
 const viewContainer = document.getElementById("root");
 
