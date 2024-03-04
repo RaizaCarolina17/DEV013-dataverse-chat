@@ -1,5 +1,3 @@
-// Estas funciones son ejemplos, aquí puedes desarrollar tus propias funciones.
-
 //Función filtro
 export const filterData = (data, filterBy, value) => {
     return data.filter((data) => {
@@ -9,7 +7,7 @@ export const filterData = (data, filterBy, value) => {
       return false;
     });
   };
-  
+
   // Funcion para ordenar ASC y DESC
   export const sortData = (data, sortConfig) => {
     const { sortBy, sortOrder } = sortConfig;

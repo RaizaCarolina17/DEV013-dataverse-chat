@@ -4,6 +4,7 @@ import { BtnContainer } from "../components/BtnContainer.js";
 import { renderItems } from "../components/renderItems.js"; 
 import data from './../data/dataset.js';
 import { footer } from "../components/footer.js";
+//import { filterData, sortData, computeStats, computeCountryStats, computeGenreStats } from "../lib/dataFunctions.js";
 
 
 /*export const home = () => {
@@ -21,9 +22,9 @@ export const home = () => {
 
   const BtnContainerElement = BtnContainer();
   homeView.appendChild(BtnContainerElement);
-
-  const RenderItemsElement = renderItems(data); 
-  homeView.appendChild(RenderItemsElement);
+ 
+  /*const RenderItemsElement = renderItems(data); 
+  homeView.appendChild(RenderItemsElement);*/
   
   const footerElement = footer();
   homeView.appendChild(footerElement);
