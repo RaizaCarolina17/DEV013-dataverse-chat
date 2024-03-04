@@ -3,7 +3,7 @@ import { footer } from ".././Components/footer.js";
 
 export const error = () => {
     // Crear el contenedor principal
-    const errorView = document.createElement('div');
+  const errorView = document.createElement('div');
 
     // Agregar el header al inicio
     const headerElement = header();
@@ -22,6 +22,6 @@ export const error = () => {
     const footerElement = footer();
     errorView.appendChild(footerElement);
 
-    return errorView;
+  return errorView;
 };
   
