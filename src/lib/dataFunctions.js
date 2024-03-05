@@ -10,6 +10,7 @@ export const filterData = (data, filterBy, value) => {
 
 // Funcion para ordenar ASC y DESC
 export const sortData = (data, sortConfig) => {
+  console.log(sortConfig);
   const { sortBy, sortOrder } = sortConfig;
   const sortedData = data.slice().sort((a, b) => {
     const valA = valorOrdenar(a, sortBy);
