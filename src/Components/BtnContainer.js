@@ -34,6 +34,7 @@ export const BtnContainer = () => {
     <option value="asc">A-Z</option>
     <option value="desc">Z-A</option>
   </select> <br>
+
   <button data-testid="button-facts" id="button-facts" class="button">ESTADÍSTICAS</button>
   <dialog id="statsDialog">
   <div class="modal-content" id="stats-content">
@@ -60,12 +61,23 @@ export const BtnContainer = () => {
 
   ];
 
-  let sortName;// Declaracion de sortName
+  let sortConfig = {
+    sortBy: "name",
+    sortOrder: "asc", 
+  };
 
   // Agrega EventListener para los select
   filterSelectors.forEach(({ selector }) => {
     const selectElement = container.querySelector(selector);
     selectElement.addEventListener("change", () => applyFilters());
+  });
+
+  /////EvenListener para el select de ordenar/////
+  const sortSelect = container.querySelector('[data-testid="select-sort"]');
+  sortSelect.addEventListener("change", () => {
+    sortConfig.sortBy = sortSelect.value;
+    sortConfig.sortOrder = sortSelect.value === "asc" ? "asc" : "desc";
+    applyFilters();
   });
 
   // Función para aplicar los filtros
@@ -84,10 +96,17 @@ export const BtnContainer = () => {
       }
     });
 
+    //Ordena los datos//
+    filteredData = sortData(filteredData, sortConfig);
+
+
     // Limpia la lista antes de renderizar
     cardsContainer.innerHTML = "";
     // Renderiza los datos filtrados
     cardsContainer.appendChild(renderItems(filteredData));
+
+    console.log("SE VE ES", filteredData); //para ver en consola
+  
 
    function renderCardsContainer() { // Función para regresar las tarjetas a su estado original
     cardsContainer.innerHTML = "";
