@@ -1,4 +1,4 @@
-import { filterData, sortData } from "../lib/dataFunctions.js";
+import { filterData, sortData, computeStats } from "../lib/dataFunctions.js";
 import data from './../data/dataset.js';
 import { renderItems } from "../components/renderItems.js";
 
@@ -63,24 +63,31 @@ export const BtnContainer = () => {
 
   let sortConfig = {
     sortBy: "name",
-    sortOrder: "asc", 
+    sortOrder: "asc",
   };
 
   // Agrega EventListener para los select
   filterSelectors.forEach(({ selector }) => {
     const selectElement = container.querySelector(selector);
-    selectElement.addEventListener("change", () => applyFilters());
+    selectElement.addEventListener("change", applyFilters);
+  });
+
+  /////EventListener para el select de ordenar/////
+  const sortSelect = container.querySelector('[data-testid="select-sort"]');
+  sortSelect.addEventListener("change", () => {
+    sortConfig.sortOrder = sortSelect.value === "asc" ? "asc" : "desc";
+    const dataSort = sortData(data, sortConfig);
+    cardsContainer.innerHTML = "";
+    cardsContainer.appendChild(renderItems(dataSort));
   });
 
   // Función para aplicar los filtros
   function applyFilters() {
-    // Obtiene los valores seleccionados de los elementos select
     const filters = filterSelectors.map(({ selector, property }) => ({
       property,
       value: container.querySelector(selector).value,
     }));
 
-    // Realiza el filtrado de datos
     let filteredData = [...data];
     filters.forEach(({ property, value }) => {
       if (value) {
@@ -88,35 +95,20 @@ export const BtnContainer = () => {
       }
     });
 
-    // Ordena los datos
     filteredData = sortData(filteredData, sortConfig);
-    // Limpia la lista antes de renderizar
     cardsContainer.innerHTML = "";
-    // Renderiza los datos filtrados
     cardsContainer.appendChild(renderItems(filteredData));
 
-    // ordenar
-    const sortName = container.querySelector('[data-testid="select-sort"]');
-    sortName.addEventListener("change", () => {
-      console.log("funciona");
-      //const sortOrder = sortName.value;
-      //const sortedData = sortData(filteredData, { sortBy: "name", sortOrder });
-      //renderCardsContainer(sortedData );
-      applyFilters();
-    });
-
     function renderCardsContainer() {
-      // Función para regresar las tarjetas a su estado original
       cardsContainer.innerHTML = "";
       const resultList = renderItems(data);
       cardsContainer.appendChild(resultList);
     }
 
-    // Evento para el botón limpiar
-    const btnClear = document.getElementById("button-clear");
+    const btnClear = container.querySelector("#button-clear");
     btnClear.addEventListener("click", function () {
       resetFilters();
-      renderCardsContainer();
+      renderCardsContainer(data);
     });
 
     function resetFilters() {
@@ -125,5 +117,92 @@ export const BtnContainer = () => {
       });
     }
   }
+
+  //Estadísticas
+  // EventListener para el botón de estadísticas
+  const btnStats = container.querySelector("#button-facts");
+  btnStats.addEventListener("click", function () {
+    //console.log('ok stats');
+    try {
+      const stats = computeStats(data);
+      renderStats(stats);
+    } catch (error) {
+      console.error("Error al calcular estadísticas:", error);
+    }
+  });
+
+  // Función para renderizar las estadísticas en el contenedor
+function renderStats(stats) {
+  // Obtener la referencia al contenedor de estadísticas por su id
+  const statsContainer = container.querySelector('#stats-container');
+
+  // Verificar si el contenedor de estadísticas existe
+  if (statsContainer) {
+    // Limpiar contenido anterior
+    statsContainer.innerHTML = '';
+
+    // Mostrar las estadísticas en el contenedor
+    statsContainer.appendChild(renderStatsElement(stats));
+  }
+
+  // Función para renderizar las estadísticas como elementos HTML
+  function renderStatsElement(stats) {
+    const statsElement = document.createElement('div');
+    statsElement.innerHTML = '<b>ESTADÍSTICAS</b>';
+    // Agregar estadísticas de países
+    statsElement.appendChild(renderStatsCategory('📶 Cantidad de escritoras por nacionalidad', stats.countries));
+    // Agregar estadísticas de géneros
+    statsElement.appendChild(renderStatsCategory('📶 Cantidad de escritoras por género literario', stats.genres));
+
+    return statsElement;  // Agrega esta línea para devolver el elemento
+  }
+
+  // Función para renderizar estadísticas de una categoría específica
+  function renderStatsCategory(categoryName, categoryStats) {
+    const categoryElement = document.createElement('div');
+    categoryElement.innerHTML = `<b>${categoryName}:</b>`;
+
+    // Iterar sobre las estadísticas y agregarlas al elemento
+    for (const item in categoryStats) {
+      const itemStats = categoryStats[item];
+      const itemElement = document.createElement('div');
+      itemElement.textContent = `${item}: ${itemStats}`;
+      categoryElement.appendChild(itemElement);
+    }
+
+    return categoryElement;  // Agrega esta línea para devolver el elemento
+  }
+
+  function clearStats() {
+    const statsContainer = document.getElementById('stats-container');
+    if (statsContainer) {
+      statsContainer.innerHTML = '';
+    }
+  }
+
+  // Abrir pantalla emergente
+  const statsDialog = container.querySelector('#statsDialog');
+  btnStats.addEventListener('click', () => {
+    statsDialog.showModal();
+  });
+
+  // Cierra el modal
+  const closeButton = document.getElementById('button-close');
+  closeButton.addEventListener('click', () => {
+    closeStatsDialog();
+  });
+
+  statsDialog.addEventListener('click', (event) => {
+    if (event.target === statsDialog) {
+      closeStatsDialog();
+    }
+  });
+
+  // Función para cerrar el modal de estadísticas
+  function closeStatsDialog() {
+    statsDialog.close();
+  }
+}
+
   return container;
 };
