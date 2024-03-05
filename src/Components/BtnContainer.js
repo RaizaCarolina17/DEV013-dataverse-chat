@@ -88,6 +88,7 @@ export const BtnContainer = () => {
     cardsContainer.appendChild(renderItems(dataSort));
 
   });
+
   // Función para aplicar los filtros
   function applyFilters() {
     // Obtiene los valores seleccionados de los elementos select
@@ -137,13 +138,6 @@ export const BtnContainer = () => {
 }
 
 
-//Cierre del Modal
-//Evento para cerrar el modal
-const btnClose = container.querySelector("#button-close");
-btnClose.addEventListener("click", function() {
-const statsDialog = container.getElementById("statsDialog");
-statsDialog.removeAttribute("open");
-});
 // Estadísticas
 
 const btnStats = container.querySelector("#button-facts");
@@ -185,8 +179,15 @@ btnStats.addEventListener("click", function () {
 
   statsHTML += '</div>';
   return statsHTML;
-
 }
+
+//Cierre del Modal
+//Evento para cerrar el modal
+const btnClose = container.querySelector("#button-close");
+btnClose.addEventListener("click", function() {
+const statsDialog = document.getElementById("statsDialog");
+statsDialog.removeAttribute("open");
+});
 
   
 });
