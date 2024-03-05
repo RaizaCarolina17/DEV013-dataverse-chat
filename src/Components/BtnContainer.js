@@ -30,7 +30,7 @@ export const BtnContainer = () => {
   </select>
 
     <select name="ordenar" id="sort-select" data-testid="select-sort">
-    <option value="none">Ordenar por</option>
+    <option value="">Ordenar por</option>
     <option value="asc">A-Z</option>
     <option value="desc">Z-A</option>
   </select> <br>
@@ -58,6 +58,8 @@ export const BtnContainer = () => {
   const filterSelectors = [
     { selector: '[data-testid="filter-type"]', property: "mainField" },
     { selector: '[data-testid="filter-data"]', property: "countryNacimiento" },
+    { selector: '[data-testid="select-sort"]', property: "name" },
+
 
   ];
 
@@ -79,14 +81,13 @@ export const BtnContainer = () => {
     //sortConfig.sortBy = sortSelect.value;
     sortConfig.sortOrder = sortSelect.value === "asc" ? "asc" : "desc";
     //applyFilters();
-    const prueba = sortData(data, sortConfig)
+    const dataSort = sortData(data, sortConfig)
     // Limpia la lista antes de renderizar
     cardsContainer.innerHTML = "";
     // Renderiza los datos filtrados
-    cardsContainer.appendChild(renderItems(prueba));
+    cardsContainer.appendChild(renderItems(dataSort));
 
   });
-   console.log("prueba");
   // Función para aplicar los filtros
   function applyFilters() {
     // Obtiene los valores seleccionados de los elementos select
@@ -112,7 +113,6 @@ export const BtnContainer = () => {
     // Renderiza los datos filtrados
     cardsContainer.appendChild(renderItems(filteredData));
 
-    console.log("SE VE ES", filteredData); //para ver en consola
   
 
    function renderCardsContainer() { // Función para regresar las tarjetas a su estado original
@@ -133,36 +133,10 @@ export const BtnContainer = () => {
       container.querySelector(selector).value = "";
     });
   }
-
-  
  
 }
 
- // Función para cargar HTML con los datos
- function renderStatsElement(stats, countryStats, genreStats) {
-  let statsHTML = '<div>';
-  statsHTML += '<h3>ESTADÍSTICAS DE LAS ESCRITORAS</h3>';
 
- // Agregar estadísticas de países
-statsHTML += '<p><strong>Nacionalidad:</strong></p>';
-statsHTML += '<ul>';
-for (const country in countryStats) {
-statsHTML += `<li>${country}: ${countryStats[country]}</li>`;
- }
- statsHTML += '</ul>';
-
-// Agregar estadísticas de géneros
-statsHTML += '<p><strong>Géneros:</strong></p>';
-statsHTML += '<ul>';
-for (const genre in genreStats) {
-statsHTML += `<li>${genre}: ${genreStats[genre]}</li>`;
-}
-statsHTML += '</ul>';
-
-statsHTML += '</div>';
-return statsHTML;
-
-}
 //Cierre del Modal
 //Evento para cerrar el modal
 const btnClose = container.querySelector("#button-close");
@@ -174,7 +148,7 @@ statsDialog.removeAttribute("open");
 
 const btnStats = container.querySelector("#button-facts");
 btnStats.addEventListener("click", function () {
-  console.log('ok stats');
+
   // Llamar a las funciones
   const stats = computeStats(data);
   const countryStats = computeCountryStats(data);
@@ -187,6 +161,34 @@ btnStats.addEventListener("click", function () {
   // Mostrar el modal
   const statsDialog = document.getElementById('statsDialog');
   statsDialog.setAttribute('open', 'true');
+
+  // Función para cargar HTML con los datos
+ function renderStatsElement(stats, countryStats, genreStats) {
+  let statsHTML = '<div>';
+  statsHTML += '<h3>ESTADÍSTICAS DE LAS ESCRITORAS</h3>';
+
+ // Agregar estadísticas de países
+  statsHTML += '<p><strong>Nacionalidad:</strong></p>';
+  statsHTML += '<ul>';
+  for (const country in countryStats) {
+  statsHTML += `<li>${country}: ${countryStats[country]}</li>`;
+  }
+  statsHTML += '</ul>';
+
+  // Agregar estadísticas de géneros
+  statsHTML += '<p><strong>Géneros:</strong></p>';
+  statsHTML += '<ul>';
+  for (const genre in genreStats) {
+  statsHTML += `<li>${genre}: ${genreStats[genre]}</li>`; 
+  }
+  statsHTML += '</ul>';
+
+  statsHTML += '</div>';
+  return statsHTML;
+
+}
+
+  
 });
 return container;
 };
