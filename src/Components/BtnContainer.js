@@ -109,6 +109,7 @@ export const BtnContainer = () => {
   }
 
   // Estadísticas
+
   const btnStats = document.getElementById("button-facts");
   btnStats.addEventListener("click", function () {
     // Llamar a las funciones
@@ -149,6 +150,13 @@ export const BtnContainer = () => {
   return statsHTML;
 
  }
+ //Cierre del Modal
+ //Evento para cerrar el modal
+ const btnClose = document.getElementById("button-close");
+ btnClose.addEventListener("click", function() {
+  const statsDialog = document.getElementById("statsDialog");
+  statsDialog.removeAttribute("open");
+ });
 }
 
 return container;
