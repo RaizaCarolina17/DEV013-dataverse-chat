@@ -1,4 +1,4 @@
-import { filterData, sortData } from "../lib/dataFunctions.js";
+import { filterData, sortData, computeStats, computeCountryStats, computeGenreStats, } from "../lib/dataFunctions.js";
 import data from './../data/dataset.js';
 import { renderItems } from "../components/renderItems.js";
 
@@ -34,7 +34,6 @@ export const BtnContainer = () => {
     <option value="asc">A-Z</option>
     <option value="desc">Z-A</option>
   </select> <br>
-
   <button data-testid="button-facts" id="button-facts" class="button">ESTADÍSTICAS</button>
   <dialog id="statsDialog">
   <div class="modal-content" id="stats-content">
@@ -108,41 +107,49 @@ export const BtnContainer = () => {
       container.querySelector(selector).value = "";
     });
   }
+
+  // Estadísticas
+  const btnStats = document.getElementById("button-facts");
+  btnStats.addEventListener("click", function () {
+    // Llamar a las funciones
+    const stats = computeStats(data);
+    const countryStats = computeCountryStats(data);
+    const genreStats = computeGenreStats(data);
+
+    // Mostrar resultados en el modal
+    const statsContainer = container.querySelector('#stats-container');
+    statsContainer.innerHTML = renderStatsElement(stats, countryStats, genreStats);
+
+    // Mostrar el modal
+    const statsDialog = document.getElementById('statsDialog');
+    statsDialog.setAttribute('open', 'true');
+  });
+
+  function renderStatsElement(stats, countryStats, genreStats) {
+    let statsHTML = '<div>';
+    statsHTML += '<h3>ESTADÍSTICAS DE LAS ESCRITORAS</h3>';
+
+   // Agregar estadísticas de países
+  statsHTML += '<p><strong>Nacionalidad:</strong></p>';
+  statsHTML += '<ul>';
+  for (const country in countryStats) {
+  statsHTML += `<li>${country}: ${countryStats[country]}</li>`;
+   }
+   statsHTML += '</ul>';
+
+// Agregar estadísticas de géneros
+  statsHTML += '<p><strong>Géneros:</strong></p>';
+  statsHTML += '<ul>';
+  for (const genre in genreStats) {
+  statsHTML += `<li>${genre}: ${genreStats[genre]}</li>`;
   }
-  
-  return container;
-}
+  statsHTML += '</ul>';
 
+  statsHTML += '</div>';
+  return statsHTML;
 
-
-/*const typeSelect = container.querySelector("#type-select");
-const countrySelect = container.querySelector("#country-select");
-
-typeSelect.addEventListener("change", () => {
-  //console.log("funciona")
-  applyFilters();
-});
-
-countrySelect.addEventListener("change", () => {
-  //console.log("funciona");
-  applyFilters();
-});
-
-// Función para aplicar los filtros
-function applyFilters() {
-  const typeFilter = typeSelect.value;
-  const countryFilter = countrySelect.value;
-
-  console.log("Type Filter:", typeFilter);
-  console.log("Country Filter:", countryFilter);
-
-  // Llama a la función filterData
-  const filteredData = filterData(data, "type", typeFilter);
-
-  // Renderiza los elementos con los datos actualizados
-  cardsContainer.innerHTML = "";
-  cardsContainer.appendChild(renderItems(filteredData));
+ }
 }
 
 return container;
-}*/
+};

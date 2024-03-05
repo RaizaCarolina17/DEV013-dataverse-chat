@@ -48,7 +48,7 @@ export const computeStats = (data) => {
   return stats;
 };
 
-const computeCountryStats = (data) => {
+export const computeCountryStats = (data) => {
   return data.reduce((accumulator, writer) => {
     const country = writer.facts.countryNacimiento;
 
@@ -61,7 +61,7 @@ const computeCountryStats = (data) => {
   }, {});
 };
 
-const computeGenreStats = (data) => {
+export const computeGenreStats = (data) => {
   return data.reduce((accumulator, writer) => {
     const genre = writer.facts.mainField;
 
