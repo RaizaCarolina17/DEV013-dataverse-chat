@@ -7,4 +7,4 @@ export const header = () => {
         `;
 
     return header;
-  };
+};

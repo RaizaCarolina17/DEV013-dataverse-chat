@@ -45,6 +45,7 @@ export const BtnContainer = () => {
         </dialog>
 
         <button data-testid="button-clear" id="button-clear">LIMPIAR</button>
+        <button class="btn-chat" id="button-chatGroup"> CHAT GRUPAL</button>
       </div>
     </h4>
 
@@ -66,20 +67,23 @@ export const BtnContainer = () => {
     sortOrder: "asc",
   };
 
+  let filteredData;
+  filteredData= [...data];
+
   // Agrega EventListener para los select
   filterSelectors.forEach(({ selector }) => {
     const selectElement = container.querySelector(selector);
     selectElement.addEventListener("change", applyFilters);
   });
 
-  /////EventListener para el select de ordenar/////
+ /* /////EventListener para el select de ordenar/////
   const sortSelect = container.querySelector('[data-testid="select-sort"]');
   sortSelect.addEventListener("change", () => {
     sortConfig.sortOrder = sortSelect.value === "asc" ? "asc" : "desc";
     const dataSort = sortData(data, sortConfig);
     cardsContainer.innerHTML = "";
     cardsContainer.appendChild(renderItems(dataSort));
-  });
+  });*/
 
   // Función para aplicar los filtros
   function applyFilters() {
@@ -104,6 +108,15 @@ export const BtnContainer = () => {
       const resultList = renderItems(data);
       cardsContainer.appendChild(resultList);
     }
+
+    /////EventListener para el select de ordenar/////
+  const sortSelect = container.querySelector('[data-testid="select-sort"]');
+  sortSelect.addEventListener("change", () => {
+    sortConfig.sortOrder = sortSelect.value === "asc" ? "asc" : "desc";
+    cardsContainer.innerHTML = "";
+    const dataSort = sortData(data, sortConfig);
+    cardsContainer.appendChild(renderItems(dataSort));
+  });
 
     const btnClear = container.querySelector("#button-clear");
     btnClear.addEventListener("click", function () {
@@ -203,6 +216,5 @@ function renderStats(stats) {
     statsDialog.close();
   }
 }
-
   return container;
 };

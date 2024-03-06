@@ -67,7 +67,9 @@ select {
 }
 
 #button-clear,
-#button-facts
+#button-facts,
+#button-chat, 
+#button-chatGroup
 {
   font-family: 'Marcellus', serif;
   font-weight: bold;
@@ -80,6 +82,13 @@ select {
   margin-left: 4%;
   cursor:pointer;
   border-radius: 20%;  
+  }
+
+  #button-chat{
+    align-items: center;
+    margin-left: 65%;
+    margin-bottom:5% ;
+    margin-top:-20%;
   }
 
  #button-close{
@@ -235,7 +244,8 @@ footer {
     }
 
     #button-clear,
-    #button-facts {
+    #button-facts,
+    #button-chatGroup {
       font-weight: auto;
       font-size: xx-small;
       margin-right: 1%;
