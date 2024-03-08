@@ -68,7 +68,7 @@ export const BtnContainer = () => {
   };
 
   let filteredData;
-  filteredData= [...data];
+  filteredData = [...data];
 
   // Agrega EventListener para los select
   filterSelectors.forEach(({ selector }) => {
@@ -76,14 +76,14 @@ export const BtnContainer = () => {
     selectElement.addEventListener("change", applyFilters);
   });
 
- /* /////EventListener para el select de ordenar/////
-  const sortSelect = container.querySelector('[data-testid="select-sort"]');
-  sortSelect.addEventListener("change", () => {
-    sortConfig.sortOrder = sortSelect.value === "asc" ? "asc" : "desc";
-    const dataSort = sortData(data, sortConfig);
-    cardsContainer.innerHTML = "";
-    cardsContainer.appendChild(renderItems(dataSort));
-  });*/
+  /* /////EventListener para el select de ordenar/////
+   const sortSelect = container.querySelector('[data-testid="select-sort"]');
+   sortSelect.addEventListener("change", () => {
+     sortConfig.sortOrder = sortSelect.value === "asc" ? "asc" : "desc";
+     const dataSort = sortData(data, sortConfig);
+     cardsContainer.innerHTML = "";
+     cardsContainer.appendChild(renderItems(dataSort));
+   });*/
 
   // Función para aplicar los filtros
   function applyFilters() {
@@ -96,27 +96,21 @@ export const BtnContainer = () => {
     filters.forEach(({ property, value }) => {
       if (value) {
         filteredData = filterData(filteredData, property, value);
+        //console.log(filteredData);
+        cardsContainer.innerHTML = "";
+        cardsContainer.appendChild(renderItems(filteredData));
       }
     });
 
-    filteredData = sortData(filteredData, sortConfig);
-    cardsContainer.innerHTML = "";
-    cardsContainer.appendChild(renderItems(filteredData));
-
-    function renderCardsContainer() {
+        /////EventListener para el select de ordenar/////
+    const sortSelect = container.querySelector('[data-testid="select-sort"]');
+    sortSelect.addEventListener("change", () => {
+      sortConfig.sortOrder = sortSelect.value === "asc" ? "asc" : "desc";
+      applyFilters();
       cardsContainer.innerHTML = "";
-      const resultList = renderItems(data);
-      cardsContainer.appendChild(resultList);
-    }
-
-    /////EventListener para el select de ordenar/////
-  const sortSelect = container.querySelector('[data-testid="select-sort"]');
-  sortSelect.addEventListener("change", () => {
-    sortConfig.sortOrder = sortSelect.value === "asc" ? "asc" : "desc";
-    cardsContainer.innerHTML = "";
-    const dataSort = sortData(data, sortConfig);
-    cardsContainer.appendChild(renderItems(dataSort));
-  });
+      filteredData = sortData(data, sortConfig);
+      cardsContainer.appendChild(renderItems(filteredData));
+    });
 
     const btnClear = container.querySelector("#button-clear");
     btnClear.addEventListener("click", function () {
@@ -128,6 +122,12 @@ export const BtnContainer = () => {
       filterSelectors.forEach(({ selector }) => {
         container.querySelector(selector).value = "";
       });
+    }
+
+    function renderCardsContainer() {
+      cardsContainer.innerHTML = "";
+      const resultList = renderItems(data);
+      cardsContainer.appendChild(resultList);
     }
   }
 
@@ -145,76 +145,70 @@ export const BtnContainer = () => {
   });
 
   // Función para renderizar las estadísticas en el contenedor
-function renderStats(stats) {
-  // Obtener la referencia al contenedor de estadísticas por su id
-  const statsContainer = container.querySelector('#stats-container');
+  function renderStats(stats) {
+    // Obtener la referencia al contenedor de estadísticas por su id
+    const statsContainer = container.querySelector('#stats-container');
 
-  // Verificar si el contenedor de estadísticas existe
-  if (statsContainer) {
-    // Limpiar contenido anterior
-    statsContainer.innerHTML = '';
-
-    // Mostrar las estadísticas en el contenedor
-    statsContainer.appendChild(renderStatsElement(stats));
-  }
-
-  // Función para renderizar las estadísticas como elementos HTML
-  function renderStatsElement(stats) {
-    const statsElement = document.createElement('div');
-    statsElement.innerHTML = '<b>ESTADÍSTICAS</b>';
-    // Agregar estadísticas de países
-    statsElement.appendChild(renderStatsCategory('📶 Cantidad de escritoras por nacionalidad', stats.countries));
-    // Agregar estadísticas de géneros
-    statsElement.appendChild(renderStatsCategory('📶 Cantidad de escritoras por género literario', stats.genres));
-
-    return statsElement;  // Agrega esta línea para devolver el elemento
-  }
-
-  // Función para renderizar estadísticas de una categoría específica
-  function renderStatsCategory(categoryName, categoryStats) {
-    const categoryElement = document.createElement('div');
-    categoryElement.innerHTML = `<b>${categoryName}:</b>`;
-
-    // Iterar sobre las estadísticas y agregarlas al elemento
-    for (const item in categoryStats) {
-      const itemStats = categoryStats[item];
-      const itemElement = document.createElement('div');
-      itemElement.textContent = `${item}: ${itemStats}`;
-      categoryElement.appendChild(itemElement);
-    }
-
-    return categoryElement;  // Agrega esta línea para devolver el elemento
-  }
-
-  function clearStats() {
-    const statsContainer = document.getElementById('stats-container');
+    // Verificar si el contenedor de estadísticas existe
     if (statsContainer) {
+      // Limpiar contenido anterior
       statsContainer.innerHTML = '';
+
+      // Mostrar las estadísticas en el contenedor
+      statsContainer.appendChild(renderStatsElement(stats));
     }
-  }
 
-  // Abrir pantalla emergente
-  const statsDialog = container.querySelector('#statsDialog');
-  btnStats.addEventListener('click', () => {
-    statsDialog.showModal();
-  });
+    // Función para renderizar las estadísticas como elementos HTML
+    function renderStatsElement(stats) {
+      const statsElement = document.createElement('div');
+      statsElement.innerHTML = '<b>ESTADÍSTICAS</b>';
+      // Agregar estadísticas de países
+      statsElement.appendChild(renderStatsCategory('📶 Cantidad de escritoras por nacionalidad', stats.countries));
+      // Agregar estadísticas de géneros
+      statsElement.appendChild(renderStatsCategory('📶 Cantidad de escritoras por género literario', stats.genres));
 
-  // Cierra el modal
-  const closeButton = document.getElementById('button-close');
-  closeButton.addEventListener('click', () => {
-    closeStatsDialog();
-  });
+      return statsElement;  // Agrega esta línea para devolver el elemento
+    }
 
-  statsDialog.addEventListener('click', (event) => {
-    if (event.target === statsDialog) {
+    // Función para renderizar estadísticas de una categoría específica
+    function renderStatsCategory(categoryName, categoryStats) {
+      const categoryElement = document.createElement('div');
+      categoryElement.innerHTML = `<b>${categoryName}:</b>`;
+
+      // Iterar sobre las estadísticas y agregarlas al elemento
+      for (const item in categoryStats) {
+        const itemStats = categoryStats[item];
+        const itemElement = document.createElement('div');
+        itemElement.textContent = `${item}: ${itemStats}`;
+        categoryElement.appendChild(itemElement);
+      }
+
+      return categoryElement;  // Agrega esta línea para devolver el elemento
+    }
+
+    // Abrir pantalla emergente
+    const statsDialog = container.querySelector('#statsDialog');
+    btnStats.addEventListener('click', () => {
+      statsDialog.showModal();
+    });
+
+    // Cierra el modal
+    const closeButton = document.getElementById('button-close');
+    closeButton.addEventListener('click', () => {
       closeStatsDialog();
-    }
-  });
+    });
 
-  // Función para cerrar el modal de estadísticas
-  function closeStatsDialog() {
-    statsDialog.close();
+    statsDialog.addEventListener('click', (event) => {
+      if (event.target === statsDialog) {
+        closeStatsDialog();
+      }
+    });
+
+    // Función para cerrar el modal de estadísticas
+    function closeStatsDialog() {
+      statsDialog.close();
+    }
   }
-}
+
   return container;
 };
