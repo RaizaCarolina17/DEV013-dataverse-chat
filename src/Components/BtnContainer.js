@@ -30,7 +30,7 @@ export const BtnContainer = () => {
         </select>
 
         <select name="ordenar" id="sort-select" data-testid="select-sort">
-          <option value="">Ordenar por</option>
+          <option value="none">Ordenar por</option>
           <option value="asc">A-Z</option>
           <option value="desc">Z-A</option>
         </select> <br>
@@ -52,86 +52,88 @@ export const BtnContainer = () => {
     <div id="cardsContainer"> </div>
   `;
 
-  const cardsContainer = container.querySelector("#cardsContainer");
-  cardsContainer.appendChild(renderItems(data));
+  const dataList = container.querySelector("#cardsContainer");
+  let result = data;
+  dataList.appendChild(renderItems(data));
 
   // Selecciona los elementos select
   const filterSelectors = [
     { selector: '[data-testid="filter-type"]', property: "mainField" },
     { selector: '[data-testid="filter-data"]', property: "countryNacimiento" },
-    { selector: '[data-testid="select-sort"]', property: "name" },
+    //{ selector: '[data-testid="select-sort"]', property: "name" },
   ];
 
-  let sortConfig = {
-    sortBy: "name",
-    sortOrder: "asc",
-  };
-
-  let filteredData;
-  filteredData = [...data];
+  let sortName;// Declaracion de sortName
 
   // Agrega EventListener para los select
   filterSelectors.forEach(({ selector }) => {
     const selectElement = container.querySelector(selector);
-    selectElement.addEventListener("change", applyFilters);
+    selectElement.addEventListener("change", () => applyFilters());
+    //selectElement.addEventListener("change", applyFilters);
   });
-
-  /* /////EventListener para el select de ordenar/////
-   const sortSelect = container.querySelector('[data-testid="select-sort"]');
-   sortSelect.addEventListener("change", () => {
-     sortConfig.sortOrder = sortSelect.value === "asc" ? "asc" : "desc";
-     const dataSort = sortData(data, sortConfig);
-     cardsContainer.innerHTML = "";
-     cardsContainer.appendChild(renderItems(dataSort));
-   });*/
-
+  
+  // EventListener para el botón de limpiar
+  const btnClear = container.querySelector("#button-clear");
+  btnClear.addEventListener("click", function () {
+    // Limpia los filtros y renderiza los datos originales
+    resetFilters();
+    renderItems(data);
+    });
+  
+  // Función para restablecer los filtros
+  function resetFilters() {// Recorre los selectores y establece sus valores en vacío
+    filterSelectors.forEach(({ selector }) => {
+      container.querySelector(selector).value = "";
+    });
+    sortName.value = "none";
+    result = sortData(data, "name", "asc");
+    renderDataList();
+  }
+  
   // Función para aplicar los filtros
   function applyFilters() {
+    // Obtén los valores seleccionados de los elementos select
     const filters = filterSelectors.map(({ selector, property }) => ({
       property,
       value: container.querySelector(selector).value,
     }));
-
+  
+    // Realiza el filtrado de datos
     let filteredData = [...data];
     filters.forEach(({ property, value }) => {
       if (value) {
         filteredData = filterData(filteredData, property, value);
-        //console.log(filteredData);
-        cardsContainer.innerHTML = "";
-        cardsContainer.appendChild(renderItems(filteredData));
       }
     });
-
-        /////EventListener para el select de ordenar/////
-    const sortSelect = container.querySelector('[data-testid="select-sort"]');
-    sortSelect.addEventListener("change", () => {
-      sortConfig.sortOrder = sortSelect.value === "asc" ? "asc" : "desc";
-      applyFilters();
-      cardsContainer.innerHTML = "";
-      filteredData = sortData(data, sortConfig);
-      cardsContainer.appendChild(renderItems(filteredData));
-    });
-
-    const btnClear = container.querySelector("#button-clear");
-    btnClear.addEventListener("click", function () {
-      resetFilters();
-      renderCardsContainer(data);
-    });
-
-    function resetFilters() {
-      filterSelectors.forEach(({ selector }) => {
-        container.querySelector(selector).value = "";
-      });
-    }
-
-    function renderCardsContainer() {
-      cardsContainer.innerHTML = "";
-      const resultList = renderItems(data);
-      cardsContainer.appendChild(resultList);
-    }
+  
+    // Limpia la lista antes de renderizar
+    dataList.innerHTML = "";
+  
+    // Renderiza los datos filtrados
+    dataList.appendChild(renderItems(filteredData));
+  
+    // Realiza el ordenamiento de datos
+    sortName = container.querySelector('[data-testid="select-sort"]');
+    const sortOrder = sortName.value;
+    result = sortData(filteredData, { sortBy: "name", sortOrder });
+  
+    // Renderiza los datos filtrados y ordenados
+    renderDataList();
   }
-
-  //Estadísticas
+  
+  // Ordenamiento descendente y ascendente
+  sortName = container.querySelector('[data-testid="select-sort"]');
+  sortName.addEventListener("change", () => {
+    applyFilters(); // Actualiza la lista al cambiar el ordenamiento
+  });
+  
+  function renderDataList() { // Función para renderizar la lista con los datos actuales
+    dataList.innerHTML = "";
+    const resultList = renderItems(result);
+    dataList.appendChild(resultList);
+  }
+  
+ //Estadísticas
   // EventListener para el botón de estadísticas
   const btnStats = container.querySelector("#button-facts");
   btnStats.addEventListener("click", function () {
@@ -153,7 +155,6 @@ export const BtnContainer = () => {
     if (statsContainer) {
       // Limpiar contenido anterior
       statsContainer.innerHTML = '';
-
       // Mostrar las estadísticas en el contenedor
       statsContainer.appendChild(renderStatsElement(stats));
     }
@@ -166,7 +167,6 @@ export const BtnContainer = () => {
       statsElement.appendChild(renderStatsCategory('📶 Cantidad de escritoras por nacionalidad', stats.countries));
       // Agregar estadísticas de géneros
       statsElement.appendChild(renderStatsCategory('📶 Cantidad de escritoras por género literario', stats.genres));
-
       return statsElement;  // Agrega esta línea para devolver el elemento
     }
 
