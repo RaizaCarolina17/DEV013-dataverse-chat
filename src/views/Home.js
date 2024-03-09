@@ -1,6 +1,6 @@
 
 import { header } from "../components/header.js";
-import { BtnContainer } from "../components/BtnContainer.js";
+import { menu } from "../Components/menu.js";
 import { renderItems } from "../components/renderItems.js"; 
 import data from './../data/dataset.js';
 import { footer } from "../components/footer.js";
@@ -20,8 +20,8 @@ export const home = () => {
   const headerElement = header();
   homeView.appendChild(headerElement);
 
-  const BtnContainerElement = BtnContainer();
-  homeView.appendChild(BtnContainerElement);
+  const menuElement = menu();
+  homeView.appendChild(menuElement);
  
   const footerElement = footer();
   homeView.appendChild(footerElement);

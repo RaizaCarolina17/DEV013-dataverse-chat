@@ -1,10 +1,10 @@
 import { filterData, sortData, computeStats } from "../lib/dataFunctions.js";
-import data from './../data/dataset.js';
-import { renderItems } from "../components/renderItems.js";
+import data from '../data/dataset.js';
+import { renderItems } from "./renderItems.js";
 
-export const BtnContainer = () => {
+export const menu = () => {
   const container = document.createElement("div");
-  container.id = "BtnContainer";
+  container.id = "menu";
   container.innerHTML = `
     <h4>
       <div id="containerSelects" class="form-container">
@@ -137,7 +137,7 @@ export const BtnContainer = () => {
   // EventListener para el botón de estadísticas
   const btnStats = container.querySelector("#button-facts");
   btnStats.addEventListener("click", function () {
-    //console.log('ok stats');
+    console.log('ok stats');
     try {
       const stats = computeStats(data);
       renderStats(stats);
