@@ -71,15 +71,15 @@ export const menu = () => {
     selectElement.addEventListener("change", () => applyFilters());
     //selectElement.addEventListener("change", applyFilters);
   });
-  
+
   // EventListener para el botón de limpiar
   const btnClear = container.querySelector("#button-clear");
   btnClear.addEventListener("click", function () {
     // Limpia los filtros y renderiza los datos originales
     resetFilters();
     renderItems(data);
-    });
-  
+  });
+
   // Función para restablecer los filtros
   function resetFilters() {// Recorre los selectores y establece sus valores en vacío
     filterSelectors.forEach(({ selector }) => {
@@ -89,7 +89,7 @@ export const menu = () => {
     result = sortData(data, "name", "asc");
     renderDataList();
   }
-  
+
   // Función para aplicar los filtros
   function applyFilters() {
     // Obtén los valores seleccionados de los elementos select
@@ -97,7 +97,7 @@ export const menu = () => {
       property,
       value: container.querySelector(selector).value,
     }));
-  
+
     // Realiza el filtrado de datos
     let filteredData = [...data];
     filters.forEach(({ property, value }) => {
@@ -105,44 +105,44 @@ export const menu = () => {
         filteredData = filterData(filteredData, property, value);
       }
     });
-  
+
     // Limpia la lista antes de renderizar
     dataList.innerHTML = "";
-  
+
     // Renderiza los datos filtrados
     dataList.appendChild(renderItems(filteredData));
-  
+
     // Realiza el ordenamiento de datos
     sortName = container.querySelector('[data-testid="select-sort"]');
     const sortOrder = sortName.value;
     result = sortData(filteredData, { sortBy: "name", sortOrder });
-  
+
     // Renderiza los datos filtrados y ordenados
     renderDataList();
   }
-  
+
   // Ordenamiento descendente y ascendente
   sortName = container.querySelector('[data-testid="select-sort"]');
   sortName.addEventListener("change", () => {
     applyFilters(); // Actualiza la lista al cambiar el ordenamiento
   });
-  
+
   function renderDataList() { // Función para renderizar la lista con los datos actuales
     dataList.innerHTML = "";
     const resultList = renderItems(result);
     dataList.appendChild(resultList);
   }
-  
- //Estadísticas
+
+  //Estadísticas
   // EventListener para el botón de estadísticas
   const btnStats = container.querySelector("#button-facts");
   btnStats.addEventListener("click", function () {
-    console.log('ok stats');
+    //console.log('ok stats');
     try {
       const stats = computeStats(data);
       renderStats(stats);
     } catch (error) {
-      console.error("Error al calcular estadísticas:", error);
+      //console.error("Error al calcular estadísticas:", error);
     }
   });
 

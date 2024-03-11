@@ -12,7 +12,7 @@ export const renderItems = (data) => {
         <dd itemprop="name">${data.name}</dd><br>
         <dd itemprop="DescripciónC"> ${data.shortDescription}</dd><br>
         <dt> Nacionalidad:</dt><dd itemprop="country">${data.facts.countryNacimiento}</dd>
-       <dt>Género literario:</dt><dd itemprop="genero">${data.facts.mainField}</dd> <br>
+        <dt>Género literario:</dt><dd itemprop="genero">${data.facts.mainField}</dd> <br>
 
       <button class="btn-chat" id="button-chat"> CHAT</button>
         `;

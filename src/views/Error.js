@@ -9,18 +9,18 @@ import { notFound } from "../components/notFound.js";
     return p
  };*/
 
- export const error = () => {
-    const errorView = document.createElement("div");
-    errorView.className = "viewComponent";
-  
-    const headerElement = header();
-    errorView.appendChild(headerElement);
+export const error = () => {
+  const errorView = document.createElement("div");
+  errorView.className = "viewComponent";
 
-    const notFoundElement = notFound(); 
-    errorView.appendChild(notFoundElement);
-     
-    const footerElement = footer();
-    errorView.appendChild(footerElement);
-  
-    return errorView;
-  };
+  const headerElement = header();
+  errorView.appendChild(headerElement);
+
+  const notFoundElement = notFound();
+  errorView.appendChild(notFoundElement);
+
+  const footerElement = footer();
+  errorView.appendChild(footerElement);
+
+  return errorView;
+};
