@@ -1,10 +1,10 @@
 
 import { header } from "../components/header.js";
-import { BtnContainer } from "../components/BtnContainer.js";
-import { renderItems } from "../components/renderItems.js"; 
-import data from './../data/dataset.js';
+import { menu } from "../Components/menu.js";
+//import { renderItems } from "../components/renderItems.js"; 
+//import data from './../data/dataset.js';
 import { footer } from "../components/footer.js";
-import { filterData, sortData, computeStats, computeCountryStats, computeGenreStats } from "../lib/dataFunctions.js";
+//import { filterData, sortData, computeStats, computeCountryStats, computeGenreStats } from "../lib/dataFunctions.js";
 
 
 /*export const home = () => {
@@ -20,12 +20,9 @@ export const home = () => {
   const headerElement = header();
   homeView.appendChild(headerElement);
 
-  const BtnContainerElement = BtnContainer();
-  homeView.appendChild(BtnContainerElement);
- 
-  /*const RenderItemsElement = renderItems(data); 
-  homeView.appendChild(RenderItemsElement);*/
-  
+  const menuElement = menu();
+  homeView.appendChild(menuElement);
+
   const footerElement = footer();
   homeView.appendChild(footerElement);
 

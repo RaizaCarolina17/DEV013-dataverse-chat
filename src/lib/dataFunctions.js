@@ -28,7 +28,7 @@ export const sortData = (data, sortConfig) => {
 };
   
 // Funcion para ordenar asc y desc junto con los filtros de género y países
-const valorOrdenar = (item, sortBy) => {
+export const valorOrdenar = (item, sortBy) => {
   switch (sortBy) {
   case "mainField":
     return item.facts[sortBy];
