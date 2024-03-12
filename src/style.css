@@ -19,9 +19,10 @@ HEAD header {
   flex-wrap: wrap;
 }
 
-#modalApiKey {
+#modalApiKey,
+#modalApiKeyIndividual {
   background-color: #f9f6f0;
-  width: 35%;
+  width: 30%;
   height: 4%;
   flex-direction: column;
   flex-wrap: wrap;

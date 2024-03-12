@@ -3,22 +3,7 @@ import { createBtnChat } from "../components/ButtonChat.js";
 export const renderItems = (data) => {
 
   const list = document.createElement("ul");
-
-  // Crear el diálogo y agregarlo al DOM
-  const modalApiKeyIndividual = document.createElement("dialog");
-  modalApiKeyIndividual.id = "modalApiKeyIndividual";
-  modalApiKeyIndividual.innerHTML = `
-  <div class="modalApiKey" id="modalApiKey">
-    <div id="sendKey"></div>
-    <input type="text" id="ApiKey" name="ApiKey" placeholder ="Ingresa tu API KEY" />
-    <button data-testid="button-send" id="button-send">Enviar</button>
-    <button data-testid="button-back-home" id="button-back-home">Regresar</button>
-  </div>
-`;
-  document.body.appendChild(modalApiKeyIndividual);
-
   data.forEach(data => {
-
     const itemList = document.createElement("li");
     const itemContainer = document.createElement("dl");
     itemList.classList.add("card");
@@ -42,11 +27,6 @@ export const renderItems = (data) => {
     //console.log("Botón CHAT clickeado");
     //});
     itemContainer.appendChild(btnChat);
-    btnChat.addEventListener('click', () => {
-      const modalApiKeyIndividual = document.getElementById('modalApiKeyIndividual');
-      modalApiKeyIndividual.showModal();
-    })
-
     itemList.appendChild(itemContainer);
     list.appendChild(itemList);
 
