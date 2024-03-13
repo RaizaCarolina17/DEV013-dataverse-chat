@@ -23,15 +23,9 @@ export const renderItems = (data) => {
 
     // Agregar el botón a cada card
     const btnChat = createBtnChat();
-    //btnChat.addEventListener("click", () => {
-    //console.log("Botón CHAT clickeado");
-    //});
     itemContainer.appendChild(btnChat);
     itemList.appendChild(itemContainer);
     list.appendChild(itemList);
-
-
-
   });
 
 

@@ -22,16 +22,21 @@ HEAD header {
 #modalApiKey,
 #modalApiKeyIndividual {
   background-color: #f9f6f0;
-  width: 30%;
+  width: 25%;
   height: 4%;
   flex-direction: column;
   flex-wrap: wrap;
   display: flex;
+  border-radius: 15px;
+  border:0;
  }
 
-#ApiKey{
-  margin-right: 4%;
+ #ApiKey {
+  border: 0;
+  outline: none;
 }
+
+
 
 #root {
   max-width: 100%;
@@ -81,7 +86,7 @@ select {
   padding: 1%;
   margin-bottom: 2%;
   margin-top: 1%;
-  border: 1% #ccc;
+  border:0;
   border-radius: 10%;
   font-family: 'Marcellus', serif;
   display: flex;
@@ -105,6 +110,7 @@ select {
   width: auto;
   margin-left: 4%;
   cursor: pointer;
+  border:0;
   border-radius: 20%;
 }
 
@@ -112,7 +118,6 @@ select {
 #button-send {
   margin-left: 15%;
 }
-
 
 #button-chatIndividual{
   align-items: center;
@@ -141,7 +146,6 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
-
 
 
 .card img {
@@ -247,6 +251,7 @@ footer {
 #statsDialog {
   background-color: #f1e3c9;
   padding: 1px;
+  border:0;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
