@@ -11,12 +11,12 @@ export const notFound = () => {
   `;
   
   // Agregar evento de clic al botón "Ir a Inicio"
-  const goHomeButton = notFoundElement.querySelector("#goHome");
+  /*const goHomeButton = notFoundElement.querySelector("#goHome");
   goHomeButton.addEventListener("click", () => {
   console.log("Botón Ir a Inicio clickeado");
   console.log("Navegando a /Home.js");
   navigateTo("/Home.js"); // Ajusta la ruta según sea necesario
-  });
+  }); */
 
   return notFoundElement;
 };

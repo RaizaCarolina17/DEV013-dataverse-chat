@@ -157,7 +157,6 @@ export const menu = () => {
 
   // Función para renderizar las estadísticas en el contenedor
   function renderStats(stats) {
-    // Obtener la referencia al contenedor de estadísticas por su id
     const statsContainer = container.querySelector('#stats-container');
 
     // Verificar si el contenedor de estadísticas existe
@@ -197,9 +196,7 @@ export const menu = () => {
 
     // Abrir pantalla emergente
     const statsDialog = container.querySelector('#statsDialog');
-    btnStats.addEventListener('click', () => {
       statsDialog.showModal();
-    });
 
     // Cierra el modal
     const closeButton = document.getElementById('button-close');

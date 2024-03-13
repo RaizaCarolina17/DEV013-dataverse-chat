@@ -19,17 +19,20 @@ HEAD header {
   flex-wrap: wrap;
 }
 
-#modalApiKey {
-  padding: 20px;
-  max-width: 400px;
-  background-color: #f1e3c9;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+#modalApiKey,
+#modalApiKeyIndividual {
+  background-color: #f9f6f0;
+  width: 30%;
+  height: 4%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  display: flex;
  }
 
 #ApiKey{
-  align-content: center;
+  margin-right: 4%;
 }
+
 
 #root {
   max-width: 100%;
@@ -49,15 +52,9 @@ h1 {
   text-align: center;
   font-family: 'Marcellus', serif;
   color: #332D40;
-  margin-bottom: -3%;
+  margin-bottom: 2%;
 }
 
-h1 .error{
-  text-align: center;
-    font-family: 'Marcellus', serif;
-    color: #332D40;
-    margin-bottom: 3%;
-}
 
 .form-container {
   max-width: 100%;
@@ -105,7 +102,7 @@ select {
 
 #button-back-home,
 #button-send {
-  margin-left: 15%;
+  display: flex;
 }
 
 #button-chatIndividual{
