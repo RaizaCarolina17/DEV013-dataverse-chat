@@ -49,6 +49,15 @@ export const menu = () => {
       </div>
     </h4>
 
+    <dialog id="modalApiKey">
+          <div class="modalApiKey" id="modalApiKey">
+            <div id="sendKey"></div>
+            <input type="text" id="ApiKey" name="ApiKey" placeholder ="Ingresa tu API KEY" />
+            <button data-testid="button-send" id="button-send">Enviar</button>
+            <button data-testid="button-back-home" id="button-back-home">Regresar</button>
+          </div>
+        </dialog>
+   
     <div id="cardsContainer"> </div>
   `;
 
@@ -209,6 +218,23 @@ export const menu = () => {
       statsDialog.close();
     }
   }
+
+  const buttonChatGroup = container.querySelector('#button-chatGroup');
+  const modalApiKey = container.querySelector('#modalApiKey');
+
+  modalApiKey.style.display = 'none';
+  buttonChatGroup.addEventListener('click', () => {
+    //console.log("botón chat funciona")
+    modalApiKey.style.display = 'block';
+    modalApiKey.showModal();
+  });
+
+  const buttonBackHome = container.querySelector('#button-back-home');
+  buttonBackHome.addEventListener('click', () => {
+    //console.log("Botón regresar funciona");
+    modalApiKey.style.display = 'none';
+    modalApiKey.close();
+  })
 
   return container;
 };
