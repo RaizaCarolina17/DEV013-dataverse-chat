@@ -32,11 +32,12 @@ export const ApiModal = () => {
 
     // Event listener para cerrar el modal al hacer clic en el botón "Regresar"
     buttonBackHome.addEventListener("click", () => {
-        console.log("Botón 'Regresar' clickeado"); // Agrega este console.log para depurar
+        //console.log("Botón 'Regresar' clickeado"); // Agrega este console.log para depurar
+        modalApi.style.display = 'none';
         modalApi.close();
     });
 
-    console.log("Modal agregado al DOM"); // Agrega este console.log para depurar
+    //console.log("Modal agregado al DOM"); // Agrega este console.log para depurar
 
     return modalApi;
 };

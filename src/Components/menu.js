@@ -67,22 +67,7 @@ buttonChatGroup.addEventListener("click", () => {
   const apiModal = ApiModal(); // Crear una instancia del modal
   document.body.appendChild(apiModal); // Agregar el modal al cuerpo del documento
   apiModal.showModal(); // Mostrar el modal
-
-  // EventListener para cerrar el modal al hacer clic en el botón "Regresar"
-  const buttonBackHome = apiModal.querySelector('#button-back-home');
-  buttonBackHome.addEventListener('click', () => {
-    apiModal.close(); // Cerrar el modal
-  });
 });
-
-// Cerrar el modal al hacer clic en el botón "Regresar"
-document.addEventListener("click", function(event) {
-  if (event.target.id === "button-back-home") {
-    const modalApi = document.getElementById("modalApiKey");
-    modalApi.close(); // Cerrar el modal si se hizo clic en el botón "Regresar"
-  }
-});
-
 
   // Selecciona los elementos select
   const filterSelectors = [
