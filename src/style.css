@@ -62,16 +62,6 @@ HEAD header {
   align-content: center;
 }
 
-.modalApiKey button#button-send {
-  background-color: #332D40;
-  color:white;
-  align-items: center;
-}
-
-.modalApiKey button#button-back-home {
-  background-color: #332D40;
-  color: white;
-}
 
 
 #root {
@@ -140,11 +130,6 @@ select {
   border-radius: 20%;
 }
 
-#button-back-home,
-#button-send {
-  display: flex;
-}
-
 #button-chatIndividual{
   align-items: center;
   margin-left: 65%;
@@ -173,21 +158,6 @@ select {
   margin-right: auto;
 }
 
- #button-close{
-  font-family: 'Marcellus', serif;
-  font-weight: bold;
-  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
-  background-color: #332D40;
-  color: #f8edda;
-  display: flex;
-  text-align: center;
-  width: auto;
-  cursor:pointer;
-  border-radius: 20%;  
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 #notFound {
   align-items: center;
