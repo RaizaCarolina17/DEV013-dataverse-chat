@@ -1,5 +1,5 @@
 export const ApiModal = () => {
-    //Creación del modal//
+    // Creación del modal
     const modalApi = document.createElement("dialog");
     modalApi.id = "modalApiKey";
     modalApi.classList.add("modal");
@@ -9,35 +9,34 @@ export const ApiModal = () => {
 
     modalContent.innerHTML = `
         <div id="sendKey"></div>
+        <h4>Te invitamos a crear una Api Key para que puedas chatear con las escritoras</h4>
         <input type="text" id="ApiKey" name="ApiKey" placeholder="Ingresa tu API KEY" />
         <button data-testid="button-send" id="button-send">Enviar</button>
         <button data-testid="button-back-home" id="button-back-home">Regresar</button>
     `;
 
-    modalApi.appendChild(modalContent); // Usar modalApi en lugar de modalElement
+    modalApi.appendChild(modalContent);
 
     // Obtener referencia a los botones dentro del modal
-    const buttonSend = modalContent.getElementById("button-send");
-    const buttonBackHome = modalContent.getElementById("button-back-home");
+    const buttonSend = modalContent.querySelector("#button-send");
+    const buttonBackHome = modalContent.querySelector("#button-back-home");
 
-    // Event listener para abrir el modal al hacer clic en el botón "CHAT GRUPAL"
+    // Event listener para abrir el modal al hacer clic en el botón "Enviar"
     buttonSend.addEventListener("click", () => {
+        const apiKeyInput = modalContent.querySelector("#ApiKey");
+        const apiKey = apiKeyInput.value;
+        // Aquí puedes realizar la acción correspondiente con la API Key ingresada
+        console.log("API Key ingresada:", apiKey);
         modalApi.close(); // Cerrar el modal después de enviar
     });
 
     // Event listener para cerrar el modal al hacer clic en el botón "Regresar"
     buttonBackHome.addEventListener("click", () => {
+        console.log("Botón 'Regresar' clickeado"); // Agrega este console.log para depurar
         modalApi.close();
     });
 
-    document.addEventListener('showModalIndividual', () => {
-        const modalApiKeyIndividual = document.getElementById('modalApiKeyIndividual');
-        if (modalApiKeyIndividual) {
-            modalApiKeyIndividual.showModal();
-        } else {
-            console.error('El modal con ID modalApiKeyIndividual no se encontró en el DOM.');
-        }
-    });
+    console.log("Modal agregado al DOM"); // Agrega este console.log para depurar
 
     return modalApi;
 };

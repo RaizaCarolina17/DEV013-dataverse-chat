@@ -1,6 +1,8 @@
 import { filterData, sortData, computeStats } from "../lib/dataFunctions.js";
 import data from '../data/dataset.js';
 import { renderItems } from "./renderItems.js";
+import { ApiModal } from "./ApiModal.js";
+
 
 export const menu = () => {
   const container = document.createElement("div");
@@ -49,14 +51,7 @@ export const menu = () => {
       </div>
     </h4>
 
-    <dialog id="modalApiKey">
-          <div class="modalApiKey" id="modalApiKey">
-            <div id="sendKey"></div>
-            <input type="text" id="ApiKey" name="ApiKey" placeholder ="Ingresa tu API KEY" />
-            <button data-testid="button-send" id="button-send">Enviar</button>
-            <button data-testid="button-back-home" id="button-back-home">Regresar</button>
-          </div>
-        </dialog>
+    
    
     <div id="cardsContainer"> </div>
   `;
@@ -64,6 +59,30 @@ export const menu = () => {
   const dataList = container.querySelector("#cardsContainer");
   let result = data;
   dataList.appendChild(renderItems(data));
+
+  /////MODAL API KEY/////
+  // EventListener para el botón de chat grupal
+const buttonChatGroup = container.querySelector('#button-chatGroup');
+buttonChatGroup.addEventListener("click", () => {
+  const apiModal = ApiModal(); // Crear una instancia del modal
+  document.body.appendChild(apiModal); // Agregar el modal al cuerpo del documento
+  apiModal.showModal(); // Mostrar el modal
+
+  // EventListener para cerrar el modal al hacer clic en el botón "Regresar"
+  const buttonBackHome = apiModal.querySelector('#button-back-home');
+  buttonBackHome.addEventListener('click', () => {
+    apiModal.close(); // Cerrar el modal
+  });
+});
+
+// Cerrar el modal al hacer clic en el botón "Regresar"
+document.addEventListener("click", function(event) {
+  if (event.target.id === "button-back-home") {
+    const modalApi = document.getElementById("modalApiKey");
+    modalApi.close(); // Cerrar el modal si se hizo clic en el botón "Regresar"
+  }
+});
+
 
   // Selecciona los elementos select
   const filterSelectors = [
@@ -216,7 +235,37 @@ export const menu = () => {
     }
   }
 
+  //Modal de ApiKey//
+
+  /*function handleOpenApiModal(apiModal) {
+    console.log("Se hizo clic en el botón 'CHAT GRUPAL'");
+    
+    apiModal.showModal(); // Mostrar el modal
+    
+    // EventListener para cerrar el modal al hacer clic en el botón "Regresar"
+    const buttonBackHome = apiModal.querySelector('#button-back-home');
+    buttonBackHome.addEventListener('click', () => {
+        apiModal.close(); // Cerrar el modal
+    });
+  }
+  
+  // EventListener para el botón de chat grupal
   const buttonChatGroup = container.querySelector('#button-chatGroup');
+  buttonChatGroup.addEventListener("click", () => {
+    const apiModal = ApiModal(); // Crear una instancia del modal
+    document.body.appendChild(apiModal); // Agregar el modal al cuerpo del documento
+    handleOpenApiModal(apiModal); // Manejar el modal
+  });
+  
+  // Código para cerrar el modal al hacer clic en el botón "Regresar"
+  document.addEventListener("click", function(event) {
+      if (event.target.id === "button-back-home") {
+          const modalApi = document.getElementById("modalApiKey");
+          modalApi.close(); // Cerrar el modal si se hizo clic en el botón "Regresar"
+      }
+  });
+
+  /*const buttonChatGroup = container.querySelector('#button-chatGroup');
   const modalApiKey = container.querySelector('#modalApiKey');
 
   modalApiKey.style.display = 'none';
@@ -231,7 +280,7 @@ export const menu = () => {
     //console.log("Botón regresar funciona");
     modalApiKey.style.display = 'none';
     modalApiKey.close();
-  })
+  })*/
 
   return container;
 };
