@@ -1,6 +1,7 @@
 import { filterData, sortData, computeStats } from "../lib/dataFunctions.js";
 import data from '../data/dataset.js';
 import { renderItems } from "./renderItems.js";
+import { ApiModal } from "./ApiModal.js"
 
 export const menu = () => {
   const container = document.createElement("div");
@@ -48,16 +49,7 @@ export const menu = () => {
         <button class="btn-chat" id="button-chatGroup"> CHAT GRUPAL</button>
       </div>
     </h4>
-
-    <dialog id="modalApiKey">
-          <div class="modalApiKey" id="modalApiKey">
-            <div id="sendKey"></div>
-            <input type="text" id="ApiKey" name="ApiKey" placeholder ="Ingresa tu API KEY" />
-            <button data-testid="button-send" id="button-send">Enviar</button>
-            <button data-testid="button-back-home" id="button-back-home">Regresar</button>
-          </div>
-        </dialog>
-   
+  
     <div id="cardsContainer"> </div>
   `;
 
@@ -197,7 +189,7 @@ export const menu = () => {
     // Abrir pantalla emergente
     const statsDialog = container.querySelector('#statsDialog');
     statsDialog.showModal();
-    
+
     // Cierra el modal
     const closeButton = document.getElementById('button-close');
     closeButton.addEventListener('click', () => {
@@ -216,22 +208,14 @@ export const menu = () => {
     }
   }
 
+  /////MODAL API KEY/////
+  // EventListener para el botón de chat grupal
   const buttonChatGroup = container.querySelector('#button-chatGroup');
-  const modalApiKey = container.querySelector('#modalApiKey');
-
-  modalApiKey.style.display = 'none';
-  buttonChatGroup.addEventListener('click', () => {
-    //console.log("botón chat funciona")
-    modalApiKey.style.display = 'block';
-    modalApiKey.showModal();
+  buttonChatGroup.addEventListener("click", () => {
+    const apiModal = ApiModal();
+    document.body.appendChild(apiModal);
+    apiModal.showModal();
   });
-
-  const buttonBackHome = container.querySelector('#button-back-home');
-  buttonBackHome.addEventListener('click', () => {
-    //console.log("Botón regresar funciona");
-    modalApiKey.style.display = 'none';
-    modalApiKey.close();
-  })
 
   return container;
 };

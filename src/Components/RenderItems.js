@@ -21,7 +21,7 @@ export const renderItems = (data) => {
     itemList.setAttribute("itemtype", "https://schema.org/Person");
     list.setAttribute("itemtype", "https://schema.org/Person");
 
-    // Agregar el botón a cada card
+    // Agrega el botón a cada card
     const btnChat = createBtnChat();
     itemContainer.appendChild(btnChat);
     itemList.appendChild(itemContainer);
