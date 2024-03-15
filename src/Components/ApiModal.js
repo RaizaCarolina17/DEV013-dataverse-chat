@@ -15,12 +15,11 @@ export const ApiModal = () => {
   //const buttonSend = modalContent.querySelector("#button-send");
   const buttonBackHome = modalApiKey.querySelector("#button-back-home");
 
-  /*// Event listener para abrir el modal al hacer clic en el botón "Enviar"
-  buttonSend.addEventListener("click", () => {
+
+  /*buttonSend.addEventListener("click", () => {
     const apiKeyInput = modalContent.querySelector("#ApiKey");
     const apiKey = apiKeyInput.value;
-    // Aquí puedes realizar la acción correspondiente con la API Key ingresada
-    modalApiKey.close(); // Cerrar el modal después de enviar
+    modalApiKey.close(); 
   });*/
 
   buttonBackHome.addEventListener("click", () => {
