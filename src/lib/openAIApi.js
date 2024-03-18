@@ -1,6 +1,5 @@
 // Importa la función para obtener la API KEY desde apiKey.js
 import { getApiKey } from './apiKey.js';
-import axios from 'axios';
 
 const apiKey = getApiKey();
 

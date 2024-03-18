@@ -269,7 +269,7 @@ footer {
   border-right: 1px solid #ccc;
 }
 
-.column-right {
+.chat {
   flex: 2;
   padding: 100px;
   border-right: 1px solid #ccc;
