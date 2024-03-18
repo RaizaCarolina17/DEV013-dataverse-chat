@@ -12,15 +12,20 @@ export const ApiModal = () => {
     `;
   modalApiKey.appendChild(modalContent);
 
-  //const buttonSend = modalContent.querySelector("#button-send");
+  const buttonSendChat = modalApiKey.querySelector("#button-send");
   const buttonBackHome = modalApiKey.querySelector("#button-back-home");
 
 
-  /*buttonSend.addEventListener("click", () => {
-    const apiKeyInput = modalContent.querySelector("#ApiKey");
-    const apiKey = apiKeyInput.value;
-    modalApiKey.close(); 
-  });*/
+  buttonSendChat.addEventListener("click", () => {
+    console.log("enviar funciona");
+    //const apiKeyInput = modalContent.querySelector("#ApiKey");
+    //const apiKey = apiKeyInput.value;
+    //if (apiKey) {
+    //return window.location.href = "escritoras";
+  }
+    //modalApiKey.close(); 
+    //}
+  );
 
   buttonBackHome.addEventListener("click", () => {
     //console.log ("regresar funcionando");

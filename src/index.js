@@ -14,7 +14,7 @@ const viewContainer = document.getElementById("root");
 const routes = {
   "/": { component: home, title: "Escritoras | Home" },
   "/error": { component: error, title: "Escritoras | NotFound" },
-  "/escritoras": { component: escritoras, title: "Escritoras | Group" },
+  "/escritoras": { component: escritoras, title: "Escritoras | Escritoras" },
   //"/individual": { component: individual, title: "Escritoras | Individual" },
   // "/api": { component: apiConfig, title: "Escritoras | API Configuration" },
 };

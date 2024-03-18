@@ -28,6 +28,5 @@ export const renderItems = (data) => {
     list.appendChild(itemList);
   });
 
-
   return list;
 };

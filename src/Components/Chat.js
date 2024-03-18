@@ -1,6 +1,6 @@
 //import data from '../data/dataset.js';
 
-export const chatContainer = () => {
+/*export const chatContainer = () => {
 
   /// Create elements for the chat container
   const divChat = document.createElement("div");
@@ -44,6 +44,6 @@ export const chatContainer = () => {
   divChat.appendChild(writerId);
 
   return divChat;
-};
+};*/
 
 

@@ -1,12 +1,13 @@
 //import { navigateTo } from "../router.js";
-//import { header } from "../Components/Header.js";
-//mport { footer } from "../components/footer.js";
+//import { communicateWithOpenAI } from "./../lib/openAIApi.js";
 import data from "../data/dataset.js";
+
 
 export const individual = () => {
   //console.log(data);
 
   // Crear el contenedor principal
+  //const writerFilter = data.filter(data => data.name === data.name);
   const individualView = document.createElement('div');
   const individualChat = document.createElement("main");
   individualChat.innerHTML = `
@@ -18,13 +19,14 @@ export const individual = () => {
     </div>
 
      <div class="column-right">
-     <button id ="buttonBackHomeChat">Regresar</button>
+     <button id ="buttonBackHomeChat">Regresar</button><br>
       <div class="chat-header">
-      <p>Chateando con:</p>
       </div>
 
-      <div class="chat-bubble-receives">Mensaje de chat</div>
-      <div class="chat-bubble-send">Respuesta del chat</div>
+      <h4 id="userId">Usuaria:</h4>
+      <div class="chat-bubble-receives">Mensaje de usuaria</div>
+      <h4 id="writerId">Escritora:</h4>
+      <div class="chat-bubble-send">Mensaje escritora</div>
       
 
       <div class="chat-input">
@@ -35,11 +37,11 @@ export const individual = () => {
   </div>
 `;
   individualView.appendChild(individualChat);
-
-
-  // Agregar el footer al final
-  //const footerElement = footer();
-  //individualView.appendChild(footerElement);
+  const buttonBackHomeChat = individualChat.querySelector("#buttonBackHomeChat");
+  buttonBackHomeChat.addEventListener("click", () => {
+    //console.log("botón regresar funciona");
+    window.location.href = "index.html";
+  });
 
   return individualView;
 };
