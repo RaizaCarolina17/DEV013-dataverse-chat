@@ -7,16 +7,14 @@ export const notFound = () => {
     <h1 class="error">ERROR 404</h1>  
     <h3>Lo sentimos, la página que buscas no existe</h3>
     <img class="error-image" src="./data/img/escritora.png"> <br>
-    <button id="goHome">Ir a Inicio</button> <br>
+    <button id="button-goHome" onclick="navigateTo('/Home.js')">Regresar</button> <br>
   `;
   
-  // Agregar evento de clic al botón "Ir a Inicio"
-  /*const goHomeButton = notFoundElement.querySelector("#goHome");
-  goHomeButton.addEventListener("click", () => {
-  console.log("Botón Ir a Inicio clickeado");
-  console.log("Navegando a /Home.js");
-  navigateTo("/Home.js"); // Ajusta la ruta según sea necesario
-  }); */
+  const buttonGoHome = notFoundElement.querySelector("#button-goHome");
+  buttonGoHome.addEventListener("click", () => {
+    window.location.href = "index.html";
+  });
+
 
   return notFoundElement;
 };

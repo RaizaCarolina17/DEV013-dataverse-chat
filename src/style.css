@@ -66,7 +66,6 @@ HEAD header {
   max-width: 100%;
   margin: 2% auto;
   margin-top: -1%;
-  display: flex;
   padding-bottom: 40px;
 }
 
@@ -315,21 +314,14 @@ footer {
 
 /*Estilo para chat individual */
 
-/*body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+.container-chat-ind {
   display: flex;
+  border-radius: 40px 40px 40px 40px;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-} */
-
-.container {
-  display: flex;
-  width: 100%;
-  margin: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  margin: auto;
+  margin-bottom: 30px;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -342,6 +334,13 @@ footer {
   flex: 2;
   padding: 100px;
   border-right: 1px solid #ccc;
+  border-radius: 0 40px 40px 0;
+}
+
+.img-back {
+  width: 20px;
+  background: transparent;
+  box-shadow: none;
 }
 
 .column:first-child {
@@ -370,14 +369,14 @@ img {
 }
 
 .chat-bubble-receives {
-  background-color: #D36D25;
+  background-color: #f3e8e0;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
   max-width: 70%;
 }
 .chat-bubble-send {
-  background-color: #FBE5B9;
+  background-color: #F3E9D4;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
@@ -399,13 +398,18 @@ img {
 }
 
 .chat-input button {
-  margin-left: 10px;
-  padding: 8px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+  font-family: 'Marcellus', serif;
+  font-weight: bold;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+  background-color: #332D40;
+  color: #f8edda;
+  display: flex;
+  text-align: center;
+  width: auto;
+  margin-left: 4%;
   cursor: pointer;
+  border:0;
+  border-radius: 10%;
 }
 
 @media (max-width: 450px) {
