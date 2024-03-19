@@ -14,13 +14,15 @@ export const renderItems = (data) => {
         <dd itemprop="DescripciónC"> ${data.shortDescription}</dd><br>
         <dt> Nacionalidad:</dt><dd itemprop="country">${data.facts.countryNacimiento}</dd>
         <dt>Género literario:</dt><dd itemprop="genero">${data.facts.mainField}</dd> <br>
-     `;
+        `;
 
+     
     itemContainer.setAttribute("itemscope", "");
     itemContainer.setAttribute("itemtype", "escritoras");
     itemList.setAttribute("itemtype", "https://schema.org/Person");
     list.setAttribute("itemtype", "https://schema.org/Person");
-
+    
+    
     // Agregar el botón a cada card
     const btnChat = createBtnChat();
     itemContainer.appendChild(btnChat);
