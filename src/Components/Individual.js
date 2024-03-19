@@ -12,32 +12,31 @@ export const individual = (element) => {
   const individualChat = document.createElement("main");
   individualChat.innerHTML = `
 
-    <div class="container">
-
-      <div class="credentialWriter">
-        <div class="writer-img">
-          <img src="${writer.imageUrl}" alt="${writer.name}"/>
-        </div>
-        <div class="description-writer">
-          <p>${writer.description}</p>
-        </div>
-      </div>
-
-      <div class="chat">
-        <button id="buttonBackHomeChat">Salir del Chat</button><br>
-        <div class="chat-header"></div>
-
-        <h4 id="userId">Usuaria:</h4>
-       
-        <h4 id="writerId">${writer.name}:</h4>
-       
-        <div class="chat-input">
-          <textarea id = "userInput" placeholder="Escribe tu mensaje..."></textarea>
-          <button id = "SendButtomChat">Enviar</button>
-        </div>
-      </div>
+  <div class="container">
+  
+<div class="container-chat-ind">
+<div class="column-left">
+  <img src=${writer.imageUrl} alt=${writer.name}/><br>
+  <p>${writer.description}</p>
+</div>
+ <div class="column-right">
+  <div class="chat-header">
+    <a href="#" onclick="backClick()">
+    <img src="./../data/img/back.png" alt="back" class="img-back">
+    </a>
+    <p>Chateando con:</p>
+  </div>
+  <div class="chat">
+    <div class="chat-header"></div>
+    <h4 class="chat-bubble-send" id="userId">Usuaria:</h4>
+    <h4 class="chat-bubble-receives" id="writerId">${writer.name}:</h4>
+    <div class="chat-input">
+      <textarea id = "userInput" placeholder="Escribe tu mensaje..."></textarea>
+      <button id = "SendButtomChat">Enviar</button>
     </div>
-  `;
+  
+</div>
+`;
 
   individualView.appendChild(individualChat);
 
@@ -85,10 +84,10 @@ export const individual = (element) => {
     }
   })
 
-  const buttonBackHomeChat = individualChat.querySelector("#buttonBackHomeChat");
+  /*const buttonBackHomeChat = individualChat.querySelector("#buttonBackHomeChat");
   buttonBackHomeChat.addEventListener("click", () => {
     window.location.href = "index.html";
-  });
+  });*/
 
 
   return individualView;
