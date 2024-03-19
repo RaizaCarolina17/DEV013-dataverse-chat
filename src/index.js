@@ -12,22 +12,26 @@ import {escritoras} from "./views/Escritoras.js";
 const viewContainer = document.getElementById("root");
 
 const routes = {
-  "/": { component: home, title: "Escritoras | Home" },
-  "/error": { component: error, title: "Escritoras | NotFound" },
-  "/escritoras": { component: escritoras, title: "Escritoras | Escritoras" },
+  "/": home,
+  "/error": error,
+  "/escritoras": escritoras,
+  // "/": { component: home, title: "Escritoras | Home" },
+  // "/error": { component: error, title: "Escritoras | NotFound" },
+  // "/escritoras": { component: escritoras, title: "Escritoras | Escritoras" },
   //"/individual": { component: individual, title: "Escritoras | Individual" },
   // "/api": { component: apiConfig, title: "Escritoras | API Configuration" },
 };
+
 
 setRoutes(routes);
 setRootElement(viewContainer);
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  onURLChange(window.location);
+  onURLChange(window.location.pathname);
 });
 
 document.addEventListener("popstate", () => {
-  onURLChange(window.location);
+  onURLChange(window.location.pathname);
 });
 

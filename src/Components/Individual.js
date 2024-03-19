@@ -3,8 +3,10 @@ import { communicateWithOpenAI } from "./../lib/openAIApi.js";
 import data from "../data/dataset.js";
 
 export const individual = (element) => {
+  // console.log(element);
   // Filtrar datos basados en el elemento pasado como argumento
   const writer = data.find(item => item.id === element.id);
+  // console.log(writer);
   // Crear el contenedor principal
   const individualView = document.createElement('div');
   const individualChat = document.createElement("main");

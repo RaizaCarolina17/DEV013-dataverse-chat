@@ -9,14 +9,15 @@ import { individual } from "../Components/Individual.js";
     return p
  };*/
 
-export const escritoras = () => {
+export const escritoras = (element) => {
+  // console.log(element);
   const escritorasView = document.createElement("div");
   escritorasView.className = "viewComponent";
 
   const headerElement = header();
   escritorasView.appendChild(headerElement);
 
-  const IndividualElement = individual();
+  const IndividualElement = individual(element);
   escritorasView.appendChild(IndividualElement);
 
   const footerElement = footer();
