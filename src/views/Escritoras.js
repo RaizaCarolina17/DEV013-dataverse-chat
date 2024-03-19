@@ -16,9 +16,6 @@ export const escritoras = () => {
   const headerElement = header();
   escritorasView.appendChild(headerElement);
 
-  //const chatContainerElement = chatContainer();
-  //escritorasView.appendChild(chatContainerElement);
-
   const IndividualElement = individual();
   escritorasView.appendChild(IndividualElement);
 

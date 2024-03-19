@@ -3,11 +3,10 @@ import { getApiKey } from './apiKey.js';
 
 const apiKey = getApiKey();
 
-
 export const communicateWithOpenAI = async (writerMessages, userMessages) => {
   //Aquí es donde debes implementar la petición con fetch o axios
   try {
-    const response = await axios({
+    const response = await axios ({
       method: "POST",
       url: "https://api.openai.com/v1/chat/completions",
       headers:

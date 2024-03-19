@@ -182,7 +182,6 @@ export const menu = () => {
         itemElement.textContent = `${item}: ${itemStats}`;
         categoryElement.appendChild(itemElement);
       }
-
       return categoryElement;  // Agrega esta línea para devolver el elemento
     }
 

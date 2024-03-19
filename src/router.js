@@ -14,6 +14,59 @@ export const setRoutes = (newRoutesValue) => {
   }
 };
 
+const queryStringToObject = (queryString) => {
+  const newURL = new URLSearchParams(queryString);
+  const urlToParam = Object.fromEntries(newURL);
+  return urlToParam;
+}
+
+const renderView = (pathname, props = {}) => {
+  const root = rootElement;
+  root.innerHTML = "";
+  if (ROUTES[pathname]) {
+    const template = ROUTES[pathname](props);
+    root.appendChild(template);
+  } else {
+    root.appendChild(ROUTES["/error"]());
+  }
+};
+
+export const navigateTo = (pathname, props = {}) => {
+  document.title = pathname;
+  history.pushState({}, "", pathname);
+  const splitPathname = pathname.split("?");
+  props = splitPathname[1];
+  pathname = splitPathname[0];
+  const objectProps = queryStringToObject(props);
+  renderView(pathname, objectProps);
+};
+
+
+export const onURLChange = (location) => {
+  const searchObject = queryStringToObject(window.location.search);
+  if (searchObject) {
+    renderView(location, searchObject);
+  }
+  renderView(location);
+};
+
+
+/*let ROUTES = {};
+let rootElement = "";
+
+export const setRootElement = (newRootElementValue) => {
+  rootElement = newRootElementValue;
+  window.addEventListener('popstate', () => {
+    onURLChange(new URL(window.location.href));
+  });
+};
+
+export const setRoutes = (newRoutesValue) => {
+  if (typeof newRoutesValue === "object") {
+    ROUTES = newRoutesValue;
+  }
+};
+
 const renderView = (pathname, props = {}) => {
   const root = rootElement;
   root.innerHTML = "";
@@ -56,4 +109,4 @@ export const onURLChange = (URL) => {
   }
 
   renderView(pathname, props);
-};
+};*/
