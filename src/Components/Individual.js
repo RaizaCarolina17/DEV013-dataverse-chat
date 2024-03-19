@@ -1,13 +1,12 @@
-/*import { navigateTo } from "../router.js";
+import { navigateTo } from "../router.js";
 import { communicateWithOpenAI } from "./../lib/openAIApi.js";
 import data from "../data/dataset.js";
 
-
-export const individual = (data) => {
-  // console.log (element);
+export const individual = (element) => {
+  // console.log(element);
   // Filtrar datos basados en el elemento pasado como argumento
-  const writerFilter = data.find(item => item.id === element.id);
-  //console.log (writer);
+  const writer = data.find(item => item.id === element.id);
+  // console.log(writer);
   // Crear el contenedor principal
   const individualView = document.createElement('div');
   const individualChat = document.createElement("main");
@@ -17,10 +16,10 @@ export const individual = (data) => {
 
       <div class="credentialWriter">
         <div class="writer-img">
-          <img src="${writerFilter.imageUrl}" alt="${writerFilter.name}"/>
+          <img src="${writer.imageUrl}" alt="${writer.name}"/>
         </div>
         <div class="description-writer">
-          <p>${writerFilter.description}</p>
+          <p>${writer.description}</p>
         </div>
       </div>
 
@@ -30,7 +29,7 @@ export const individual = (data) => {
 
         <h4 id="userId">Usuaria:</h4>
        
-        <h4 id="writerId">${writerFilter.name}:</h4>
+        <h4 id="writerId">${writer.name}:</h4>
        
         <div class="chat-input">
           <textarea id = "userInput" placeholder="Escribe tu mensaje..."></textarea>
@@ -58,13 +57,13 @@ export const individual = (data) => {
     const message = document.createElement("div");
     message.className = "system-txt-container"
 
-    const openAiResponse = await communicateWithOpenAI(writerFilter[0].description, userInputValue);
+    const openAiResponse = await communicateWithOpenAI(writer[0].description, userInputValue);
 
     if (openAiResponse.data.choices[0].message.content === "error") {
       navigateTo("/error");
     } else {
       message.innerHTML = `
-        <img src=${writerFilter[0].imageUrl} alt=${writerFilter[0].name}>
+        <img src=${writer[0].imageUrl} alt=${writer[0].name}>
         <div class="system-txt">${openAiResponse.data.choices[0].message.content}</div>
     `
     }
@@ -90,6 +89,40 @@ export const individual = (data) => {
   buttonBackHomeChat.addEventListener("click", () => {
     window.location.href = "index.html";
   });
+
+
+  return individualView;
+}
+
+/*//import { navigateTo } from "../router.js";
+//import { communicateWithOpenAI } from "./../lib/openAIApi.js";
+import data from '../data/dataset.js';
+
+export const individual = (element) => {
+  // Encuentra la escritora por su ID
+  const writer = data.filter(item => item.id === element.id);
+
+  // Crear el contenedor principal
+  const individualView = document.createElement('div');
+  const individualChat = document.createElement("main");
+  individualChat.innerHTML = `
+    <div class="container">
+      <div class="credentialWriter">
+        <div class="writer-img">
+          <img src="${writer.imageUrl}" alt="${writer.name}">
+        </div>
+        <div class="description-writer">
+          <p>${writer.description}</p>
+        </div>
+      </div>
+      <div class="chat-container">
+        <textarea id="userInput" placeholder="Escribe tu mensaje..."></textarea>
+        <button id="SendButtomChat">Enviar</button>
+      </div>
+    </div>
+  `;
+
+  individualView.appendChild(individualChat);
 
   return individualView;
 };*/

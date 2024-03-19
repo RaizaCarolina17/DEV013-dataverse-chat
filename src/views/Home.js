@@ -1,4 +1,3 @@
-
 import { header } from "../components/header.js";
 import { menu } from "../Components/menu.js";
 //import { renderItems } from "../components/renderItems.js"; 

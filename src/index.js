@@ -3,7 +3,8 @@
 import { onURLChange, setRootElement, setRoutes } from "./router.js";
 import { home } from "./views/Home.js";
 import { error } from "./views/Error.js";
-import {individual} from "./views/Individual.js";
+import {escritoras} from "./views/Escritoras.js";
+//import {individual} from "./views/individual.js";
 //import { filterData, sortData, computeStats } from '../lib/dataFunctions.js';
 //import { renderItems } from "../components/renderItems.js";
 //import data from '../data/dataset.js';
@@ -11,21 +12,25 @@ import {individual} from "./views/Individual.js";
 const viewContainer = document.getElementById("root");
 
 const routes = {
-  "/": { component: home, title: "Escritoras | Home" },
-  "/error": { component: error, title: "Escritoras | NotFound" },
-  // "/group": { component: group, title: "Escritoras | Group" },
-   "/individual": { component: individual, title: "Escritoras | Individual" },
+  "/": home,
+  "/error": error,
+  "/escritoras": escritoras,
+  // "/": { component: home, title: "Escritoras | Home" },
+  // "/error": { component: error, title: "Escritoras | NotFound" },
+  // "/escritoras": { component: escritoras, title: "Escritoras | Escritoras" },
+  //"/individual": { component: individual, title: "Escritoras | Individual" },
   // "/api": { component: apiConfig, title: "Escritoras | API Configuration" },
 };
+
 
 setRoutes(routes);
 setRootElement(viewContainer);
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  onURLChange(window.location);
+  onURLChange(window.location.pathname);
 });
 
 document.addEventListener("popstate", () => {
-  onURLChange(window.location);
+  onURLChange(window.location.pathname);
 });
