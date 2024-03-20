@@ -1,4 +1,8 @@
-export const ApiModal = () => {
+/*import { navigateTo } from "../router.js";
+import { getApiKey } from "../lib/apiKey.js";
+
+export const ApiModal = (element) => {
+  console.log(element)
   const modalApiKey = document.createElement("dialog");
   modalApiKey.id = "modalApiKey";
   const modalContent = document.createElement("div");
@@ -15,17 +19,19 @@ export const ApiModal = () => {
   const buttonSendChat = modalApiKey.querySelector("#button-send");
   const buttonBackHome = modalApiKey.querySelector("#button-back-home");
 
-
   buttonSendChat.addEventListener("click", () => {
-    //console.log("enviar funciona");
-    //const apiKeyInput = modalContent.querySelector("#ApiKey");
-    //const apiKey = apiKeyInput.value;
-    //if (apiKey) {
-    //return window.location.href = "escritoras";
+    console.log("enviar funciona");
+    const apiModal = ApiModal();
+    document.body.appendChild(apiModal);
+    apiModal.showModal();
   }
-    //modalApiKey.close(); 
-    //}
   );
+
+  if (getApiKey()) {
+    navigateTo(`/escritoras?id=${element.id}`, element);
+  } else {
+    navigateTo("/error", {});
+  }
 
   buttonBackHome.addEventListener("click", () => {
     //console.log ("regresar funcionando");
@@ -33,4 +39,4 @@ export const ApiModal = () => {
     modalApiKey.close();
   });
   return modalApiKey;
-};
+};*/
