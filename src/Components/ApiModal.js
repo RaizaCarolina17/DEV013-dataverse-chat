@@ -23,12 +23,15 @@ export const ApiModal = () => {
 
     // Event listener para abrir el modal al hacer clic en el botón "Enviar"
     buttonSend.addEventListener("click", () => {
-        const apiKeyInput = modalContent.querySelector("#ApiKey");
-        const apiKey = apiKeyInput.value;
-        // Aquí puedes realizar la acción correspondiente con la API Key ingresada
-        console.log("API Key ingresada:", apiKey);
-        modalApi.close(); // Cerrar el modal después de enviar
-    });
+        //console.log("enviar funciona");
+    //const apiKeyInput = modalContent.querySelector("#ApiKey");
+    //const apiKey = apiKeyInput.value;
+    //if (apiKey) {
+    //return window.location.href = "escritoras";
+  }
+  //modalApiKey.close(); 
+  //}
+);
 
     // Event listener para cerrar el modal al hacer clic en el botón "Regresar"
     buttonBackHome.addEventListener("click", () => {
