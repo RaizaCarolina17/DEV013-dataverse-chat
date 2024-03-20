@@ -46,7 +46,7 @@ HEAD header {
 body {
   font-family: 'Marcellus', serif;
   background-color: #fdfbf9;
-  margin:0;
+  margin: 0;
 }
 
 h1 {
@@ -99,6 +99,7 @@ select {
 #button-send,
 #buttonBackHomeChat {
   font-family: 'Marcellus', serif;
+  font-size: 16px;
   font-weight: bold;
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
   background-color: #332D40;
@@ -230,7 +231,8 @@ dd {
 }
 
 footer {
-  background-color: #f5eee4;;
+  background-color: #f5eee4;
+  ;
   font-family: 'Marcellus', serif;
   color: black;
   text-align: center;
@@ -256,76 +258,79 @@ footer {
 
 /*estilo para el chat*/
 
-.container {
+.container-chat-ind {
   display: flex;
-  width: 100%;
-  margin: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 40px 40px 40px 40px;
+  justify-content: center;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 30px;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 }
 
 .credentialWriter {
-  flex: 1;
+  flex: 45%;
   padding: 20px;
-  border-right: 1px solid #ccc;
+  width: 40%;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 40px 40px 40px 40px;
 }
 
 .chat {
-  flex: 2;
+  flex: 55%;
   padding: 100px;
   border-right: 1px solid #ccc;
+  border-radius: 0 40px 40px 0;
+  width: 30%;
 }
 
-.column:first-child {
+.writer-img {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.column:last-child {
-  padding-left: 20px;
+  max-width: 50%;
+  height: auto;
+  border-radius: 5%;
+  margin-left: 25%;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+  border-radius: 5%;
 }
 
-.chat-bubble-receives {
-  background-color: #f3e8e0;
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 10px;
-  margin-left: 40%;
-  max-width: 70%;
+.nameWriterc {
+  font-size: 20px;
 }
 
-.chat-bubble-send {
-  background-color: #f3e9d4;
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 10px;
-  max-width: 70%;
+.description-writer {
+  text-align: justify;
+  font-size: 14px;
 }
 
 .chat-input {
   display: flex;
   align-items: center;
-  margin-top: 10%;
- 
+  margin-left: -5%;
+  margin-right: 0;
+  width: 100%;
 }
 
-.chat-input textarea {
-  flex: 1;
+#userInput {
+  flex: 80%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: none;
   font-family: 'Marcellus', serif;
+  margin-bottom: -160%;
+  width: 100%;
+  font-size: 16px;
+  margin-left: -10%;
+
 }
 
 .chat-input button {
   font-family: 'Marcellus', serif;
   font-weight: bold;
+  font-size: 16px;
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
   background-color: #332D40;
   color: #f8edda;
@@ -336,10 +341,17 @@ img {
   cursor: pointer;
   border: 0;
   border-radius: 10%;
+  margin-bottom: -160%;
 }
 
-.chat-header {
-  margin-top: 0;
+.messUser,
+.message{
+  background-color: #f3e8e0;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 40%;
+  max-width: 100%;
 }
 
 #buttonBackHomeChat {
@@ -347,14 +359,21 @@ img {
   margin-top: -10%;
 }
 
-#userId{
-  margin-left:40%;
+#userId {
+  margin-left: 40%;
 }
+
+.userName{
+  color: gray;
+  margin-left: 40%;
+}
+
 #userId,
 #writerId {
-font-weight: normal;
-color:gray;
+  font-weight: small;
+  color: gray;
 }
+
 /*media query*/
 @media (max-width: 450px) {
   header {

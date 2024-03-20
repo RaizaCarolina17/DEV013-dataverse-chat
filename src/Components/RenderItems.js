@@ -32,7 +32,7 @@ export const renderItems = (data) => {
     itemList.addEventListener("click", () => {
       //console.log("funciona")
       //if (getApiKey()) {
-        // console.log(element);
+      // console.log(element);
       // const prueba = {...element}
       // console.log(prueba);
       navigateTo(`/escritoras?id=${element.id}`, element);

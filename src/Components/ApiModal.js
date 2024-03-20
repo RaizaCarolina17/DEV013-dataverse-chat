@@ -17,7 +17,7 @@ export const ApiModal = () => {
 
 
   buttonSendChat.addEventListener("click", () => {
-    console.log("enviar funciona");
+    //console.log("enviar funciona");
     //const apiKeyInput = modalContent.querySelector("#ApiKey");
     //const apiKey = apiKeyInput.value;
     //if (apiKey) {

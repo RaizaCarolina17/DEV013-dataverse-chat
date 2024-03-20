@@ -13,7 +13,7 @@ export const escritoras = (element) => {
   // console.log(element);
   const escritorasView = document.createElement("div");
   escritorasView.className = "viewComponent";
-
+  
   const headerElement = header();
   escritorasView.appendChild(headerElement);
 

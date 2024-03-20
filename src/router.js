@@ -19,7 +19,7 @@ export const queryStringToObject = (queryString) => {
 };
 
 const renderView = (pathname, props = {}) => {
-  console.log(ROUTES);
+  //console.log(ROUTES);
   const root = rootElement;
   root.innerHTML = "";
   if (ROUTES[pathname]) {
