@@ -1,34 +1,25 @@
 // Importa la función para obtener la API KEY desde apiKey.js
-/*import { getApiKey } from './apiKey.js';
+import { getApiKey } from './apiKey.js';
 
-const apiKey = getApiKey();
-
-
-export const communicateWithOpenAI = async (writerMessages, userMessages) => {
-  //Aquí es donde debes implementar la petición con fetch o axios
-  try {
-    const response = await axios({
-      method: "POST",
-      url: "https://api.openai.com/v1/chat/completions",
-      headers:
-      {
-        Authorization: "Bearer " + apiKey,
-      },
-      data: {
-        messages: [{
-          role: "system",
-          content: `Grandes escritoras, ${writerMessages} Manten tus respuestas concretas`,
-        },
-        {
-          role: "user",
-          content: userMessages
-        }],
-        model: "gpt-3.5-turbo",
-      }
+export const communicateWithOpenAI = async (prompt) => {
+  const resp = await fetch('https://api.openai.com/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + getApiKey()
+    },
+    body: JSON.stringify({
+      model: 'gpt-3.5-turbo',
+      messages: [
+        { "role": "user", "content": prompt }
+      ]
     })
-    return response;
+  });
+
+  if (!resp.ok) {
+    throw new Error('Error de comunicación con la API');
   }
-  catch (error) {
-    return "error"
-  }
-};*/
+
+  const responseSystem = await resp.json();
+  return responseSystem;
+};

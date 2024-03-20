@@ -1,4 +1,4 @@
-export const ApiModal = () => {
+/*export const ApiModal = (element) => {
     // Creación del modal
     const modalApi = document.createElement("dialog");
     modalApi.id = "modalApiKey";
@@ -43,4 +43,4 @@ export const ApiModal = () => {
     //console.log("Modal agregado al DOM"); // Agrega este console.log para depurar
 
     return modalApi;
-};
+};*/

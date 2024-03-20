@@ -35,13 +35,11 @@ export const individual = (element) => {
       
     </div>
 
-    <div class  = "container-Buttoms-chat">
-     <button id="buttonBackHomeChat">Regresar</button>
+    <div class="container-Buttoms-chat">
      <button id="buttonchatGrupal">Chat grupal</button>
+     <button id="buttonBackHomeChat">Regresar</button>
     </div>
-
-  
-   
+ 
   `;
 
   individualView.appendChild(individualChat);
