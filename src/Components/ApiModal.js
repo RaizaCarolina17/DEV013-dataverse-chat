@@ -7,7 +7,7 @@ export const ApiModal = () => {
         <div id="sendKey"></div>
         <input type="text" id="ApiKey" name="ApiKey" placeholder="Ingresa tu API KEY" />
         <button data-testid="button-send" id="button-send">Enviar</button>
-        <button data-testid="button-back-home" id="button-back-home">Regresar</button>
+        <button data-testid="button-back-home" id="button-back-home">Cerrar</button>
       </div>
     `;
   modalApiKey.appendChild(modalContent);

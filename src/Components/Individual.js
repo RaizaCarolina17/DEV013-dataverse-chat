@@ -13,28 +13,35 @@ export const individual = (element) => {
   individualChat.innerHTML = `
 
     <div class="container-chat-ind">
-
+    
       <div class="credentialWriter">
         <div class="writer-img">
           <img src="${writer.imageUrl}"/>
         </div>
         <div class="nameWriter"> 
-       <h1 class= "nameWriterc">${writer.name}</h1>
-      </div>
+         <h1 class= "nameWriterc">${writer.name}</h1>
+        </div>
         <div class="description-writer">
           <p>${writer.description}</p>
         </div>
       </div>
 
       <div class="chat">
-
-        <button id="buttonBackHomeChat">Salir</button><br>           
         <div class="chat-input">
           <textarea id = "userInput" placeholder="Escribe tu mensaje..."></textarea>
           <button id = "SendButtomChat">Enviar</button>
         </div>
-
+      </div>
+      
     </div>
+
+    <div class  = "container-Buttoms-chat">
+     <button id="buttonBackHomeChat">Regresar</button>
+     <button id="buttonchatGrupal">Chat grupal</button>
+    </div>
+
+  
+   
   `;
 
   individualView.appendChild(individualChat);
@@ -58,7 +65,7 @@ export const individual = (element) => {
     const newMessTxt = newMess.value;
     const chat = individualChat.querySelector(".chat");
 
-    if (newMessTxt !== 0) {
+    if (newMessTxt !== "") {
 
       const userNameContainer = document.createElement("div");
       userNameContainer.className = "userNameContainer";

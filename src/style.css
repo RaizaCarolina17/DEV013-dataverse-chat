@@ -97,7 +97,8 @@ select {
 #button-goHome,
 #button-back-home,
 #button-send,
-#buttonBackHomeChat {
+#buttonBackHomeChat,
+#buttonchatGrupal {
   font-family: 'Marcellus', serif;
   font-size: 16px;
   font-weight: bold;
@@ -113,7 +114,7 @@ select {
   border-radius: 10%;
 }
 
-#button-back-home,
+
 #button-send {
   margin-left: 15%;
 }
@@ -268,19 +269,23 @@ footer {
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 }
 
+.container-Buttoms-chat{
+  flex-direction:row;
+}
+
 .credentialWriter {
-  flex: 45%;
+  flex: 30%;
   padding: 20px;
   width: 40%;
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 40px 40px 40px 40px;
+  border-radius: 50px 50px 50px 50px;
 }
 
 .chat {
-  flex: 55%;
+  flex: 60%;
   padding: 100px;
   border-right: 1px solid #ccc;
-  border-radius: 0 40px 40px 0;
+  border-radius: 0 20px 20px 0;
   width: 30%;
 }
 
@@ -320,11 +325,11 @@ img {
   border-radius: 4px;
   resize: none;
   font-family: 'Marcellus', serif;
-  margin-bottom: -160%;
+  margin-bottom: -140%;
   width: 100%;
   font-size: 16px;
   margin-left: -10%;
-
+  text-align: justify;
 }
 
 .chat-input button {
@@ -337,11 +342,11 @@ img {
   display: flex;
   text-align: center;
   width: auto;
-  margin-left: 4%;
+  margin-left: 3% ;
   cursor: pointer;
   border: 0;
   border-radius: 10%;
-  margin-bottom: -160%;
+  margin-bottom: -140%;
 }
 
 .messUser,
@@ -352,11 +357,6 @@ img {
   margin-bottom: 10px;
   margin-left: 40%;
   max-width: 100%;
-}
-
-#buttonBackHomeChat {
-  margin-left: 90%;
-  margin-top: -10%;
 }
 
 #userId {
@@ -374,6 +374,23 @@ img {
   color: gray;
 }
 
+
+.container-Buttoms-chat{
+justify-content: center;
+display: flex;
+}
+
+#buttonBackHomeChat  {
+  margin-left: 10%;
+  margin-bottom: 4%;
+}
+
+#buttonchatGrupal{
+  margin-left: 5%;
+  margin-bottom: 4%;
+}
+
+
 /*media query*/
 @media (max-width: 450px) {
   header {
@@ -383,7 +400,6 @@ img {
   .home {
     height: auto;
   }
-
 
   #root {
     margin-top: 0;
@@ -421,4 +437,53 @@ img {
   img {
     width: 100%;
   }
+}
+/*media query. Vista Chat*/
+@media (max-width: 450px) {
+  .container-chat-ind {
+    flex-direction: column;
+    align-items: center;
+   }
+
+      .credentialWriter {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .description-writer {
+    display: none; 
+  }
+
+  .chat {
+    width: 90%;
+  }
+
+  .chat-input {
+   
+    width: 100%;
+  }
+  
+  #userInput {
+    flex: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    font-family: 'Marcellus', serif;
+    margin-bottom: -160%;
+    width: 100%;
+    font-size: 16px;
+    margin-left: 10%;
+    text-align: justify;
+    margin-bottom: -20%;
+  }
+
+  #buttonBackHomeChat {
+    margin-bottom: 1%;
+  }
+
+  .chat-input button {
+    margin-bottom: -20%;
+  }
+
 }
