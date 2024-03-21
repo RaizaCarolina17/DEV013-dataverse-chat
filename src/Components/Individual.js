@@ -69,7 +69,7 @@ export const individual = (element) => {
       newMess.value = "";
 
       //llamada a OpenAi
-      communicateWithOpenAI(newMessTxt)
+      communicateWithOpenAI(newMessTxt,writer)
         .then(response => {
           const systemMessage = document.createElement("div");
           systemMessage.className = "systemMessage";

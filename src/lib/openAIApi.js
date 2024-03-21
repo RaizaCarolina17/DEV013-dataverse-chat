@@ -1,11 +1,6 @@
-// Importa la función para obtener la API KEY desde apiKey.js
-//import { getApiKey } from './apiKey.js';
-//import data from "../data/dataset";
-
-export const communicateWithOpenAI = async (prompt) => {
- 
-
-  const systemMessages = "";
+export const communicateWithOpenAI = async (prompt, writer) => {
+  //console.log(writer)
+  
 
   const resp = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
@@ -16,13 +11,20 @@ export const communicateWithOpenAI = async (prompt) => {
     body: JSON.stringify({
       model: 'gpt-3.5-turbo',
       messages: [
-        { role: "system", content: `Eres una escritora famosa, ${systemMessages}` },
-        { role: "user", content: prompt }
+        {
+          role: "system",
+          content: `Comportate como esta escritora,
+           ${writer.description}`
+        },
+        {
+          role: "user",
+          content: prompt
+        }
       ]
     })
   });
 
   const responseSystem = await resp.json();
-  console.log(responseSystem);
+  //console.log(responseSystem);
   return responseSystem;
 };

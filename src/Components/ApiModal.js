@@ -3,7 +3,7 @@ import { navigateTo } from "../router.js";
 
 
 export const ApiModal = (element) => {
-  console.log(element)
+  //console.log(element)
   const modalApiKey = document.createElement("dialog");
   modalApiKey.id = "modalApiKey";
   const modalContent = document.createElement("div");
@@ -30,6 +30,7 @@ export const ApiModal = (element) => {
       alert("Ingrese una clave válida")
     } else {
       navigateTo(`/escritoras?id=${element.id}`, element);
+      modalApiKey.style.display = 'none';
       modalApiKey.close();
     }
   }
