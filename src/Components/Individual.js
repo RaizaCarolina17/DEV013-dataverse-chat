@@ -1,5 +1,5 @@
 //import { navigateTo } from "../router.js";
-//import { communicateWithOpenAI } from "./../lib/openAIApi.js";
+import { communicateWithOpenAI } from "./../lib/openAIApi.js";
 import data from "../data/dataset.js";
 
 export const individual = (element) => {
@@ -44,20 +44,6 @@ export const individual = (element) => {
 
   individualView.appendChild(individualChat);
 
-  const SendButtomChat = individualChat.querySelector("#SendButtomChat");
-  SendButtomChat.addEventListener("click", () => {
-    console.log("el botón enviar funciona")
-    messageUser();
-  })
-
-  const userInput = individualChat.querySelector("#userInput");
-  userInput.addEventListener("keydown", (event) => {
-    console.log("el input funciona")
-    if (event.key === 'Enter') {
-      messageUser();
-    }
-  })
-
   function messageUser() {
     const newMess = individualChat.querySelector("#userInput");
     const newMessTxt = newMess.value;
@@ -81,12 +67,35 @@ export const individual = (element) => {
       containernewMess.appendChild(viewMess);
       chat.appendChild(containernewMess);
       newMess.value = "";
+
+      //llamada a OpenAi
+      communicateWithOpenAI(newMessTxt,writer)
+        .then(response => {
+          const systemMessage = document.createElement("div");
+          systemMessage.className = "systemMessage";
+          systemMessage.innerHTML = response.choices[0].message.content;
+          console.log(systemMessage);
+          chat.appendChild(systemMessage);
+        })
+        .catch(error =>{
+          console.error("error al comunicarse con la IA", error)
+        });
     }
   }
 
-  const messageSystem = document.createElement("div");
-  messageSystem.className = "message-system"
+  const SendButtomChat = individualChat.querySelector("#SendButtomChat");
+  SendButtomChat.addEventListener("click", () => {
+    console.log("el botón enviar funciona")
+    messageUser();
+  })
 
+  const userInput = individualChat.querySelector("#userInput");
+  userInput.addEventListener("keydown", (event) => {
+    console.log("el input funciona")
+    if (event.key === 'Enter') {
+      messageUser();
+    }
+  })
 
   const buttonBackHomeChat = individualChat.querySelector("#buttonBackHomeChat");
   buttonBackHomeChat.addEventListener("click", () => {
