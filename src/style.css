@@ -20,11 +20,8 @@ HEAD header {
 }
 
 #modalApiKey {
+  width: 40%;
   background-color: #f9f6f0;
-  width: 25%;
-  height: 5%;
-  flex-direction: column;
-  flex-wrap: wrap;
   display: flex;
   border-radius: 10px;
   border: 0;
@@ -233,7 +230,6 @@ dd {
 
 footer {
   background-color: #f5eee4;
-  ;
   font-family: 'Marcellus', serif;
   color: black;
   text-align: center;
@@ -246,7 +242,6 @@ footer {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
 }
 
 #statsDialog {
