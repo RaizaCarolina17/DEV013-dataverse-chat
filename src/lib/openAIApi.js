@@ -1,7 +1,9 @@
+import {getApiKey} from "./apiKey.js"
+
 export const communicateWithOpenAI = async (prompt, writer) => {
   //console.log(writer)
-  
-
+  const getApiKey1 = getApiKey();
+ 
   const resp = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -14,7 +16,7 @@ export const communicateWithOpenAI = async (prompt, writer) => {
         {
           role: "system",
           content: `Comportate como esta escritora,
-           ${writer.description}`
+           ${writer.description}, genera respuestas cortas`
         },
         {
           role: "user",

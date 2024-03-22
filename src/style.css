@@ -20,16 +20,20 @@ HEAD header {
 }
 
 #modalApiKey {
-  width: 40%;
-  background-color: #f9f6f0;
+  width: 50%;
+  background-color:  #f5eee4;
   display: flex;
   border-radius: 10px;
   border: 0;
+  height: 5%;
 }
+
 
 #ApiKey {
   border: 0;
   outline: none;
+  width: 80%;
+  font-size: medium;
 }
 
 #root {
@@ -113,7 +117,7 @@ select {
 
 
 #button-send {
-  margin-left: 15%;
+  margin-left: 5%;
 }
 
 #button-chat {
@@ -176,6 +180,7 @@ ul {
   font-family: 'Marcellus', serif;
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
   border-radius: 3%;
+  cursor: pointer;
 }
 
 
@@ -238,11 +243,7 @@ footer {
   margin-bottom: -50%;
 }
 
-.modal-content {
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+
 
 #statsDialog {
   background-color: #f5eee4;
@@ -310,7 +311,7 @@ img {
   align-items: center;
   margin-left: -5%;
   margin-right: 0;
-  width: 100%;
+  width: 110%;
 }
 
 #userInput {
@@ -344,14 +345,32 @@ img {
   margin-bottom: -140%;
 }
 
-.messUser,
-.message{
+.messUser{
   background-color: #f3e8e0;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
-  margin-left: 40%;
   max-width: 100%;
+  margin-left: 10%;
+}
+
+.message{
+  width: 90%;
+}
+
+.nameSystem{
+  margin-left: -10%;
+  color: gray;
+  margin-bottom: 2%;
+}
+
+.systemMessage{
+  background-color: #ede9e6;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  max-width: 100%;
+  margin-left: -10%;
 }
 
 #userId {
@@ -361,6 +380,8 @@ img {
 .userName{
   color: gray;
   margin-left: 40%;
+  margin-left: 10%;
+  margin-bottom: 2%;
 }
 
 #userId,
@@ -457,10 +478,7 @@ display: flex;
     width: 90%;
   }
 
-  .chat-input {
-   
-    width: 100%;
-  }
+ 
   
   #userInput {
     flex: 80%;

@@ -1,14 +1,15 @@
-import { communicateWithOpenAI } from "./../lib/openAIApi.js";
+
+/*import { communicateWithOpenAI } from "./../lib/openAIApi.js";
 import data from "../data/dataset.js";
 
-export const individual = (element) => {
+export const group = (element) => {
   // console.log(element);
   // Filtrar datos basados en el elemento pasado como argumento
   const writer = data.find(item => item.id === element.id);
   // console.log(writer);
-  const individualView = document.createElement('div');
-  const individualChat = document.createElement("main");
-  individualChat.innerHTML = `
+  const groupView = document.createElement('div');
+  const groupChat = document.createElement("main");
+  groupChat.innerHTML = `
 
     <div class="container-chat-ind">
     
@@ -40,12 +41,12 @@ export const individual = (element) => {
 
   `;
 
-  individualView.appendChild(individualChat);
+  groupView.appendChild(groupChat);
 
   function messageUser() {
-    const newMess = individualChat.querySelector("#userInput");
+    const newMess = groupChat.querySelector("#userInput");
     const newMessTxt = newMess.value;
-    const chat = individualChat.querySelector(".chat");
+    const chat = groupChat.querySelector(".chat");
 
     if (newMessTxt !== "") {
 
@@ -86,13 +87,13 @@ export const individual = (element) => {
     }
   }
 
-  const SendButtomChat = individualChat.querySelector("#SendButtomChat");
+  const SendButtomChat = groupChat.querySelector("#SendButtomChat");
   SendButtomChat.addEventListener("click", () => {
     //console.log("el botón enviar funciona")
     messageUser();
   })
 
-  const userInput = individualChat.querySelector("#userInput");
+  const userInput = groupChat.querySelector("#userInput");
   userInput.addEventListener("keydown", (event) => {
     //console.log("el input funciona")
     if (event.key === 'Enter') {
@@ -100,11 +101,11 @@ export const individual = (element) => {
     }
   })
 
-  const buttonBackHomeChat = individualChat.querySelector("#buttonBackHomeChat");
+  const buttonBackHomeChat = groupChat.querySelector("#buttonBackHomeChat");
   buttonBackHomeChat.addEventListener("click", () => {
     window.location.href = "index.html";
   });
 
 
-  return individualView;
-}
+  return groupView;
+}*/

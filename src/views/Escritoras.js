@@ -1,6 +1,5 @@
 import { header } from "../components/header.js";
 import { footer } from "../components/footer.js";
-//import { chatContainer } from "../Components/Chat.js";
 import { individual } from "../Components/Individual.js";
 
 /*export const error = () => {

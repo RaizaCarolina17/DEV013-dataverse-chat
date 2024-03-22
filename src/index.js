@@ -3,11 +3,12 @@
 import { onURLChange, setRootElement, setRoutes } from "./router.js";
 import { home } from "./views/Home.js";
 import { error } from "./views/Error.js";
-import {escritoras} from "./views/Escritoras.js";
+import { escritoras } from "./views/Escritoras.js";
+//import { group } from "./views/ChatGroup.js";
 //import {individual} from "./views/individual.js";
 //import { filterData, sortData, computeStats } from '../lib/dataFunctions.js';
 //import { renderItems } from "../components/renderItems.js";
-//import data from '../data/dataset.js';
+
 
 const viewContainer = document.getElementById("root");
 
@@ -15,13 +16,8 @@ const routes = {
   "/": home,
   "/error": error,
   "/escritoras": escritoras,
-  // "/": { component: home, title: "Escritoras | Home" },
-  // "/error": { component: error, title: "Escritoras | NotFound" },
-  // "/escritoras": { component: escritoras, title: "Escritoras | Escritoras" },
-  //"/individual": { component: individual, title: "Escritoras | Individual" },
-  // "/api": { component: apiConfig, title: "Escritoras | API Configuration" },
+  //"/ChatGroup": group,
 };
-
 
 setRoutes(routes);
 setRootElement(viewContainer);
