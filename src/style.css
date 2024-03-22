@@ -21,7 +21,7 @@ HEAD header {
 
 #modalApiKey {
   width: 50%;
-  background-color:  #f5eee4;
+  background-color: #f5eee4;
   display: flex;
   border-radius: 10px;
   border: 0;
@@ -265,8 +265,8 @@ footer {
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 }
 
-.container-Buttoms-chat{
-  flex-direction:row;
+.container-Buttoms-chat {
+  flex-direction: row;
 }
 
 .credentialWriter {
@@ -338,14 +338,14 @@ img {
   display: flex;
   text-align: center;
   width: auto;
-  margin-left: 3% ;
+  margin-left: 3%;
   cursor: pointer;
   border: 0;
   border-radius: 10%;
   margin-bottom: -140%;
 }
 
-.messUser{
+.messUser {
   background-color: #f3e8e0;
   border-radius: 10px;
   padding: 10px;
@@ -354,17 +354,17 @@ img {
   margin-left: 10%;
 }
 
-.message{
+.message {
   width: 90%;
 }
 
-.nameSystem{
+.nameSystem {
   margin-left: -10%;
   color: gray;
   margin-bottom: 2%;
 }
 
-.systemMessage{
+.systemMessage {
   background-color: #ede9e6;
   border-radius: 10px;
   padding: 10px;
@@ -377,7 +377,7 @@ img {
   margin-left: 40%;
 }
 
-.userName{
+.userName {
   color: gray;
   margin-left: 40%;
   margin-left: 10%;
@@ -391,19 +391,73 @@ img {
 }
 
 
-.container-Buttoms-chat{
-justify-content: center;
-display: flex;
+.container-Buttoms-chat {
+  justify-content: center;
+  display: flex;
 }
 
-#buttonBackHomeChat  {
+#buttonBackHomeChat {
   margin-left: 10%;
   margin-bottom: 4%;
 }
 
-#buttonchatGrupal{
+#buttonchatGrupal {
   margin-left: 5%;
   margin-bottom: 4%;
+}
+
+/*estilo para el chat grupal*/
+
+.containerChatG {
+  display: flex;
+  width: 90%;
+  margin-left: 3%;
+  padding: 20px;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 40px 40px 40px 40px;
+
+}
+
+.credentialWriterG {
+  flex: 35%;
+  padding: 20px;
+  width: 40%;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 50px 50px 50px 50px;
+}
+
+.imgChatGroup{
+  width: 10%;
+  height: auto;
+}
+
+.groupChat {
+  flex: 65%;
+}
+
+.chat-inputG{
+  width: 70%;
+  margin-left: 10%;
+  margin-top: 40%;
+ justify-content: space-around;
+}
+
+.texAreaChatG{
+  width: 80%;
+}
+
+.SendButtomChat{
+  font-family: 'Marcellus', serif;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+  background-color: #332D40;
+  color: #f8edda;
+  cursor: pointer;
+  border: 0;
+  border-radius: 10%;
+  margin-top: 40%;  
+  margin-right: 2%;
 }
 
 
@@ -454,16 +508,17 @@ display: flex;
     width: 100%;
   }
 }
+
 /*media query. Vista Chat*/
 @media (max-width: 450px) {
   .container-chat-ind {
     flex-direction: column;
     align-items: center;
-   }
+  }
 
-   .container-chat-ind {
+  .container-chat-ind {
     width: 90%;
-   }
+  }
 
   .credentialWriter {
     width: 40%;
@@ -471,15 +526,15 @@ display: flex;
   }
 
   .description-writer {
-    display: none; 
+    display: none;
   }
 
   .chat {
     width: 90%;
   }
 
- 
-  
+
+
   #userInput {
     flex: 80%;
     padding: 8px;
@@ -498,6 +553,7 @@ display: flex;
   #buttonBackHomeChat {
     margin-bottom: 1%;
   }
+
   .chat-input button {
     margin-bottom: -20%;
   }

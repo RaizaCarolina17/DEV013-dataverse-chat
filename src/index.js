@@ -4,7 +4,7 @@ import { onURLChange, setRootElement, setRoutes } from "./router.js";
 import { home } from "./views/Home.js";
 import { error } from "./views/Error.js";
 import { escritoras } from "./views/Escritoras.js";
-//import { group } from "./views/ChatGroup.js";
+import { group } from "./views/ChatGroup.js";
 //import {individual} from "./views/individual.js";
 //import { filterData, sortData, computeStats } from '../lib/dataFunctions.js';
 //import { renderItems } from "../components/renderItems.js";
@@ -16,7 +16,7 @@ const routes = {
   "/": home,
   "/error": error,
   "/escritoras": escritoras,
-  //"/ChatGroup": group,
+  "/group": group,
 };
 
 setRoutes(routes);
