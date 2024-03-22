@@ -2,8 +2,9 @@ import { header } from "../components/header.js";
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
 import data from "../data/dataset.js";
 
-export const group = (element) => {
+export const group = () => {
 
+  //const writer = data.find(item => item.id === element.id);
   const groupView = document.createElement("div")
   groupView.className = "groupView"
 
@@ -43,7 +44,7 @@ export const group = (element) => {
   containerChatG.appendChild(groupChat)
   groupView.appendChild(containerChatG);
 
-  function messageUser() {
+  async function messageUser() {
     const newMess = groupChat.querySelector(".texAreaChatG");
     const newMessTxt = newMess.value;
     const chat = groupChat.querySelector(".chat-inputG");
@@ -67,12 +68,11 @@ export const group = (element) => {
       chat.appendChild(containernewMess);
       newMess.value = "";
 
-      const writer = data.find(item => item.id === element.id);
-
       //llamada a openAi
-      communicateWithOpenAI(newMessTxt, writer)
-      console.log(writer)
-        .then(response => {
+
+      for (const writer of data) {
+        try {
+          const response = await communicateWithOpenAI(newMessTxt, writer);
           const nameSystem = document.createElement("div");
           nameSystem.className = "nameSystem";
           nameSystem.innerHTML = `${writer.name}:`;
@@ -82,22 +82,22 @@ export const group = (element) => {
           systemMessage.innerHTML = response.choices[0].message.content;
           chat.appendChild(nameSystem);
           chat.appendChild(systemMessage);
-        })
-        .catch(error => {
-          console.error("error al comunicarse con la IA", error)
-        })
+        } catch (error) {
+          console.error("Error al comunicarse con la IA", error);
+        }
+      }
     }
   }
 
   const SendButtomChat = groupChat.querySelector(".SendButtomChat");
   SendButtomChat.addEventListener("click", () => {
-    console.log("funciona")
+    //console.log("funciona")
     messageUser();
   })
 
   const userInput = groupChat.querySelector(".texAreaChatG");
   userInput.addEventListener("keydown", (event) => {
-    console.log("el input funciona")
+    //console.log("el input funciona")
     if (event.key === 'Enter') {
       messageUser();
     }
@@ -107,9 +107,6 @@ export const group = (element) => {
   buttonBackHomeChat.addEventListener("click", () => {
     window.location.href = "index.html";
   })
-
-
-
 
   return groupView;
 };

@@ -1,7 +1,7 @@
 import { navigateTo } from "../router.js";
 import { setApiKey } from "../lib/apiKey.js";
 
-export const ApiModal = (element) => {
+export const ApiModal = (element, redirecGroup) => {
   //console.log(element)
   const modalApiKey = document.createElement("dialog");
   modalApiKey.id = "modalApiKey";
@@ -23,13 +23,14 @@ export const ApiModal = (element) => {
     const apiKeyValue = modalApiKey.querySelector("#ApiKey").value;
     //console.log(ApiKey)
 
-    if (apiKeyValue === "") {
+    if (apiKeyValue === "" || apiKeyValue.length <= 50 || apiKeyValue.length >= 55 ) {
       alert("Ingrese una clave válida");
       return
     }
 
     setApiKey(apiKeyValue);
     navigateTo(`/escritoras?id=${element.id}`, element);
+    //navigateTo(`/group`);
     modalApiKey.style.display = 'none';
     modalApiKey.close();
   }

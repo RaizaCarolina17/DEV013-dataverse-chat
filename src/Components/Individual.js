@@ -65,6 +65,7 @@ export const individual = (element) => {
       containernewMess.appendChild(viewMess);
       chat.appendChild(containernewMess);
       newMess.value = "";
+      //scroll();
 
       //llamada a OpenAi
       communicateWithOpenAI(newMessTxt, writer)
@@ -79,6 +80,7 @@ export const individual = (element) => {
           //console.log(systemMessage);
           chat.appendChild(nameSystem);
           chat.appendChild(systemMessage);
+          //scroll()
         })
         .catch(error => {
           console.error("error al comunicarse con la IA", error)
@@ -91,6 +93,11 @@ export const individual = (element) => {
     //console.log("el botón enviar funciona")
     messageUser();
   })
+
+  /*function scroll() {
+    const chatcontainer = individualChat.querySelector("#chat");
+    chatcontainer.scrollTop = chatcontainer.scrollHeight - chatcontainer.clientHeight;
+  }*/
 
   const userInput = individualChat.querySelector("#userInput");
   userInput.addEventListener("keydown", (event) => {
