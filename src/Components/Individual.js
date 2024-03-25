@@ -1,71 +1,77 @@
 import { communicateWithOpenAI } from "./../lib/openAIApi.js";
 import data from "../data/dataset.js";
+//import { ApiModal } from "./ApiModal.js";
+import { navigateTo } from "../router.js";
 
 export const individual = (element) => {
   // console.log(element);
   // Filtrar datos basados en el elemento pasado como argumento
   const writer = data.find(item => item.id === element.id);
   // console.log(writer);
-  const individualView = document.createElement('div');
-  const individualChat = document.createElement("main");
-  individualChat.innerHTML = `
 
+  const individualView = document.createElement('div');
+  const individualChat = document.createElement("div");
+
+  individualView.appendChild(individualChat);
+
+  const genMess = document.createElement("div");
+  genMess.className = "genMess";
+
+  individualChat.innerHTML = `
     <div class="container-chat-ind">
-    
       <div class="credentialWriter">
         <div class="writer-img">
           <img src="${writer.imageUrl}"/>
         </div>
         <div class="nameWriter"> 
-         <h1 class= "nameWriterc">${writer.name}</h1>
+          <h1 class="nameWriterc">${writer.name}</h1>
         </div>
         <div class="description-writer">
           <p>${writer.description}</p>
         </div>
       </div>
 
-      <div class="chat">
-        <div class="chat-input">
-          <textarea id = "userInput" placeholder="Escribe tu mensaje..."></textarea>
-          <button id = "SendButtomChat">Enviar</button>
-        </div>
-      </div>
-      
+      <div class="chatI"></div>
     </div>
 
-    <div class  = "container-Buttoms-chat">
-     <button id="buttonchatGrupal">Chat grupal</button>
-     <button id="buttonBackHomeChat">Regresar</button>
+    <div class="container-Buttoms-chat">
+      <button id="buttonchatGrupal">Chat grupal</button>
+      <button id="buttonBackHomeChatI">Regresar</button>
     </div>
-
   `;
 
-  individualView.appendChild(individualChat);
+  const chat = individualChat.querySelector(".chatI");
+  chat.appendChild(genMess);
+
+  const chatInput = document.createElement("div");
+  chatInput.className = "chat-inputI";
+  chatInput.innerHTML = `
+    <textarea id="userInputI" placeholder="Escribe tu mensaje..."></textarea>
+    <button id="SendButtomChatI">Enviar</button>
+  `;
+  chat.appendChild(chatInput);
 
   function messageUser() {
-    const newMess = individualChat.querySelector("#userInput");
+    const newMess = individualChat.querySelector("#userInputI");
     const newMessTxt = newMess.value;
-    const chat = individualChat.querySelector(".chat");
 
     if (newMessTxt !== "") {
-
       const userNameContainer = document.createElement("div");
       userNameContainer.className = "userNameContainer";
       const userName = document.createElement("div");
-      userName.className = "userName";
+      userName.className = "userNameI";
       userName.innerHTML = "Usuaria:";
       userNameContainer.appendChild(userName);
-      chat.appendChild(userName);
+      genMess.appendChild(userName);
 
       const containernewMess = document.createElement("div");
-      containernewMess.className = "messUser";
+      containernewMess.className = "messUserI";
       const viewMess = document.createElement("p");
-      viewMess.className = "message";
+      viewMess.className = "messageI";
       viewMess.innerHTML = newMessTxt;
       containernewMess.appendChild(viewMess);
-      chat.appendChild(containernewMess);
+      genMess.appendChild(containernewMess);
       newMess.value = "";
-      //scroll();
 
       //llamada a OpenAi
       communicateWithOpenAI(newMessTxt, writer)
@@ -77,10 +83,8 @@ export const individual = (element) => {
           const systemMessage = document.createElement("div");
           systemMessage.className = "systemMessage";
           systemMessage.innerHTML = response.choices[0].message.content;
-          //console.log(systemMessage);
-          chat.appendChild(nameSystem);
-          chat.appendChild(systemMessage);
-          //scroll()
+          genMess.appendChild(nameSystem);
+          genMess.appendChild(systemMessage);
         })
         .catch(error => {
           console.error("error al comunicarse con la IA", error)
@@ -88,30 +92,27 @@ export const individual = (element) => {
     }
   }
 
-  const SendButtomChat = individualChat.querySelector("#SendButtomChat");
+  const SendButtomChat = chatInput.querySelector("#SendButtomChatI");
   SendButtomChat.addEventListener("click", () => {
-    //console.log("el botón enviar funciona")
     messageUser();
   })
 
-  /*function scroll() {
-    const chatcontainer = individualChat.querySelector("#chat");
-    chatcontainer.scrollTop = chatcontainer.scrollHeight - chatcontainer.clientHeight;
-  }*/
-
-  const userInput = individualChat.querySelector("#userInput");
+  const userInput = chatInput.querySelector("#userInputI");
   userInput.addEventListener("keydown", (event) => {
-    //console.log("el input funciona")
     if (event.key === 'Enter') {
       messageUser();
     }
   })
 
-  const buttonBackHomeChat = individualChat.querySelector("#buttonBackHomeChat");
+  const buttonBackHomeChat = individualChat.querySelector("#buttonBackHomeChatI");
   buttonBackHomeChat.addEventListener("click", () => {
     window.location.href = "index.html";
   });
 
+  const buttonchatGrupal = individualChat.querySelector("#buttonchatGrupal");
+  buttonchatGrupal.addEventListener("click", () => {
+    navigateTo('/group');
+  })
 
   return individualView;
 }

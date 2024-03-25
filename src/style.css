@@ -16,7 +16,6 @@ HEAD header {
   height: 130px;
   display: flex;
   margin-bottom: 0%;
-  flex-wrap: wrap;
 }
 
 #modalApiKey {
@@ -27,7 +26,6 @@ HEAD header {
   border: 0;
   height: 5%;
 }
-
 
 #ApiKey {
   border: 0;
@@ -99,6 +97,7 @@ select {
 #button-back-home,
 #button-send,
 #buttonBackHomeChat,
+#buttonBackHomeChatI,
 #buttonchatGrupal {
   font-family: 'Marcellus', serif;
   font-size: 16px;
@@ -114,7 +113,6 @@ select {
   border: 0;
   border-radius: 10%;
 }
-
 
 #button-send {
   margin-left: 5%;
@@ -147,7 +145,6 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
-
 
 .card img {
   width: 70%;
@@ -243,8 +240,6 @@ footer {
   margin-bottom: -50%;
 }
 
-
-
 #statsDialog {
   background-color: #f5eee4;
   padding: 1px;
@@ -253,8 +248,7 @@ footer {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/*estilo para el chat*/
-
+/*estilo para el chat individual*/
 .container-chat-ind {
   display: flex;
   border-radius: 40px 40px 40px 40px;
@@ -265,24 +259,12 @@ footer {
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 }
 
-.container-Buttoms-chat {
-  flex-direction: row;
-}
-
 .credentialWriter {
   flex: 30%;
   padding: 20px;
   width: 40%;
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
   border-radius: 50px 50px 50px 50px;
-}
-
-.chat {
-  flex: 60%;
-  padding: 100px;
-  border-right: 1px solid #ccc;
-  border-radius: 0 20px 20px 0;
-  width: 30%;
 }
 
 .writer-img {
@@ -298,64 +280,96 @@ img {
 }
 
 .nameWriterc {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .description-writer {
   text-align: justify;
-  font-size: 14px;
+  font-size: 12px;
 }
 
-.chat-input {
+/* chatI*/
+
+.chatI {
+  flex: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.genMess {
+  margin-left: 10%;
+  height: 15%;
+  flex: 60%;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.chat-inputI {
   display: flex;
   align-items: center;
-  margin-left: -5%;
-  margin-right: 0;
-  width: 110%;
+  width: 40%;
+  height: 10%;
+  margin-left: 5%;
+  position: absolute;
+  flex: 30%;
+  margin-bottom: 2%;
+  display: inline-flex;
 }
 
-#userInput {
-  flex: 80%;
+#userInputI {
+  flex: 90%;
+  flex: 30%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: none;
   font-family: 'Marcellus', serif;
-  margin-bottom: -140%;
+  margin-bottom: -125%;
   width: 100%;
   font-size: 16px;
-  margin-left: -10%;
+  margin-left: 10%;
   text-align: justify;
 }
 
-.chat-input button {
+#SendButtomChatI {
   font-family: 'Marcellus', serif;
-  font-weight: bold;
   font-size: 16px;
+  font-weight: bold;
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
   background-color: #332D40;
   color: #f8edda;
   display: flex;
   text-align: center;
   width: auto;
-  margin-left: 3%;
+  margin-left: 4%;
   cursor: pointer;
   border: 0;
   border-radius: 10%;
-  margin-bottom: -140%;
+  margin-top: 125%;
+
 }
 
-.messUser {
+.container-Buttoms-chat {
+  flex-direction: row;
+}
+
+.userNameI {
+  color: gray;
+  margin-left: 50%;
+  margin-bottom: 2%;
+}
+
+.messUserI {
   background-color: #f3e8e0;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
-  max-width: 100%;
-  margin-left: 10%;
+  max-width: 60%;
+  margin-left: 50%;
 }
 
-.message {
-  width: 90%;
+.messageI {
+  width: 60%;
 }
 
 .nameSystem {
@@ -377,26 +391,18 @@ img {
   margin-left: 40%;
 }
 
-.userName {
-  color: gray;
-  margin-left: 40%;
-  margin-left: 10%;
-  margin-bottom: 2%;
-}
-
 #userId,
 #writerId {
   font-weight: small;
   color: gray;
 }
 
-
 .container-Buttoms-chat {
   justify-content: center;
   display: flex;
 }
 
-#buttonBackHomeChat {
+#buttonBackHomeChatI {
   margin-left: 10%;
   margin-bottom: 4%;
 }
@@ -415,38 +421,81 @@ img {
   padding: 20px;
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
   border-radius: 40px 40px 40px 40px;
-
 }
 
 .credentialWriterG {
-  flex: 35%;
+  flex: 25%;
+  display: flex;
   padding: 20px;
   width: 40%;
-  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
   border-radius: 50px 50px 50px 50px;
+  display: inline-block;
+  overflow: scroll;
+  overflow-x: hidden;
+  max-height: 350px;
 }
 
-.imgChatGroup{
+.imgChatGroup {
   width: 10%;
   height: auto;
+  border-radius: 20px;
+}
+
+.imgChatGroupCont {
+  border: 0, 5%;
+}
+
+.groupChatGlobal {
+  width: 10%;
+  flex: 65%;
+  max-height: 350px;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .groupChat {
-  flex: 65%;
+  height: 80%;
+  justify-content: column-reverse;
 }
 
-.chat-inputG{
-  width: 70%;
+.messUser{
+  background-color: #f3e8e0;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  max-width: 60%;
+  margin-left: 50%;
+}
+
+.chatGlobal {
+  flex: 60%;
+  padding: 100px;
+  border-right: 1px solid #ccc;
+  border-radius: 0 20px 20px 0;
+  max-height: 300px;
+  overflow: scroll;
+  overflow-x: hidden;
+  position: relative;
+  /*flex-direction: column-reverse;*/
+}
+
+.chat-inputG {
+  display: flex;
+  width: 85%;
+  height: 15%;
   margin-left: 10%;
-  margin-top: 40%;
- justify-content: space-around;
+  margin-top: 4%;
+  justify-content: space-around;
+
 }
 
-.texAreaChatG{
+.texAreaChatG {
+  flex: 1;
   width: 80%;
+  font-family: 'Marcellus', serif;
 }
 
-.SendButtomChat{
+.SendButtomChat {
   font-family: 'Marcellus', serif;
   font-size: 16px;
   font-weight: bold;
@@ -456,8 +505,35 @@ img {
   cursor: pointer;
   border: 0;
   border-radius: 10%;
-  margin-top: 40%;  
   margin-right: 2%;
+  margin-left: 2%;
+  margin-bottom: 2%;
+}
+
+.userNameG {
+  color: gray;
+  margin-left: 50%;
+
+}
+
+.nameSystemG {
+  margin-left: 5%;
+  color: gray;
+  margin-top: 1%;
+}
+
+.systemMessageG {
+  background-color: #ede9e6;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.container-Buttoms-chatG {
+  margin-top: 5%;
+  margin-left: 45%;
 }
 
 
@@ -532,8 +608,6 @@ img {
   .chat {
     width: 90%;
   }
-
-
 
   #userInput {
     flex: 80%;

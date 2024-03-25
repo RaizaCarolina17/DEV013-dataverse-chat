@@ -1,7 +1,7 @@
 import { navigateTo } from "../router.js";
 import { setApiKey } from "../lib/apiKey.js";
 
-export const ApiModal = (element, redirecGroup) => {
+export const ApiModal = (redirectUrl) => {
   //console.log(element)
   const modalApiKey = document.createElement("dialog");
   modalApiKey.id = "modalApiKey";
@@ -28,9 +28,11 @@ export const ApiModal = (element, redirecGroup) => {
       return
     }
 
+    
     setApiKey(apiKeyValue);
-    navigateTo(`/escritoras?id=${element.id}`, element);
+    //navigateTo(`/escritoras?id=${element.id}`, element);
     //navigateTo(`/group`);
+    navigateTo(redirectUrl);
     modalApiKey.style.display = 'none';
     modalApiKey.close();
   }
