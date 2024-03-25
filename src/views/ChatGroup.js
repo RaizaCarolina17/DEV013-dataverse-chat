@@ -23,8 +23,13 @@ export const group = () => {
     imgChatGroup.className = "imgChatGroup";
     imgChatGroup.setAttribute("src", writer.imageUrl);
     imgChatGroup.setAttribute("alt", writer.name);
+
+    const nameP = document.createElement("p");
+    nameP.textContent = writer.name;
+
     credentialWriterG.appendChild(imgChatGroupCont);
     imgChatGroupCont.appendChild(imgChatGroup);
+    imgChatGroupCont.appendChild(nameP);
   });
 
   const groupChatGlobal = document.createElement("div");
@@ -50,7 +55,7 @@ export const group = () => {
   async function messageUser() {
     const newMess = groupChatGlobal.querySelector(".texAreaChatG");
     const newMessTxt = newMess.value;
-    //const chat = groupChat.querySelector(".chat-inputG");
+       
 
     if (newMessTxt !== "") {
 

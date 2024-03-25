@@ -291,40 +291,39 @@ img {
 /* chatI*/
 
 .chatI {
-  flex: 60%;
-  display: flex;
+  flex: 65%;
+  width: 10%;
   flex-direction: column;
+  max-height: 350px;
 }
 
+
 .genMess {
-  margin-left: 10%;
-  height: 15%;
-  flex: 60%;
-  flex-direction: column;
-  justify-content: space-around;
+  height: 60%;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .chat-inputI {
   display: flex;
   align-items: center;
-  width: 40%;
-  height: 10%;
+  height: 20%;
   margin-left: 5%;
-  position: absolute;
-  flex: 30%;
-  margin-bottom: 2%;
   display: inline-flex;
+  width: 85%;
+  height: 15%;
+  margin-top: 2%;
+  justify-content: space-around;
 }
 
 #userInputI {
-  flex: 90%;
   flex: 30%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: none;
   font-family: 'Marcellus', serif;
-  margin-bottom: -125%;
+  margin-bottom: -60%;
   width: 100%;
   font-size: 16px;
   margin-left: 10%;
@@ -345,7 +344,7 @@ img {
   cursor: pointer;
   border: 0;
   border-radius: 10%;
-  margin-top: 125%;
+  margin-top: 60%;
 
 }
 
@@ -366,6 +365,7 @@ img {
   margin-bottom: 10px;
   max-width: 60%;
   margin-left: 50%;
+  margin-right: 5%;
 }
 
 .messageI {
@@ -373,7 +373,7 @@ img {
 }
 
 .nameSystem {
-  margin-left: -10%;
+  margin-left: 10%;
   color: gray;
   margin-bottom: 2%;
 }
@@ -384,7 +384,8 @@ img {
   padding: 10px;
   margin-bottom: 10px;
   max-width: 100%;
-  margin-left: -10%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 #userId {
@@ -443,28 +444,30 @@ img {
 
 .imgChatGroupCont {
   border: 0, 5%;
+  display: flex;
+  align-items: center;
 }
 
 .groupChatGlobal {
   width: 10%;
   flex: 65%;
   max-height: 350px;
-  overflow: scroll;
-  overflow-x: hidden;
 }
 
 .groupChat {
   height: 80%;
-  justify-content: column-reverse;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
-.messUser{
+.messUser {
   background-color: #f3e8e0;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
   max-width: 60%;
   margin-left: 50%;
+  margin-right: 5%;
 }
 
 .chatGlobal {
@@ -532,8 +535,9 @@ img {
 }
 
 .container-Buttoms-chatG {
-  margin-top: 5%;
+  margin-top: 4%;
   margin-left: 45%;
+  margin-bottom: 2%;
 }
 
 
@@ -625,7 +629,7 @@ img {
   }
 
   #buttonBackHomeChat {
-    margin-bottom: 1%;
+    margin-bottom: 2%;
   }
 
   .chat-input button {

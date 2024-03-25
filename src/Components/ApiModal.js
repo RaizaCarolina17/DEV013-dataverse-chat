@@ -1,5 +1,5 @@
 import { navigateTo } from "../router.js";
-import { setApiKey } from "../lib/apiKey.js";
+import { setApiKey, removeApiKey } from "../lib/apiKey.js";
 
 export const ApiModal = (redirectUrl) => {
   //console.log(element)
@@ -11,6 +11,7 @@ export const ApiModal = (redirectUrl) => {
         <input type="text" id="ApiKey" name="ApiKey" placeholder="Ingresa tu API KEY" />
         <button data-testid="button-send" id="button-send">Enviar</button>
         <button data-testid="button-back-home" id="button-back-home">Cerrar</button>
+        <button data-testid="button-clear" id="button-clear">Limpiar</button>
     `;
   modalApiKey.appendChild(modalContent);
 
@@ -28,10 +29,7 @@ export const ApiModal = (redirectUrl) => {
       return
     }
 
-    
     setApiKey(apiKeyValue);
-    //navigateTo(`/escritoras?id=${element.id}`, element);
-    //navigateTo(`/group`);
     navigateTo(redirectUrl);
     modalApiKey.style.display = 'none';
     modalApiKey.close();
@@ -43,5 +41,14 @@ export const ApiModal = (redirectUrl) => {
     modalApiKey.style.display = 'none';
     modalApiKey.close();
   });
+
+  const buttonClear = modalApiKey.querySelector("#button-clear")
+  //console.log("funciona");
+  //const apiKey = modalApiKey.querySelector("#ApiKey")
+  buttonClear.addEventListener("click", () =>{
+    removeApiKey();
+    modalApiKey.querySelector("#ApiKey").value = '';
+  })
+
   return modalApiKey;
 };
