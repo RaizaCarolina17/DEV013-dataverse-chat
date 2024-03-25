@@ -1,7 +1,7 @@
 import {getApiKey} from "./apiKey.js"
 
 export const communicateWithOpenAI = async (prompt, writer) => {
-  const getApiKey1 = "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";
+  
   //console.log(writer)
   //const getApiKey1 = getApiKey();
  
