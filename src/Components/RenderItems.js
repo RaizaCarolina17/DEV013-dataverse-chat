@@ -1,5 +1,6 @@
 import { ApiModal } from "./ApiModal.js";
 
+
 export const renderItems = (data) => {
 
   const list = document.createElement("ul");
@@ -16,22 +17,29 @@ export const renderItems = (data) => {
         <dt>Género literario:</dt><dd itemprop="genero">${element.facts.mainField}</dd> <br>
      `;
 
-     itemContainer.setAttribute("itemscope", "");
-     itemContainer.setAttribute("itemtype", "escritoras");
-     itemList.setAttribute("itemtype", "https://schema.org/Person");
-     list.setAttribute("itemtype", "https://schema.org/Person");
- 
-     itemList.appendChild(itemContainer);
-     list.appendChild(itemList);
- 
-     itemList.addEventListener("click", () => {
-       const apiModal = ApiModal(element);
-       document.body.appendChild(apiModal);
-       apiModal.showModal();
-       //console.log("funciona")
-     })
- 
-   });
- 
-   return list;
- };
+    itemContainer.setAttribute("itemscope", "");
+    itemContainer.setAttribute("itemtype", "escritoras");
+    itemList.setAttribute("itemtype", "https://schema.org/Person");
+    list.setAttribute("itemtype", "https://schema.org/Person");
+
+    itemList.appendChild(itemContainer);
+    list.appendChild(itemList);
+
+    /*itemList.addEventListener("click", () => {
+      const apiModal = ApiModal( element );
+      document.body.appendChild(apiModal);
+      apiModal.showModal();
+      //console.log("funciona")
+    })*/
+
+    itemList.addEventListener("click", () => {
+      const redirectUrl = `/escritoras?id=${element.id}`;
+      const apiModal = ApiModal(redirectUrl);
+      document.body.appendChild(apiModal);
+      apiModal.showModal();
+    });
+
+  });
+
+  return list;
+};

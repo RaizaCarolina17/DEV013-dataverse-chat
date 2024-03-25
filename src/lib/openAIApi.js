@@ -1,9 +1,9 @@
 import {getApiKey} from "./apiKey.js"
 
 export const communicateWithOpenAI = async (prompt, writer) => {
-  
   //console.log(writer)
-  //const getApiKey1 = getApiKey();
+  const getApiKey1 = getApiKey();
+  
  
   const resp = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',

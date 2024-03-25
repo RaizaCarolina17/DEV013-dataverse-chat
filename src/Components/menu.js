@@ -1,8 +1,8 @@
 import { filterData, sortData, computeStats } from "../lib/dataFunctions.js";
 import data from '../data/dataset.js';
 import { renderItems } from "./renderItems.js";
-import { navigateTo } from "../router.js";
-//import { ApiModal } from "./ApiModal.js"
+//import { navigateTo } from "../router.js";
+import { ApiModal } from "./ApiModal.js"
 
 export const menu = () => {
   const container = document.createElement("div");
@@ -212,9 +212,11 @@ export const menu = () => {
   // EventListener para el botón de chat grupal
   const buttonChatGroup = container.querySelector('#button-chatGroup');
   buttonChatGroup.addEventListener("click", () => {
-    //const apiModal = ApiModal();
-    //document.body.appendChild(apiModal);
-    //apiModal.showModal();
+    //navigateTo(`/group`);
+    const redirectUrl = `/group`;
+    const apiModal = ApiModal(redirectUrl);
+    document.body.appendChild(apiModal);
+    apiModal.showModal();
   });
 
   return container;
