@@ -1,6 +1,4 @@
-//import { createBtnChat } from "../components/ButtonChat.js";
 import { ApiModal } from "./ApiModal.js";
-//import { getApiKey } from "../lib/apiKey.js";
 
 export const renderItems = (data) => {
 

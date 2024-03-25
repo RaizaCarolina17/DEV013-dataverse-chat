@@ -1,4 +1,3 @@
-//import { navigateTo } from "../router.js";
 import { communicateWithOpenAI } from "./../lib/openAIApi.js";
 import data from "../data/dataset.js";
 
@@ -7,7 +6,6 @@ export const individual = (element) => {
   // Filtrar datos basados en el elemento pasado como argumento
   const writer = data.find(item => item.id === element.id);
   // console.log(writer);
-  // Crear el contenedor principal
   const individualView = document.createElement('div');
   const individualChat = document.createElement("main");
   individualChat.innerHTML = `
@@ -53,7 +51,7 @@ export const individual = (element) => {
 
       const userNameContainer = document.createElement("div");
       userNameContainer.className = "userNameContainer";
-      const userName = document.createElement("p");
+      const userName = document.createElement("div");
       userName.className = "userName";
       userName.innerHTML = "Usuaria:";
       userNameContainer.appendChild(userName);
@@ -69,15 +67,20 @@ export const individual = (element) => {
       newMess.value = "";
 
       //llamada a OpenAi
-      communicateWithOpenAI(newMessTxt,writer)
+      communicateWithOpenAI(newMessTxt, writer)
         .then(response => {
+          const nameSystem = document.createElement("div");
+          nameSystem.className = "nameSystem";
+          nameSystem.innerHTML = `${writer.name}:`;
+
           const systemMessage = document.createElement("div");
           systemMessage.className = "systemMessage";
           systemMessage.innerHTML = response.choices[0].message.content;
-          console.log(systemMessage);
+          //console.log(systemMessage);
+          chat.appendChild(nameSystem);
           chat.appendChild(systemMessage);
         })
-        .catch(error =>{
+        .catch(error => {
           console.error("error al comunicarse con la IA", error)
         });
     }
@@ -85,13 +88,18 @@ export const individual = (element) => {
 
   const SendButtomChat = individualChat.querySelector("#SendButtomChat");
   SendButtomChat.addEventListener("click", () => {
-    console.log("el botón enviar funciona")
+    //console.log("el botón enviar funciona")
     messageUser();
   })
 
+  /*function scroll (){
+    const chatcontainer = individualChat.querySelector("#chat");
+    chatcontainer.scrollTop = chatcontainer.scrollHeight - chatcontainer.clientHeight;
+  }*/
+
   const userInput = individualChat.querySelector("#userInput");
   userInput.addEventListener("keydown", (event) => {
-    console.log("el input funciona")
+    //console.log("el input funciona")
     if (event.key === 'Enter') {
       messageUser();
     }

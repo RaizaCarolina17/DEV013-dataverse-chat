@@ -406,23 +406,39 @@ img {
   margin-bottom: -140%;
 }
 
-.messUser,
-.message{
+.messUser {
   background-color: #f3e8e0;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
-  margin-left: 40%;
   max-width: 100%;
+  margin-left: 10%;
+}
+
+.nameSystem {
+  margin-left: -10%;
+  color: gray;
+  margin-bottom: 2%;
+}
+
+.systemMessage {
+  background-color: #ede9e6;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  max-width: 100%;
+  margin-left: -10%;
 }
 
 #userId {
   margin-left: 40%;
 }
 
-.userName{
+.userName {
   color: gray;
   margin-left: 40%;
+  margin-left: 10%;
+  margin-bottom: 2%;
 }
 
 #userId,
@@ -430,8 +446,6 @@ img {
   font-weight: small;
   color: gray;
 }
-
-
 .container-Buttoms-chat{
 justify-content: center;
 display: flex;
@@ -440,6 +454,60 @@ display: flex;
 #buttonBackHomeChat  {
   margin-left: 10%;
   margin-bottom: 4%;
+}
+
+/*estilo para el chat grupal*/
+
+.containerChatG {
+  display: flex;
+  width: 90%;
+  margin-left: 3%;
+  padding: 20px;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 40px 40px 40px 40px;
+
+}
+
+.credentialWriterG {
+  flex: 35%;
+  padding: 20px;
+  width: 40%;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 50px 50px 50px 50px;
+}
+
+.imgChatGroup{
+  width: 10%;
+  height: auto;
+}
+
+.groupChat {
+  flex: 65%;
+}
+
+.chat-inputG{
+  width: 70%;
+  margin-left: 10%;
+  margin-top: 40%;
+ justify-content: space-around;
+}
+
+.texAreaChatG{
+  width: 80%;
+}
+
+.SendButtomChat{
+  font-family: 'Marcellus', serif;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+  background-color: #332D40;
+  color: #f8edda;
+  cursor: pointer;
+  border: 0;
+  border-radius: 10%;
+  margin-top: 40%;  
+  margin-right: 2%;
 }
 
 #buttonchatGrupal{
