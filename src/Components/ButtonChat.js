@@ -1,5 +1,3 @@
-//import { navigateTo } from "../router.js";
-//import { ApiModal } from "../components/ApiModal.js";
 import { ApiModal } from "./ApiModal.js";
 
 export const createBtnChat = () => {

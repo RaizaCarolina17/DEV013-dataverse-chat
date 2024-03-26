@@ -24,7 +24,7 @@ export const ApiModal = (redirectUrl) => {
     const apiKeyValue = modalApiKey.querySelector("#ApiKey").value;
     //console.log(ApiKey)
 
-    if (apiKeyValue === "" || apiKeyValue.length <= 50 || apiKeyValue.length >= 55 ) {
+    if (apiKeyValue === "" || apiKeyValue.length <= 50 || apiKeyValue.length >= 55) {
       alert("Ingrese una clave válida");
       return
     }
@@ -44,8 +44,7 @@ export const ApiModal = (redirectUrl) => {
 
   const buttonClear = modalApiKey.querySelector("#button-clear")
   //console.log("funciona");
-  //const apiKey = modalApiKey.querySelector("#ApiKey")
-  buttonClear.addEventListener("click", () =>{
+  buttonClear.addEventListener("click", () => {
     removeApiKey();
     modalApiKey.querySelector("#ApiKey").value = '';
   })

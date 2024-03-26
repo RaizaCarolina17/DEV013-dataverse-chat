@@ -2,13 +2,6 @@ import { header } from "../components/header.js";
 import { footer } from "../components/footer.js";
 import { notFound } from "../components/notFound.js";
 
-
-/*export const error = () => {
-    const p = document.createElement('p');
-    p.innerHTML= "Hola Mundo";
-    return p
- };*/
-
 export const error = () => {
   const errorView = document.createElement("div");
   errorView.className = "viewComponent";

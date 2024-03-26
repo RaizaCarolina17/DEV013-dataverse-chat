@@ -2,12 +2,6 @@ import { header } from "../components/header.js";
 import { footer } from "../components/footer.js";
 import { individual } from "../Components/Individual.js";
 
-/*export const error = () => {
-    const p = document.createElement('p');
-    p.innerHTML= "Hola Mundo";
-    return p
- };*/
-
 export const escritoras = (element) => {
   // console.log(element);
   const escritorasView = document.createElement("div");

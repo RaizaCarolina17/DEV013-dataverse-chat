@@ -62,7 +62,6 @@ export const menu = () => {
   const filterSelectors = [
     { selector: '[data-testid="filter-type"]', property: "mainField" },
     { selector: '[data-testid="filter-data"]', property: "countryNacimiento" },
-    //{ selector: '[data-testid="select-sort"]', property: "name" },
   ];
 
   let sortName;// Declaracion de sortName
@@ -71,7 +70,6 @@ export const menu = () => {
   filterSelectors.forEach(({ selector }) => {
     const selectElement = container.querySelector(selector);
     selectElement.addEventListener("change", () => applyFilters());
-    //selectElement.addEventListener("change", applyFilters);
   });
 
   // EventListener para el botón de limpiar
@@ -94,7 +92,6 @@ export const menu = () => {
 
   // Función para aplicar los filtros
   function applyFilters() {
-    // Obtén los valores seleccionados de los elementos select
     const filters = filterSelectors.map(({ selector, property }) => ({
       property,
       value: container.querySelector(selector).value,
@@ -209,10 +206,8 @@ export const menu = () => {
   }
 
   /////MODAL API KEY/////
-  // EventListener para el botón de chat grupal
   const buttonChatGroup = container.querySelector('#button-chatGroup');
   buttonChatGroup.addEventListener("click", () => {
-    //navigateTo(`/group`);
     const redirectUrl = `/group`;
     const apiModal = ApiModal(redirectUrl);
     document.body.appendChild(apiModal);

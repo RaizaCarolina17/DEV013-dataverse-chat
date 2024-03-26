@@ -1,6 +1,5 @@
 import { communicateWithOpenAI } from "./../lib/openAIApi.js";
 import data from "../data/dataset.js";
-//import { ApiModal } from "./ApiModal.js";
 import { navigateTo } from "../router.js";
 
 export const individual = (element) => {
