@@ -5,10 +5,6 @@ import { home } from "./views/Home.js";
 import { error } from "./views/Error.js";
 import { escritoras } from "./views/Escritoras.js";
 import { group } from "./views/ChatGroup.js";
-//import {individual} from "./views/individual.js";
-//import { filterData, sortData, computeStats } from '../lib/dataFunctions.js';
-//import { renderItems } from "../components/renderItems.js";
-
 
 const viewContainer = document.getElementById("root");
 
@@ -21,7 +17,6 @@ const routes = {
 
 setRoutes(routes);
 setRootElement(viewContainer);
-
 
 document.addEventListener("DOMContentLoaded", () => {
   onURLChange(window.location.pathname);

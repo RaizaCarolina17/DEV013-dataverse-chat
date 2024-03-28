@@ -1,8 +1,6 @@
 import { header } from "../components/header.js";
 import { footer } from "../components/footer.js";
 import { notFound } from "../components/notFound.js";
-import { navigateTo } from "../router.js"
-
 
 /*export const error = () => {
     const p = document.createElement('p');

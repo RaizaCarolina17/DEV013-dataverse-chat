@@ -259,7 +259,6 @@ footer {
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 }
 
-
 .credentialWriter {
   flex: 30%;
   padding: 20px;
@@ -292,40 +291,36 @@ img {
 /* chatI*/
 
 .chatI {
-  flex: 60%;
-  display: flex;
+  flex: 65%;
+  width: 10%;
   flex-direction: column;
+  max-height: 350px;
 }
 
+
 .genMess {
-  margin-left: 10%;
-  height: 15%;
-  flex: 60%;
-  flex-direction: column;
-  justify-content: space-around;
+  height: 80%;
+  overflow: scroll;
+  overflow-x: hidden;
+  flex-direction: column-reverse;
 }
 
 .chat-inputI {
-  display: flex;
   align-items: center;
-  width: 40%;
-  height: 10%;
   margin-left: 5%;
-  position: absolute;
-  flex: 30%;
-  margin-bottom: 2%;
   display: inline-flex;
+  width: 85%;
+  height: 10%;
+  justify-content: space-around;
 }
 
 #userInputI {
-  flex: 90%;
-  flex: 30%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: none;
   font-family: 'Marcellus', serif;
-  margin-bottom: -125%;
+  margin-bottom: -30%;
   width: 100%;
   font-size: 16px;
   margin-left: 10%;
@@ -346,7 +341,7 @@ img {
   cursor: pointer;
   border: 0;
   border-radius: 10%;
-  margin-top: 125%;
+  margin-top: 30%;
 
 }
 
@@ -356,17 +351,17 @@ img {
 
 .userNameI {
   color: gray;
-  margin-left: 50%;
+  margin-left: 30%;
   margin-bottom: 2%;
 }
 
-.messUser{
+.messUserI {
   background-color: #f3e8e0;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
   max-width: 60%;
-  margin-left: 50%;
+  margin-left: 30%;
   margin-right: 5%;
 }
 
@@ -374,11 +369,8 @@ img {
   width: 60%;
 }
 
-.messUserI{
-  margin-right: 5%;
-}
 .nameSystem {
-  margin-left: -10%;
+  margin-left: 10%;
   color: gray;
   margin-bottom: 2%;
 }
@@ -389,7 +381,8 @@ img {
   padding: 10px;
   margin-bottom: 10px;
   max-width: 100%;
-  margin-left: -10%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 #userId {
@@ -447,31 +440,31 @@ img {
 }
 
 .imgChatGroupCont {
+  border: 0, 5%;
   display: flex;
   align-items: center;
-  border: 0, 5%;
 }
 
 .groupChatGlobal {
   width: 10%;
   flex: 65%;
   max-height: 350px;
-  overflow: scroll;
-  overflow-x: hidden;
 }
 
 .groupChat {
   height: 80%;
-  justify-content: column-reverse;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
-.messUser{
+.messUser {
   background-color: #f3e8e0;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
   max-width: 60%;
-  margin-left: 50%;
+  margin-left: 30%;
+  margin-right: 5%;
 }
 
 .chatGlobal {
@@ -519,7 +512,7 @@ img {
 
 .userNameG {
   color: gray;
-  margin-left: 50%;
+  margin-left: 30%;
 
 }
 
@@ -539,16 +532,15 @@ img {
 }
 
 .container-Buttoms-chatG {
-  margin-top: 5%;
+  margin-top: 4%;
   margin-left: 45%;
+  margin-bottom: 2%;
 }
 
 
 /*media query*/
-@media (max-width: 450px) {
-  header {
-    padding: 1% 2%;
-  }
+@media (max-width: 600px) {
+
 
   .home {
     height: auto;
@@ -590,30 +582,88 @@ img {
   img {
     width: 100%;
   }
+
+  #footer {
+    background-color: #f5eee4;
+    font-family: 'Marcellus', serif;
+    color: black;
+    text-align: center;
+    padding: 0.5%;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: -50%;
+  }
+
+  #modalApiKey{
+    width: auto;
+    background-color: #f5eee4;
+    display: flex;
+    border-radius: 10px;
+    border: 0;
+    height: 5%;
+  }
+
 }
 
 /*media query. Vista Chat*/
-@media (max-width: 450px) {
+@media (max-width: 600px) {
   .container-chat-ind {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-  }
-
-  .container-chat-ind {
-    width: 90%;
+    position: relative;
+    width: auto;
+    height: 450px;
   }
 
   .credentialWriter {
-    width: 40%;
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 1%;
+    padding: 0;
+    border-radius: 3px;
+    box-shadow: 0.5px
   }
 
-  .description-writer {
-    display: none;
+  .writer-img{
+  width: 20%;
+  height: auto;
   }
 
-  .chat {
-    width: 90%;
+.nameWriter{
+  margin-left: 10px;
+}
+
+.chat-inputI{
+  display: flex;
+  width: 100%;
+ align-items: center;
+ bottom: 0;
+}
+
+#userInputI {
+  flex: 1; /* El textarea ocupará todo el espacio disponible */
+  width: calc(100% - 10px); /* Ajusta el ancho restando el margen del botón */
+  border: 1px solid #ccc; /* Agrega un borde para mejorar la apariencia */
+  border-radius: 4px; /* Agrega bordes redondeados */
+  resize: none; /* Evita que el usuario pueda redimensionar el textarea */
+  font-family: 'Marcellus', serif; /* Define la familia de fuentes */
+  font-size: 12px; /* Define el tamaño de la fuente */
+  text-align: justify; /* Alinea el texto justificado */
+  margin-bottom: 8px;
+}
+
+button#SendButtomChatI{
+  margin-bottom: 100px;
+}
+
+
+.description-writer {
+  display: none;
+}
+
+  .chatI {
+    flex: 90%;
+    width: 85%;
   }
 
   #userInput {
@@ -632,7 +682,7 @@ img {
   }
 
   #buttonBackHomeChat {
-    margin-bottom: 1%;
+    margin-bottom: 2%;
   }
 
   .chat-input button {

@@ -1,6 +1,5 @@
 import { ApiModal } from "./ApiModal.js";
 
-
 export const renderItems = (data) => {
 
   const list = document.createElement("ul");
@@ -24,13 +23,6 @@ export const renderItems = (data) => {
 
     itemList.appendChild(itemContainer);
     list.appendChild(itemList);
-
-    /*itemList.addEventListener("click", () => {
-      const apiModal = ApiModal( element );
-      document.body.appendChild(apiModal);
-      apiModal.showModal();
-      //console.log("funciona")
-    })*/
 
     itemList.addEventListener("click", () => {
       const redirectUrl = `/escritoras?id=${element.id}`;

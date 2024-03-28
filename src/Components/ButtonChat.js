@@ -1,17 +1,15 @@
 import { ApiModal } from "./ApiModal.js";
 
 export const createBtnChat = () => {
-  const btnChatInd = document.createElement("button");
-  btnChatInd.id = "button-chatIndividual";
-  btnChatInd.className = "button-chat";
-  btnChatInd.textContent = "CHAT"; 
-
-  //Agregar evento
-  btnChatInd.addEventListener("click", () => {
-    const apiModal = ApiModal(); // Crear una instancia del modal
-    document.body.appendChild(apiModal); // Agregar el modal al cuerpo del documento
-    apiModal.showModal(); // Mostrar el modal
+  const btnChat = document.createElement("button");
+  btnChat.id = "button-chat";
+  btnChat.className = "button-chat";
+  btnChat.textContent = "CHAT";
+  btnChat.addEventListener("click", () => {
+    //console.log("funciona");
+    const modalApiKey = ApiModal();
+    document.body.appendChild(modalApiKey);
+    modalApiKey.showModal();
   });
-
-  return btnChatInd;
+  return btnChat;
 };
