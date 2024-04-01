@@ -8,6 +8,7 @@ export const group = () => {
   const groupView = document.createElement("div")
   groupView.className = "groupView"
 
+  
   const headerElement = header();
   groupView.appendChild(headerElement);
 
@@ -16,6 +17,20 @@ export const group = () => {
 
   const credentialWriterG = document.createElement("div");
   credentialWriterG.className = "credentialWriterG";
+
+  const titleContainer = document.createElement("div");
+  titleContainer.className = "titleContainer";
+
+  const chatTitle = document.createElement("h3");
+  chatTitle.textContent = "Chat Grupal con Las Escritoras";
+  titleContainer.appendChild(chatTitle);
+
+  titleContainer.appendChild(chatTitle);
+
+  credentialWriterG.appendChild(titleContainer);
+
+  containerChatG.appendChild(credentialWriterG);
+
   data.forEach(writer => {
     const imgChatGroupCont = document.createElement("div");
     imgChatGroupCont.className = "imgChatGroupCont";
