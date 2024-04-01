@@ -26,7 +26,7 @@ export const ApiModal = (redirectUrl) => {
 
     if (apiKeyValue === "" || apiKeyValue.length <= 50 || apiKeyValue.length >= 55) {
       alert("Ingrese una clave válida");
-      return
+      return;
     }
 
     setApiKey(apiKeyValue);

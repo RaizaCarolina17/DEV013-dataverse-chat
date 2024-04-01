@@ -6,7 +6,7 @@ describe('describe el footer', () => {
 
     expect(footerElement).toBeDefined();
     expect(footerElement.querySelector("h4")).not.toBeNull(); 
-    expect(footerElement.querySelector("h4").textContent).toBe(" Desarrolladoras: Raiza Gatica y Elizabeth/ Laboratoria ");
+    expect(footerElement.querySelector("h4").textContent).toBe(" Desarrolladoras: Raiza Gatica y Elizabeth Patiño/ Laboratoria ");
   })
 })
 
