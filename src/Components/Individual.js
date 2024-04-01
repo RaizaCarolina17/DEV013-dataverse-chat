@@ -85,9 +85,9 @@ export const individual = (element) => {
           genMess.appendChild(nameSystem);
           genMess.appendChild(systemMessage);
         })
-        .catch(error => {
-          console.error("error al comunicarse con la IA", error)
-        });
+      //.catch(error => {
+      //console.error("error al comunicarse con la IA", error)
+      //});
     }
   }
 

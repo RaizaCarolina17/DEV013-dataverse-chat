@@ -89,7 +89,8 @@ export const group = () => {
           systemMessage.innerHTML = response.choices[0].message.content;
           groupChat.appendChild(nameSystem);
           groupChat.appendChild(systemMessage);
-        } catch (error) {
+        } 
+        catch (error) {
           console.error("Error al comunicarse con la IA", error);
         }
       }
