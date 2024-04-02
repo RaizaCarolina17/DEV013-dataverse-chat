@@ -91,7 +91,7 @@ export const group = () => {
           groupChat.appendChild(systemMessage);
         } 
         catch (error) {
-          console.error("Error al comunicarse con la IA", error);
+          //console.error("Error al comunicarse con la IA", error);
         }
       }
     }

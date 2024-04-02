@@ -44,7 +44,7 @@ describe('ApiModal', () => {
     document.body.removeChild(modal);
   });*/
 
-  test('Enviar con clave inválida', () => {
+  test('Send with invalid password', () => {
     const redirectUrl = '/ruta-de-redireccion';
     const modal = ApiModal(redirectUrl);
     document.body.appendChild(modal);
@@ -63,7 +63,7 @@ describe('ApiModal', () => {
     document.body.removeChild(modal);
   });
 
-  test('Limpiar clave', () => {
+  test('it should clear key', () => {
     const modal = ApiModal('/ruta-de-redireccion');
     document.body.appendChild(modal);
 
@@ -91,7 +91,7 @@ describe('ApiModal', () => {
     const buttonBackHome = modal.querySelector("#button-back-home");
     buttonBackHome.dispatchEvent(new Event("click"));
 
-    expect(modal.style.display).toBe('');
+    expect(modal.style.display).toBe('none');
     
     // Limpia el modal del DOM
     document.body.removeChild(modal);

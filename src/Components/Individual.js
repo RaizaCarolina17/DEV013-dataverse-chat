@@ -6,7 +6,7 @@ export const individual = (element) => {
   // console.log(element);
   // Filtrar datos basados en el elemento pasado como argumento
   const writer = data.find(item => item.id === element.id);
-  // console.log(writer);
+  //console.log(writer);
 
   const individualView = document.createElement('div');
   const individualChat = document.createElement("div");
@@ -85,15 +85,16 @@ export const individual = (element) => {
           genMess.appendChild(nameSystem);
           genMess.appendChild(systemMessage);
         })
-      //.catch(error => {
-      //console.error("error al comunicarse con la IA", error)
-      //});
+        .catch(error => {
+          console.error("error al comunicarse con la IA", error)
+        });
     }
   }
 
   const SendButtomChat = chatInput.querySelector("#SendButtomChatI");
   SendButtomChat.addEventListener("click", () => {
     messageUser();
+    //console.log("funciona");
   })
 
   const userInput = chatInput.querySelector("#userInputI");
@@ -115,3 +116,4 @@ export const individual = (element) => {
 
   return individualView;
 }
+

@@ -1,7 +1,7 @@
 import { footer } from "../src/components/Footer.js";
 
 describe('describe el footer', () => {
-  it("Debería mostrar el footer con un título h4", () => {
+  it("It should show the footer with an h4 title", () => {
     const footerElement = footer();
 
     expect(footerElement).toBeDefined();

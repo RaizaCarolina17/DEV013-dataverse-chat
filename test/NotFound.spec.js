@@ -1,7 +1,7 @@
 import { notFound } from "../src/components/NotFound.js";
 
 describe('describe NotFound', () => {
-  it("Debería mostrar el NotFound con imagen, texto y botón", () => {
+  it("It should show the NotFound with image, text and button", () => {
     const notFoundElement = notFound();
 
     expect(notFoundElement).toBeDefined();
