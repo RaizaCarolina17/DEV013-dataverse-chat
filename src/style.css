@@ -709,15 +709,27 @@ button#SendButtomChatI{
 }
 .containerChatG{
   display: flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: 450px;
+  /*display: flex;
   width: 85%;
+  height: 100%;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: stretch;
+  align-items: stretch;*/
 }
 .credentialWriterG{
+  flex: 25%;
+  display: flex;
+  padding: 20px;
   width: 85%;
-  margin: 0;
-  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 50px 50px 50px 50px;
+  display: inline-block;
+  overflow: scroll;
+  overflow-x: hidden;
+  max-height: 350px;
 }
 
 .chat-inputG{
@@ -742,7 +754,10 @@ button#SendButtomChatI{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 5px;
+  height: auto;
+  margin-top: 0;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
 
 }
 
@@ -755,6 +770,13 @@ button#SendButtomChatI{
   margin-left: 30%;
 }
 
+h1{
+  text-align: center;
+  font-family: 'Marcellus', serif;
+  color: #332D40;
+  margin-bottom: 3%;
+  font-size: medium;
+}
 
 
 }

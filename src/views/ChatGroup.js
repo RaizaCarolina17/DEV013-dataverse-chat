@@ -21,11 +21,10 @@ export const group = () => {
   const titleContainer = document.createElement("div");
   titleContainer.className = "titleContainer";
 
-  const chatTitle = document.createElement("h3");
-  chatTitle.textContent = "Chat Grupal con Las Escritoras";
+  const chatTitle = document.createElement("h4");
+  chatTitle.textContent = "Estas hablando con Las Escritoras";
   titleContainer.appendChild(chatTitle);
 
-  titleContainer.appendChild(chatTitle);
 
   credentialWriterG.appendChild(titleContainer);
 

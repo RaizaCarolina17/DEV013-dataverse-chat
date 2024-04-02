@@ -1,4 +1,3 @@
-
 import { navigateTo } from "../router.js";
 import { setApiKey, removeApiKey } from "../lib/apiKey.js";
 
@@ -25,9 +24,9 @@ export const ApiModal = (redirectUrl) => {
     const apiKeyValue = modalApiKey.querySelector("#ApiKey").value;
     //console.log(ApiKey)
 
-    if (apiKeyValue === "" || apiKeyValue.length <= 50 || apiKeyValue.length >= 55) {
+    if (apiKeyValue === "" || apiKeyValue.length <= 50 || apiKeyValue.length >= 55) {   
       alert("Ingrese una clave válida");
-      return
+      return;
     }
 
     setApiKey(apiKeyValue);
@@ -39,8 +38,8 @@ export const ApiModal = (redirectUrl) => {
 
   buttonBackHome.addEventListener("click", () => {
     //console.log ("regresar funcionando");
-    modalApiKey.style.display = 'none';
     modalApiKey.close();
+    modalApiKey.style.display = 'none';
   });
 
   const buttonClear = modalApiKey.querySelector("#button-clear")
