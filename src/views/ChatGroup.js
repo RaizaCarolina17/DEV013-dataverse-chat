@@ -8,7 +8,6 @@ export const group = () => {
   const groupView = document.createElement("div")
   groupView.className = "groupView"
 
-  
   const headerElement = header();
   groupView.appendChild(headerElement);
 
@@ -20,14 +19,10 @@ export const group = () => {
 
   const titleContainer = document.createElement("div");
   titleContainer.className = "titleContainer";
-
-  const chatTitle = document.createElement("h4");
-  chatTitle.textContent = "Estas hablando con Las Escritoras";
+  const chatTitle = document.createElement("h3");
+  chatTitle.textContent = "Estás hablando con las escritoras...";
   titleContainer.appendChild(chatTitle);
-
-
   credentialWriterG.appendChild(titleContainer);
-
   containerChatG.appendChild(credentialWriterG);
 
   data.forEach(writer => {
@@ -69,7 +64,7 @@ export const group = () => {
   async function messageUser() {
     const newMess = groupChatGlobal.querySelector(".texAreaChatG");
     const newMessTxt = newMess.value;
-    //const chat = groupChat.querySelector(".chat-inputG");
+       
 
     if (newMessTxt !== "") {
 
@@ -103,8 +98,9 @@ export const group = () => {
           systemMessage.innerHTML = response.choices[0].message.content;
           groupChat.appendChild(nameSystem);
           groupChat.appendChild(systemMessage);
-        } catch (error) {
-          console.error("Error al comunicarse con la IA", error);
+        } 
+        catch (error) {
+          //console.error("Error al comunicarse con la IA", error);
         }
       }
     }
