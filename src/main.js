@@ -6,20 +6,29 @@ dataList.appendChild('renderItems(data)');
 
 // En este archivo definirás tus rutas e importarás los componentes que vas a renderizar.
 
-/*
-import Example from './views/Example.js';
+import { onURLChange, setRootElement, setRoutes } from "./router.js";
+import { home } from "./views/Home.js";
+import { error } from "./views/Error.js";
+import { escritoras } from "./views/Escritoras.js";
+import { group } from "./views/ChatGroup.js";
 
-Ejemplo de definición de rutas:
+const viewContainer = document.getElementById("root");
 
 const routes = {
-    "/": Example,
-    ...
-}
-*/
+  "/": home,
+  "/error": error,
+  "/escritoras": escritoras,
+  "/group": group,
+};
 
-/*
-TODO:
-1.- Definir rutas en router.
-2.- Pasar "root element" a router.
-3.- Invocar el router para renderizar la vista correcta.
-*/
+setRoutes(routes);
+setRootElement(viewContainer);
+
+document.addEventListener("DOMContentLoaded", () => {
+  onURLChange(window.location.pathname);
+});
+
+document.addEventListener("popstate", () => {
+  onURLChange(window.location.pathname);
+});
+

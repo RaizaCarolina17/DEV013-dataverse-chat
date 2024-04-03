@@ -1,249 +1,776 @@
 /* Estilo para HEAD header */
 HEAD header {
-    background-color: white;
-    padding: 2% 4%;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Marcellus', serif;
+  background-color: white;
+  padding: 2% 4%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Marcellus', serif;
+}
+
+.home {
+  margin-bottom: 0%;
+  width: 100%;
+  height: 130px;
+  display: flex;
+  margin-bottom: 0%;
+}
+
+#modalApiKey {
+  width: 50%;
+  background-color: #f5eee4;
+  display: flex;
+  border-radius: 10px;
+  border: 0;
+  height: 5%;
+}
+
+#ApiKey {
+  border: 0;
+  outline: none;
+  width: 80%;
+  font-size: medium;
+}
+
+#root {
+  max-width: 100%;
+  margin: 2% auto;
+  margin-top: -1%;
+  display: flex;
+  padding-bottom: 40px;
+}
+
+body {
+  font-family: 'Marcellus', serif;
+  background-color: #fdfbf9;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Marcellus', serif;
+  color: #332D40;
+  margin-bottom: 3%;
+}
+
+.error-image {
+  width: 20%;
+  height: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 42%;
+}
+
+.form-container {
+  max-width: 100%;
+  height: 10%;
+  margin: auto;
+  background-color: #f5eee4;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  margin-top: -3%;
+  align-items: center;
+  justify-content: center;
+}
+
+select {
+  width: 16%;
+  height: 0.5%;
+  padding: 1%;
+  margin-bottom: 2%;
+  margin-top: 1%;
+  border: 0;
+  border-radius: 10%;
+  font-family: 'Marcellus', serif;
+  display: flex;
+  margin-left: 4%;
+}
+
+#button-clearM,
+#button-clear,
+#button-facts,
+#button-chat,
+#button-chatGroup,
+#button-goHome,
+#button-back-home,
+#button-send,
+#buttonBackHomeChat,
+#buttonBackHomeChatI,
+#buttonchatGrupal,
+#buttonchatGrupalI {
+  font-family: 'Marcellus', serif;
+  font-size:medium;
+  font-weight: bold;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+  background-color: #332D40;
+  color: #f8edda;
+  display: flex;
+  text-align: center;
+  width: auto;
+  margin-left: 4%;
+  cursor: pointer;
+  border: 0;
+  border-radius: 10%;
+}
+
+#button-send {
+  margin-left: 5%;
+}
+
+#button-chat {
+  align-items: center;
+  margin-left: 65%;
+  margin-bottom: 5%;
+  margin-top: -20%;
+}
+
+#button-goHome {
+  align-items: center;
+  margin-left: 50%;
+}
+
+#button-close {
+  font-family: 'Marcellus', serif;
+  font-weight: bold;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+  background-color: #332D40;
+  color: #f8edda;
+  display: flex;
+  text-align: center;
+  width: auto;
+  cursor: pointer;
+  border-radius: 10%;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card img {
+  width: 70%;
+  height: auto;
+  border-radius: 10px 10px 10px 10px;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 1.5%;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+  list-style: none;
+  padding: 2%;
+  gap: 1%;
+  text-align: justify;
+  font-size: small;
+  margin-bottom: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1%;
+}
+
+.card {
+  width: calc(21% - 1%);
+  margin: 2%;
+  text-align: justify;
+  margin: 2%;
+  background-color: #f5eee4;
+  font-family: 'Marcellus', serif;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 3%;
+  cursor: pointer;
+}
+
+dd[itemprop="name"] {
+  color: #000000;
+  font-weight: bold;
+  text-align: center;
+  font-size: medium;
+  align-items: center;
+}
+
+dd[itemprop="shortDescription"] {
+  text-align: justify;
+}
+
+dd[itemprop="fechaNacimiento"],
+dd[itemprop="fechaMuerte"],
+dd[itemprop="LugarNacimiento"],
+dd[itemprop="género"] {
+  text-align: justify;
+  display: flex;
+}
+
+dt[itemprop="fechaNacimiento"],
+dt[itemprop="fechaMuerte"],
+dt[itemprop="LugarNacimiento"],
+dt[itemprop="género"] {
+  text-align: justify;
+  display: flex;
+}
+
+dt {
+  font-weight: bold;
+  text-align: justify;
+}
+
+dl {
+  margin: 4%
+}
+
+img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f1cd885e;
+}
+
+dd {
+  margin-inline-start: 1px;
+}
+
+footer {
+  background-color: #f5eee4;
+  font-family: 'Marcellus', serif;
+  color: black;
+  text-align: center;
+  padding: 3%;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: -50%;
+}
+
+#statsDialog {
+  background-color: #f5eee4;
+  padding: 1px;
+  border: 0;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*estilo para el chat individual*/
+.container-chat-ind {
+  display: flex;
+  border-radius: 40px 40px 40px 40px;
+  justify-content: center;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 30px;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+.credentialWriter {
+  flex: 30%;
+  padding: 20px;
+  width: 40%;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 50px 50px 50px 50px;
+}
+
+.writer-img {
+  display: flex;
+  max-width: 50%;
+  height: auto;
+  border-radius: 5%;
+  margin-left: 25%;
+}
+
+img {
+  border-radius: 5%;
+}
+
+.nameWriterc {
+  font-size: 18px;
+}
+
+.description-writer {
+  text-align: justify;
+  font-size: 12px;
+}
+
+/* chatI*/
+
+.chatI {
+  flex: 65%;
+  width: 10%;
+  flex-direction: column;
+  max-height: 350px;
+}
+
+.genMess {
+  height: 80%;
+  overflow: scroll;
+  overflow-x: hidden;
+  flex-direction: column-reverse;
+}
+
+.chat-inputI {
+  align-items: center;
+  margin-left: 5%;
+  display: inline-flex;
+  width: 85%;
+  height: 10%;
+  justify-content: space-around;
+}
+
+#userInputI {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+  font-family: 'Marcellus', serif;
+  margin-bottom: -30%;
+  width: 100%;
+  font-size: 16px;
+  margin-left: 10%;
+  text-align: justify;
+}
+
+#SendButtomChatI {
+  font-family: 'Marcellus', serif;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+  background-color: #332D40;
+  color: #f8edda;
+  display: flex;
+  text-align: center;
+  width: auto;
+  margin-left: 4%;
+  cursor: pointer;
+  border: 0;
+  border-radius: 10%;
+  margin-top: 30%;
+}
+
+.container-Buttoms-chat {
+  flex-direction: row;
+}
+
+.userNameI {
+  color: gray;
+  margin-left: 30%;
+  margin-bottom: 2%;
+}
+
+.messUserI {
+  background-color: #f3e8e0;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  max-width: 60%;
+  margin-left: 30%;
+  margin-right: 5%;
+}
+
+.messageI {
+  width: 60%;
+}
+
+.nameSystem {
+  margin-left: 10%;
+  color: gray;
+  margin-bottom: 2%;
+}
+
+.systemMessage {
+  background-color: #ede9e6;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  max-width: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#userId {
+  margin-left: 40%;
+}
+
+#userId,
+#writerId {
+  font-weight: small;
+  color: gray;
+}
+
+.container-Buttoms-chat {
+  justify-content: center;
+  display: flex;
+}
+
+#buttonBackHomeChatI {
+  margin-left: 10%;
+  margin-bottom: 4%;
+}
+
+#buttonchatGrupal,
+#buttonchatGrupalI {
+  margin-left: 5%;
+  margin-bottom: 4%;
+}
+
+/*estilo para el chat grupal*/
+
+.containerChatG {
+  display: flex;
+  width: 90%;
+  margin-left: 3%;
+  padding: 20px;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 40px 40px 40px 40px;
+}
+
+.credentialWriterG {
+  flex: 25%;
+  display: flex;
+  padding: 20px;
+  width: 40%;
+  border-radius: 50px 50px 50px 50px;
+  display: inline-block;
+  overflow: scroll;
+  overflow-x: hidden;
+  max-height: 350px;
+}
+
+.imgChatGroup {
+  width: 10%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.imgChatGroupCont {
+  border: 0, 5%;
+  display: flex;
+  align-items: center;
+}
+
+.groupChatGlobal {
+  width: 10%;
+  flex: 65%;
+  max-height: 350px;
+}
+
+.groupChat {
+  height: 80%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.messUser {
+  background-color: #f3e8e0;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  max-width: 60%;
+  margin-left: 30%;
+  margin-right: 5%;
+}
+
+.chatGlobal {
+  flex: 60%;
+  padding: 100px;
+  border-right: 1px solid #ccc;
+  border-radius: 0 20px 20px 0;
+  max-height: 300px;
+  overflow: scroll;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.chat-inputG {
+  display: flex;
+  width: 85%;
+  height: 15%;
+  margin-left: 10%;
+  margin-top: 4%;
+  justify-content: space-around;
+}
+
+.texAreaChatG {
+  flex: 1;
+  width: 80%;
+  font-family: 'Marcellus', serif;
+}
+
+.SendButtomChat {
+  font-family: 'Marcellus', serif;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+  background-color: #332D40;
+  color: #f8edda;
+  cursor: pointer;
+  border: 0;
+  border-radius: 10%;
+  margin-right: 2%;
+  margin-left: 2%;
+  margin-bottom: 2%;
+}
+
+.userNameG {
+  color: gray;
+  margin-left: 30%;
+}
+
+.nameSystemG {
+  margin-left: 5%;
+  color: gray;
+  margin-top: 1%;
+}
+
+.systemMessageG {
+  background-color: #ede9e6;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.container-Buttoms-chatG {
+  margin-top: 4%;
+  margin-left: 45%;
+  margin-bottom: 2%;
+}
+
+
+
+/*media query*/
+@media (max-width: 450px) {
+  header {
+    padding: 1% 2%;
   }
-  
-  .home{
-    margin-bottom:0%;
-    width: 100%;
-    height: 130px;
-    display: flex;
-    margin-bottom:0%;
-    flex-wrap: wrap;
+
+  .home {
+    height: auto;
   }
-  
+
   #root {
-    max-width: 100%;
-    margin: 2% auto;
-    margin-top:-1%;
-    display: flex;
-  
-    padding-bottom: 40px;
+    margin-top: 0;
+    padding-bottom: 10px;
+    margin: 1% 1% 1% 1%;
+    align-self: normal;
   }
-  
-  body {
-    font-family: 'Marcellus', serif;
-    margin: 0;
-    background-color: #f7f5f3;
-  }
-  
-  h1 {
-    text-align: center;
-    font-family: 'Marcellus', serif;
-    color: #332D40;
-  }
-  
+
   .form-container {
-    max-width: 100%;
-    height: 10%;
-    margin: auto;
-    background-color: #f1e3c9;
-    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    margin-top:-3%;
+    height: auto;
+    font-size: xx-small;
+    padding: 0.5%;
+    justify-items: center;
   }
-  
-  label {
-    margin-bottom: 2%;
-    font-weight: bold;
-    display: flex;
-    margin-left: 3%;
-    margin-top: 2%;
-  }
-  
+
   select {
-    width: 13%;
+    margin-right: 0.5%;
+    font-size: xx-small;
+  }
+
+  select {
+    width: 100%;
     height: 0.5%;
     padding: 1%;
     margin-bottom: 2%;
     margin-top: 1%;
-    border: 1% #ccc;
+    border: 0;
     border-radius: 10%;
     font-family: 'Marcellus', serif;
-    display: flex
-  }
-  
-  #button-clear,
-  #button-facts, #button-close
-  {
-    font-family: 'Marcellus', serif;
-    margin-left: 1.5%;
-    margin-right: 1.5%;
-    font-weight: bold;
-    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
-    background-color: #332D40;
-    color: #f8edda;
     display: flex;
-    text-align: center;
-    width: auto;
-    margin: auto;
-    cursor:pointer;
+    margin-left: 1%;
   }
-  
-  .card img {
-    width: 70%;
-    height: auto;
-    border-radius: 10px 10px 10px 10px;
-    display: flex;
-    margin: 0 auto;
-    margin-bottom: 1.5%;
-    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+
+  #button-clearM,
+  #button-facts,
+  #button-chatGroup,
+  #button-goHome {
+    font-size: xx-small;
+    margin-right: 1%;
+    margin-left: 1%;
   }
-  
-  ul {
-    list-style: none;
-    padding: 2%;
-    gap: 1%;
-    text-align: justify;
-    font-size: small;
-    margin-bottom: 2%;
-    display: flex;
-    flex-wrap: wrap;
-    padding:1%;
-   }
-  
+
   .card {
-    width: calc(21% - 1%);
-    margin: 2%;
-    text-align: justify;
-    margin:2%;
-    background-color: #f1e3c9;
-    font-family: 'Marcellus', serif;
-    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 3% ;
+    width: 100%;
   }
-  
-  dd[itemprop="name"] {
-    color: #000000;
-    font-weight: bold;
-    text-align: center;
-    font-size: medium;
-    align-items: center;
-    }
-  
-  dd[itemprop="shortDescription"] {
-    text-align: justify;
-   }
-  
-  dd[itemprop="fechaNacimiento"],
-  dd[itemprop="fechaMuerte"],
-  dd[itemprop="LugarNacimiento"],
-  dd[itemprop="género"] {
-    text-align: justify;
-    display: flex;
-  }
-  
-  dt[itemprop="fechaNacimiento"],
-  dt[itemprop="fechaMuerte"],
-  dt[itemprop="LugarNacimiento"],
-  dt[itemprop="género"] {
-    text-align: justify;
-    display: flex;
-  }
-  
-  dt {
-    font-weight: bold;
-    text-align: justify;
-   }
-  
-   dl{
-    margin:4%
-   }
-  
+
   img {
     width: 100%;
+  }
+}
+
+/*media query. Vista Chat*/
+@media (max-width: 600px) {
+  .container-chat-ind {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: auto;
+    height: 450px;
+  }
+
+  .credentialWriter {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 1%;
+    padding: 0;
+    border-radius: 3px;
+    box-shadow: 0.5px
+  }
+
+  .writer-img {
+    width: 20%;
     height: auto;
-    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f1cd885e;
-    margin-bottom: 4%;
-    }
-  
-  dd {
-    margin-inline-start: 1px;
   }
-  
-  footer {
-    background-color: #f1e3c9;
+
+  .nameWriter {
+    margin-left: 10px;
+  }
+
+  .chat-inputI {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    bottom: 0;
+  }
+
+  #userInputI {
+    flex: 1;
+    width: calc(100% - 10px);
+    /* Ajusta el ancho restando el margen del botón */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    /* Evita que el usuario pueda redimensionar el textarea */
     font-family: 'Marcellus', serif;
-    color: black;
-    text-align: center;
-    padding: 3%;
-    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    text-align: justify;
+    margin-bottom: 8px;
   }
-  
-  .modal-content {
+
+  button#SendButtomChatI {
+    margin-bottom: 100px;
+  }
+
+  .description-writer {
+    display: none;
+  }
+
+  .chatI {
+    flex: 90%;
+    width: 85%;
+  }
+
+  #userInput {
+    flex: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    font-family: 'Marcellus', serif;
+    margin-bottom: -160%;
+    width: 100%;
+    font-size: 16px;
+    margin-left: 10%;
+    text-align: justify;
+    margin-bottom: -20%;
+  }
+
+  #buttonBackHomeChat {
+    margin-bottom: 2%;
+  }
+
+  .chat-input button {
+    margin-bottom: -20%;
+  }
+
+  /*Vista Responsive Chat Grupal*/
+  .imgChatGroup {
+    display: none;
+  }
+
+  .imgChatGroupCont {
+    display: none;
+  }
+
+  .containerChatG {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: auto;
+    height: 450px;
+  }
+
+  .credentialWriterG {
+    flex: 25%;
+    display: flex;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
+    width: 85%;
+    border-radius: 50px 50px 50px 50px;
+    display: inline-block;
+    overflow: scroll;
+    overflow-x: hidden;
+    max-height: 350px;
   }
-  
-  #statsDialog {
-    background-color: #f1e3c9;
-    padding: 1px;
+
+  .chat-inputG {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin: 0;
+  }
+
+  .groupChat {
+    display: flex;
+    height: 200px;
+  }
+
+  .groupChatGlobal {
+    width: auto;
+    flex: none;
+    padding: inherit;
+  }
+
+  .titleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin-top: 0;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-  
-  
-  
-  @media (max-width: 450px) {
-    header {
-      padding: 1% 2%;
+
+  .messUser {
+    background-color: #f3e8e0;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: auto;
+    max-width: 60%;
+    margin-left: 30%;
+  }
+
+  h1 {
+    text-align: center;
+    font-family: 'Marcellus', serif;
+    color: #332D40;
+    margin-bottom: 3%;
+    font-size: medium;
+  }
+}
+
+  /* Media query para pantallas con un ancho máximo de 768px */
+  @media screen and (max-width: 500px) {
+    #modalApiKey {
+      width: 80%;
+      /* Reducir el ancho del modal */
     }
-  
-    .home {
-      height: auto;
+
+    #ApiKey {
+      width: 90%;
+      font-size: small;
     }
-  
-    h1{
-      margin:1% 2% 1% 1%;
-      font-size:medium;
-    }
-    body{
-     margin:auto;
-   }
-  
-    #root {
-      margin-top: 0;
-      padding-bottom: 10px;
-      margin:1% 1% 1% 1%;
-      align-self:normal;
-      }
-  
-    .form-container {
-      height: auto;
-      font-size: xx-small;
-      padding:0.5%;
-      justify-items:center;
-      }
-  
-      select{
-        margin-right: 0.5%;
-        font-size: xx-small;
-      }
-  
-      #button-clear,
-      #button-facts {
-        font-weight: auto;
-        font-size: xx-small;
-        margin-right: 1%;
-        margin-left: 1%;
-      }
+
     
-      .card {
-      width: 100%;
-    }
-  
-    img {
-      width: 100%;
-    }
   }
-  
+
+
+
+
