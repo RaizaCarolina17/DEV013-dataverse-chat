@@ -23,9 +23,6 @@ En este proyecto se aprovecha este avance, especialmente en lo relacionado
 con la Inteligencia Artificial, para conectar, por lo menos simbólicamente,
 con las escritoras más famosas del mundo.
 
-
-![Preview app](https://github-production-user-asset-6210df.s3.amazonaws.com/123121338/271433237-2bd1477b-15ef-49d4-9fcb-226b3263c46a.png)
-
 ## 2. Resumen del proyecto
 
 En este proyecto la aplicación desarrollada en Dataverse se amplió y se desarrolló una
@@ -274,5 +271,3 @@ Antes de agendar tu Project Feedback con un coach, asegúrate que tu proyecto:
 Recuerda que debes hacer una autoevaluación de _objetivos de aprendizaje_ y
 _life skills_ desde tu dashboard de estudiante.
 
-Si no has completado todo lo anterior, no consideramos que estás lista para
-tu sesión de Project Feedback.
