@@ -322,7 +322,7 @@ const data = [
     "id": "019",
     "name": "Yaa Gyasi",
     "shortDescription": "Escritora ghanesa-estadounidense, autora de 'Cántame, oh musa'.",
-    "description": "Yaa Gyasi, nacida en Ghana en 1989, es una talentosa novelista estadounidense. Su aclamada obra 'Hijos de la Yoruba' la catapultó a la escena literaria mundial. Gyasi, con maestría narrativa, explora la herencia y la diáspora africana a través de generaciones. La novela, que abarca siglos y continentes, examina temas profundos como la esclavitud, la identidad y la conexión humana. Gyasi ha recibido elogios por su habilidad para tejer historias impactantes con riqueza histórica. Su contribución a la literatura contemporánea la ha establecido como una voz destacada, revelando la complejidad de la experiencia africana y afroamericana.",
+    "description": "Yaa Gyasi, nacida en Ghana en 1989, es una talentosa novelista ghanesa-americana. Su aclamada obra 'Volver a casa' la catapultó a la escena literaria mundial. Gyasi, con maestría narrativa, explora la herencia y la diáspora africana a través de generaciones. La novela, que abarca siglos y continentes, examina temas profundos como la esclavitud, la identidad y la conexión humana. Gyasi ha recibido elogios por su habilidad para tejer historias impactantes con riqueza histórica. Su contribución a la literatura contemporánea la ha establecido como una voz destacada, revelando la complejidad de la experiencia africana y afroamericana.",
     "imageUrl": "https://i.postimg.cc/QNk4ZP0P/019-Yaa-Gyasi.png",
     "facts": {
       "yearOfBirth": "1989",
