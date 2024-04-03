@@ -89,6 +89,7 @@ select {
   margin-left: 4%;
 }
 
+#button-clearM,
 #button-clear,
 #button-facts,
 #button-chat,
@@ -98,9 +99,10 @@ select {
 #button-send,
 #buttonBackHomeChat,
 #buttonBackHomeChatI,
-#buttonchatGrupal {
+#buttonchatGrupal,
+#buttonchatGrupalI {
   font-family: 'Marcellus', serif;
-  font-size: 16px;
+  font-size:medium;
   font-weight: bold;
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
   background-color: #332D40;
@@ -180,7 +182,6 @@ ul {
   cursor: pointer;
 }
 
-
 dd[itemprop="name"] {
   color: #000000;
   font-weight: bold;
@@ -223,7 +224,6 @@ img {
   height: auto;
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
   background-color: #f1cd885e;
-
 }
 
 dd {
@@ -296,7 +296,6 @@ img {
   flex-direction: column;
   max-height: 350px;
 }
-
 
 .genMess {
   height: 80%;
@@ -404,7 +403,8 @@ img {
   margin-bottom: 4%;
 }
 
-#buttonchatGrupal {
+#buttonchatGrupal,
+#buttonchatGrupalI {
   margin-left: 5%;
   margin-bottom: 4%;
 }
@@ -475,7 +475,6 @@ img {
   overflow: scroll;
   overflow-x: hidden;
   position: relative;
-  /*flex-direction: column-reverse;*/
 }
 
 .chat-inputG {
@@ -485,7 +484,6 @@ img {
   margin-left: 10%;
   margin-top: 4%;
   justify-content: space-around;
-
 }
 
 .texAreaChatG {
@@ -512,7 +510,6 @@ img {
 .userNameG {
   color: gray;
   margin-left: 30%;
-
 }
 
 .nameSystemG {
@@ -535,6 +532,7 @@ img {
   margin-left: 45%;
   margin-bottom: 2%;
 }
+
 
 
 /*media query*/
@@ -566,11 +564,23 @@ img {
     font-size: xx-small;
   }
 
-  #button-clear,
+  select {
+    width: 100%;
+    height: 0.5%;
+    padding: 1%;
+    margin-bottom: 2%;
+    margin-top: 1%;
+    border: 0;
+    border-radius: 10%;
+    font-family: 'Marcellus', serif;
+    display: flex;
+    margin-left: 1%;
+  }
+
+  #button-clearM,
   #button-facts,
   #button-chatGroup,
   #button-goHome {
-    font-weight: auto;
     font-size: xx-small;
     margin-right: 1%;
     margin-left: 1%;
@@ -586,27 +596,66 @@ img {
 }
 
 /*media query. Vista Chat*/
-@media (max-width: 450px) {
+@media (max-width: 600px) {
   .container-chat-ind {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-  }
-
-  .container-chat-ind {
-    width: 90%;
+    position: relative;
+    width: auto;
+    height: 450px;
   }
 
   .credentialWriter {
-    width: 40%;
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 1%;
+    padding: 0;
+    border-radius: 3px;
+    box-shadow: 0.5px
+  }
+
+  .writer-img {
+    width: 20%;
+    height: auto;
+  }
+
+  .nameWriter {
+    margin-left: 10px;
+  }
+
+  .chat-inputI {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    bottom: 0;
+  }
+
+  #userInputI {
+    flex: 1;
+    width: calc(100% - 10px);
+    /* Ajusta el ancho restando el margen del botón */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    /* Evita que el usuario pueda redimensionar el textarea */
+    font-family: 'Marcellus', serif;
+    font-size: 12px;
+    text-align: justify;
+    margin-bottom: 8px;
+  }
+
+  button#SendButtomChatI {
+    margin-bottom: 100px;
   }
 
   .description-writer {
     display: none;
   }
 
-  .chat {
-    width: 90%;
+  .chatI {
+    flex: 90%;
+    width: 85%;
   }
 
   #userInput {
@@ -631,4 +680,97 @@ img {
   .chat-input button {
     margin-bottom: -20%;
   }
+
+  /*Vista Responsive Chat Grupal*/
+  .imgChatGroup {
+    display: none;
+  }
+
+  .imgChatGroupCont {
+    display: none;
+  }
+
+  .containerChatG {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: auto;
+    height: 450px;
+  }
+
+  .credentialWriterG {
+    flex: 25%;
+    display: flex;
+    padding: 20px;
+    width: 85%;
+    border-radius: 50px 50px 50px 50px;
+    display: inline-block;
+    overflow: scroll;
+    overflow-x: hidden;
+    max-height: 350px;
+  }
+
+  .chat-inputG {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin: 0;
+  }
+
+  .groupChat {
+    display: flex;
+    height: 200px;
+  }
+
+  .groupChatGlobal {
+    width: auto;
+    flex: none;
+    padding: inherit;
+  }
+
+  .titleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin-top: 0;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+  }
+
+  .messUser {
+    background-color: #f3e8e0;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: auto;
+    max-width: 60%;
+    margin-left: 30%;
+  }
+
+  h1 {
+    text-align: center;
+    font-family: 'Marcellus', serif;
+    color: #332D40;
+    margin-bottom: 3%;
+    font-size: medium;
+  }
 }
+
+  /* Media query para pantallas con un ancho máximo de 768px */
+  @media screen and (max-width: 500px) {
+    #modalApiKey {
+      width: 80%;
+      /* Reducir el ancho del modal */
+    }
+
+    #ApiKey {
+      width: 90%;
+      font-size: small;
+    }
+
+    
+  }
+
+
+
+

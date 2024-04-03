@@ -34,7 +34,7 @@ export const individual = (element) => {
     </div>
 
     <div class="container-Buttoms-chat">
-      <button id="buttonchatGrupal">Chat grupal</button>
+      <button id="buttonchatGrupalI">Chat grupal</button>
       <button id="buttonBackHomeChatI">Regresar</button>
     </div>
   `;
@@ -85,9 +85,9 @@ export const individual = (element) => {
           genMess.appendChild(nameSystem);
           genMess.appendChild(systemMessage);
         })
-        .catch(error => {
+        /* .catch(error => {
           console.error("error al comunicarse con la IA", error)
-        });
+        }); */
     }
   }
 
@@ -109,7 +109,7 @@ export const individual = (element) => {
     window.location.href = "index.html";
   });
 
-  const buttonchatGrupal = individualChat.querySelector("#buttonchatGrupal");
+  const buttonchatGrupal = individualChat.querySelector("#buttonchatGrupalI");
   buttonchatGrupal.addEventListener("click", () => {
     navigateTo('/group');
   })

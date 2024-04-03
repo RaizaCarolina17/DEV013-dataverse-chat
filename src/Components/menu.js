@@ -46,7 +46,7 @@ export const menu = () => {
           </div>
         </dialog>
 
-        <button data-testid="button-clear" id="button-clear">LIMPIAR</button>
+        <button data-testid="button-clear" id="button-clearM">LIMPIAR</button>
         <button class="btn-chat" id="button-chatGroup"> CHAT GRUPAL</button>
       </div>
     </h4>
@@ -73,7 +73,7 @@ export const menu = () => {
   });
 
   // EventListener para el botón de limpiar
-  const btnClear = container.querySelector("#button-clear");
+  const btnClear = container.querySelector("#button-clearM");
   btnClear.addEventListener("click", function () {
     // Limpia los filtros y renderiza los datos originales
     resetFilters();

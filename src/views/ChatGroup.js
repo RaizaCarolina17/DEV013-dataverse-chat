@@ -16,6 +16,15 @@ export const group = () => {
 
   const credentialWriterG = document.createElement("div");
   credentialWriterG.className = "credentialWriterG";
+
+  const titleContainer = document.createElement("div");
+  titleContainer.className = "titleContainer";
+  const chatTitle = document.createElement("h3");
+  chatTitle.textContent = "Estás hablando con las escritoras...";
+  titleContainer.appendChild(chatTitle);
+  credentialWriterG.appendChild(titleContainer);
+  containerChatG.appendChild(credentialWriterG);
+
   data.forEach(writer => {
     const imgChatGroupCont = document.createElement("div");
     imgChatGroupCont.className = "imgChatGroupCont";
